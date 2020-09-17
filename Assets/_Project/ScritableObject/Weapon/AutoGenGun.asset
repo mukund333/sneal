@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e788641f68275b244bb469fcb8364462, type: 3}
+  m_Name: AutoGenGun
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 6791711370888519521, guid: aa037b4ec0391ed41b2b365c30b20f3c,
+    type: 3}
+  weaponData: {fileID: 11400000, guid: ebe1b49ae9ba4a94c9bd4a1edd512247, type: 2}
