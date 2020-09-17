@@ -6,24 +6,31 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 {
 	public class PlayerDatabase : MonoBehaviour
 	{
-		public PlayerStruct[] players;
+		//public PlayerStruct[] players;
 
-		private static PlayerDatabase _instance;
+		public PlayerData[] players;
 
-		public static PlayerDatabase instance
-		{
-			get
-			{
-				if (_instance == null)
-				{
-					_instance = FindObjectOfType<PlayerDatabase>();
-				}
-				return _instance;
-			}
-		}
+		//private static PlayerDatabase _instance;
+
+		//public static PlayerDatabase instance
+		//{
+		//	get
+		//	{
+		//		if (_instance == null)
+		//		{
+		//			_instance = FindObjectOfType<PlayerDatabase>();
+		//		}
+		//		return _instance;
+		//	}
+		//}
 
 		private void Start()
 		{
+			//for (int i = 0; i < players.Length; i++)
+			//{
+			//	players[i].index = i;
+			//}
+
 			for (int i = 0; i < players.Length; i++)
 			{
 				players[i].index = i;
@@ -31,7 +38,19 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		}
 
 
-		public PlayerStruct GetPlayer(int index)
+		//public PlayerStruct GetPlayer(int index)
+		//{
+		//	for (int i = 0; i < players.Length; i++)
+		//	{
+		//		if (i == index)
+		//		{
+		//			return players[i];
+		//		}
+		//	}
+		//	return players[0];
+		//}
+
+		public PlayerData GetPlayer(int index)
 		{
 			for (int i = 0; i < players.Length; i++)
 			{
@@ -42,6 +61,8 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 			}
 			return players[0];
 		}
+
+
 
 
 	}

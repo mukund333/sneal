@@ -11,7 +11,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
         public MixinBase fireWeapon;
         public Transform weaponSlot;
         private GameObject currentWeapon;
-        public PlayerData playerData;
+        public CurrentPlayerComponentData playerData;
         public bool isAutoTiggering;
         
 

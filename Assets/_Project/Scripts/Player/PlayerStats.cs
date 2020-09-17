@@ -9,14 +9,16 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 	public class PlayerStats : MonoBehaviour
 	{
 
-		public PlayerStruct curPlayer;
+		//public PlayerStruct curPlayer;
+		//private PlayerController player;
+
+		public PlayerData currentPlayer;
+		private CurrentPlayerComponentData playerWeapon;
+		public PlayerDatabase playerDatabase;
 
 		public int baseHealth;
-
 		public int curHealth;
-
-		private PlayerController player;
-
+	
 		public event Action OnPlayerDeath;
 
 		private static PlayerStats _instance;
@@ -35,13 +37,12 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 
 		void Start()
 		{
-			player = GetComponent<PlayerController>();
-
-
+			playerWeapon = GetComponent<CurrentPlayerComponentData>();
+			
+			playerDatabase = FindObjectOfType<PlayerDatabase>();
 
 			SetPlayer(0);
 		}
-
 
 		private void OnEnable()
 		{
@@ -66,8 +67,6 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 
 		private void Kill()
 		{
-
-
 			Collider2D[] array = Physics2D.OverlapCircleAll(transform.position, 114f);
 
 			if (array != null)
@@ -87,17 +86,17 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 
 		public void SetPlayer(int index)
 		{
-			curPlayer = PlayerDatabase.instance.GetPlayer(index);
-			baseHealth = curPlayer.baseHealth;
+			//curPlayer = PlayerDatabase.instance.GetPlayer(index);
+			//currentPlayer = PlayerDatabase.instance.GetPlayer(index);
+			currentPlayer = playerDatabase.GetPlayer(index);
+			baseHealth = currentPlayer.baseHealth;
+
 			curHealth = baseHealth;
-
-
 		}
 
 		private void ResetPlayer()
 		{
-			SetPlayer(curPlayer.index);
-			player.EquipWeaponByName("Pistol");
+			SetPlayer(currentPlayer.index);			
 		}
 
 		public void Repair()
@@ -135,7 +134,5 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		//	base.GetComponent<Collider2D>().enabled = true;
 		//	yield break;
 		//}
-
-
 	}
 }

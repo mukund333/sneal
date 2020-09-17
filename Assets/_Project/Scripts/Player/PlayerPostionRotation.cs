@@ -6,7 +6,7 @@ public class PlayerPostionRotation : MonoBehaviour
 {
    
     Transform player;
-	public PlayerData playerData;
+	public CurrentPlayerComponentData playerData;
 
     void Start()
     {

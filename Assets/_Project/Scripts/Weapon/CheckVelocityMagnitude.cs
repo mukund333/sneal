@@ -12,7 +12,7 @@ public class CheckVelocityMagnitude : MonoBehaviour
 
     
 	
-	public PlayerData playerData;
+	public CurrentPlayerComponentData playerData;
 
     private void Start()
     {

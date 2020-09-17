@@ -6,8 +6,8 @@ using UnityEngine;
 public class Recoil : MonoBehaviour
 {
     private Rigidbody2D rb2d;
-    public PlayerData playerData;
-     WeaponData currentWeaponData;
+    public CurrentPlayerComponentData playerData;
+    public WeaponData currentWeaponData;
 
     void Start()
     {

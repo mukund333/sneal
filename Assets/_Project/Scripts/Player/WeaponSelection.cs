@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WeaponSelection : MonoBehaviour
 {
-    public PlayerData playerData;
+    public CurrentPlayerComponentData playerData;
     public EquipPlayerWeapon equipPlayerWeapon;
     public Recoil recoil;
   
@@ -15,7 +15,7 @@ public class WeaponSelection : MonoBehaviour
     {
        
        
-        playerData = GetComponent<PlayerData>();
+        playerData = GetComponent<CurrentPlayerComponentData>();
         equipPlayerWeapon = GetComponent<EquipPlayerWeapon>();
         recoil = GetComponent<Recoil>();
        
