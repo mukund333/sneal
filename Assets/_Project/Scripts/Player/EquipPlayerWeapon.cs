@@ -12,6 +12,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
         public Transform weaponSlot;
         private GameObject currentWeapon;
         public PlayerData playerData;
+        public bool isAutoTiggering;
         
 
         void Start()
@@ -21,14 +22,23 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 
         void Update()
         {
-            if (Input.GetKey(KeyCode.Space))
+
+            if(isAutoTiggering==true)
             {
-                //if (fireWeapon.Check())
-                //{
-                //    fireWeapon.Action();
-                //}
                 fireWeapon.CheckAndAction();
             }
+            else
+            {
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    //if (fireWeapon.Check())
+                    //{
+                    //    fireWeapon.Action();
+                    //}
+                    fireWeapon.CheckAndAction();
+                }
+            }
+           
 
             if (Input.GetKeyDown(KeyCode.E))
             {
