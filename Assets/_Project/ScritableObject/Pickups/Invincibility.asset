@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30819d3ea6c29c248b82f1e854bc16d9, type: 3}
-  m_Name: MachineGunPick
+  m_Script: {fileID: 11500000, guid: d34c8a12cae9e494086b4162b5cff351, type: 3}
+  m_Name: Invincibility
   m_EditorClassIdentifier: 
-  weaponName: MachineGun
+  Name: Invincibility
+  pickupType: 1
+  wepData: {fileID: 0}

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Weapon
   pickupType: 3
-  wepData: {fileID: 11400000, guid: 460e6d22bb1d84e40852e843b2dcacfe, type: 2}
+  wepData: {fileID: 0}

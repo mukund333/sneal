@@ -10,26 +10,19 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 	[RequireComponent(typeof(Collider2D))]
 	public class PickupController : MonoBehaviour
 	{
-		[SerializeField]
-		string weaponPickName;
+		
 
 		public PickupData thisPickup;
-		public WeaponData weapon;
+		//public WeaponData weapon;
 
 		private PickupBoost pickupBoost;
 		private delegate void PickupBoost();
 
 		public bool WeaponBool = false;
-		private SpriteRenderer wepSpriteRend;
+		// SpriteRenderer wepSpriteRend;
 
 		public PlayerStats playerStats;
 		public CurrentPlayerComponentData player;
-
-		public event Action OnAutoGenWeapon;
-
-
-
-
 
 		private void Awake()
 		{
@@ -37,7 +30,7 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 			
 			playerStats = FindObjectOfType<PlayerStats>();
 			player = playerStats.GetComponent<CurrentPlayerComponentData>();
-			weaponPickName = player.weaponName;
+			
 		
 
 		}

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StGun :MixinBase
+public class Pistol :MixinBase
 {
     public CurrentWeaponData weaponDefination;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using SnealUltra.Assets._Project.Scripts.Weapon;
 using SnealUltra.Assets._Project.Scripts.Mixins;
 
-public class MachineGunS : MixinBase
+public class MachineGun : MixinBase
 {
     
     public CurrentWeaponData weaponDefination;

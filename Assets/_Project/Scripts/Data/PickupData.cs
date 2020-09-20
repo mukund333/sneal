@@ -28,8 +28,7 @@ public class PickupData : ScriptableObject
 	//public Sprite sprite;
 
 
-	public WeaponPick wepData;
-
+	
 
 
 }

@@ -8,7 +8,7 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 
 		
 		[SerializeField] PickupData[] pickups;
-		[SerializeField] WeaponPick[] wepData;
+		
 		
 
 
@@ -32,7 +32,7 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 		public PickupData GetPickupRandom()
 		{
 			PickupData result = pickups[UnityEngine.Random.Range(0, pickups.Length)];
-			result.wepData = wepData[UnityEngine.Random.Range(0, wepData.Length)];
+			
 			return result;
 		}
 
