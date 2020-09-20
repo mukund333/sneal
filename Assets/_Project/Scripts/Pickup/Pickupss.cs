@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SnealUltra.Assets._Project.Scripts.Pickup
 {
 	[Serializable]
-	public struct Pickups
+	public struct Pickupss
 	{
 		public enum PickupType
 		{
@@ -29,7 +29,7 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 		//public Sprite sprite;
 
 
-		public WeaponPick wepData;
+		public WeaponPickss wepData;
 
 
 

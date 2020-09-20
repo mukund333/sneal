@@ -7,29 +7,31 @@ using SnealUltra.Assets._Project.Scripts.Weapon;
 public class CurrentWeaponData : MonoBehaviour
 {
     public WeaponData weaponDefination;
+    public WeaponDB weaponDB;
     public RecoilData playerRecoilData;
     public PlayerTransformData transformData;
 
     #region Initializations
-    //private void Start()
-    //{
-    //    if (!weaponDefination.setManually)
-    //    {
-    //        weaponDefination.thrust = 25f;
-    //        weaponDefination.drag = 50f;
-    //        weaponDefination.lastShotTime = 0.3f;
-    //        weaponDefination.shots = 30;
-    //        weaponDefination.spread = 5;
-    //    }
-
-        
-    //}
-    #endregion
-
-    #region Reporters
-    public float GetThrust()
+    private void Start()
     {
-        Debug.Log(""+ weaponDefination.thrust);
+       
+        //    if (!weaponDefination.setManually)
+        //    {
+        //        weaponDefination.thrust = 25f;
+        //        weaponDefination.drag = 50f;
+        //        weaponDefination.lastShotTime = 0.3f;
+        //        weaponDefination.shots = 30;
+        //        weaponDefination.spread = 5;
+    }
+
+
+        //}
+        #endregion
+
+        #region Reporters
+        public float GetThrust()
+    {
+       
         return weaponDefination.thrust;
     }
 

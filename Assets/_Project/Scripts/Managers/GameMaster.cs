@@ -8,11 +8,11 @@ public class GameMaster : MonoBehaviour
 {
     private static GameMaster _instance;
 
-	public event Action OnGameRestart;
+	//public event Action OnGameRestart;
 
 	public event Action OnGameEnd;
 
-	public event Action OnReturnToMenu;
+	//public event Action OnReturnToMenu;
 
 	PlayerStats playerStats;
 

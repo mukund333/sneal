@@ -1,15 +1,12 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace SnealUltra.Assets._Project.Scripts.Pickup
+[CreateAssetMenu(fileName = "New WeaponPick", menuName = "WeaponPick")]
+public class WeaponPick : ScriptableObject
 {
-	[Serializable]
-	public struct WeaponPick
-	{
-
-		public string Name;
+    public string weaponName;
 
 
-		//public Sprite sprite;
-	}
+    //public Sprite sprite;
 }

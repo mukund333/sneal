@@ -6,17 +6,16 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 	public class PickupDatabase : MonoBehaviour
 	{
 
-		private static PickupDatabase _instance;
-
-
-		public Pickups[] pickups;
+		
+		[SerializeField] PickupData[] pickups;
+		[SerializeField] WeaponPick[] wepData;
+		
 
 
 		//public Sprite[] weaponTypeSprites;
 
 
-		public WeaponPick[] wepData;
-
+		private static PickupDatabase _instance;
 		public static PickupDatabase instance
 		{
 			get
@@ -30,10 +29,10 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 		}
 
 
-		public Pickups GetPickupRandom()
+		public PickupData GetPickupRandom()
 		{
-			Pickups result = pickups[UnityEngine.Random.Range(0, pickups.Length)];
-			result.wepData = wepData[1];//[UnityEngine.Random.Range(0, this.wepData.Length)];
+			PickupData result = pickups[UnityEngine.Random.Range(0, pickups.Length)];
+			result.wepData = wepData[UnityEngine.Random.Range(0, wepData.Length)];
 			return result;
 		}
 

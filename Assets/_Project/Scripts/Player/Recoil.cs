@@ -20,7 +20,7 @@ public class Recoil : MonoBehaviour
     {
 
         currentWeaponData = playerData.GetWeaponDataByName();
-        //Debug.Log("" + playerData.GetWeaponDataByName());
+
 
     }
 

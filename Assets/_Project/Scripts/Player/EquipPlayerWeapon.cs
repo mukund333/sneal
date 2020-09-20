@@ -8,6 +8,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
     public class EquipPlayerWeapon : MonoBehaviour
     {
         //public string startGunName;
+        public Recoil recoil;
         public MixinBase fireWeapon;
         public Transform weaponSlot;
         private GameObject currentWeapon;
@@ -18,12 +19,20 @@ namespace SnealUltra.Assets._Project.Scripts.Player
         void Start()
         {
             EquipWeapon(playerData.GetWeaponByName());
+            recoil = GetComponent<Recoil>();
         }
 
         void Update()
         {
+            if (playerData.isPassWeaPon == true)
+            {
+                EquipWeapon(playerData.GetWeaponByName());
+                //recoil.currentWeaponData = playerData.GetWeaponDataByName();
+                playerData.isPassWeaPon = false;
 
-            if(isAutoTiggering==true)
+            }
+
+            if (isAutoTiggering==true)
             {
                 fireWeapon.CheckAndAction();
             }
@@ -44,19 +53,17 @@ namespace SnealUltra.Assets._Project.Scripts.Player
             {
                 
             }
-        }
-
-       
-
-        
-       
+        }      
 
         public void EquipWeapon(GameObject weaponPrefab)
         {
+           
             if (currentWeapon != null)
                 Destroy(currentWeapon);
             currentWeapon = Instantiate(weaponPrefab, weaponSlot);
             fireWeapon = currentWeapon.GetComponent<CallMixinActions>();
+           
+            
         }
 
     }

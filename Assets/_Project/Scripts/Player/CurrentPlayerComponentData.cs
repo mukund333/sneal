@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,25 +9,35 @@ public class CurrentPlayerComponentData : MonoBehaviour
 {
 	
 	public string weaponName;
+	public bool isEquipDirect = false;
+	public bool isPassWeaPon = false;
 	public RecoilData recoilData;
 	public PlayerTransformData playerTransformData;
 	public WeaponDB weaponDB;
 	WeaponDataHolder weaponDataHolder;
 
-
+	
 
 
 	private void Awake()
 	{
 		weaponDB = FindObjectOfType<WeaponDB>();
+
 		GenerateWeaponByName();
 		//AutoGeratedWeapon();
 	}
 
-	private void Start()
+	private void Update()
 	{
-		
+		if(isEquipDirect==true)
+		{
+			AutoGeratedWeapon();
+			isEquipDirect = false;
+			isPassWeaPon = true;
+		}
 	}
+
+
 
 	public void SetRigidBodyData(int forceVelocity)
 	  {
@@ -50,15 +61,19 @@ public class CurrentPlayerComponentData : MonoBehaviour
 	  }
 	  public void AutoGeratedWeapon()
 	  {
+		
 		weaponDataHolder = weaponDB.GenerateWeaponByType();
+		
 	  }
 
-	  
-	 public void GenerateWeaponByName()
-	{
-		 weaponDataHolder = weaponDB.GenerateWeaponByName(weaponName);
 
-		
+	//public void GenerateWeaponByName(string wepName)
+	//{
+	//	weaponDataHolder = weaponDB.GenerateWeaponByName(wepName);
+	//}
+	public void GenerateWeaponByName()
+	{
+		 weaponDataHolder = weaponDB.GenerateWeaponByName(weaponName);	
 	}
 	public GameObject GetWeaponByName()
 	{

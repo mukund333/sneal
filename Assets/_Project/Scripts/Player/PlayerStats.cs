@@ -35,6 +35,11 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 			}
 		}
 
+		private void OnEnable()
+		{
+			curHealth = baseHealth;
+		}
+
 		void Start()
 		{
 			playerWeapon = GetComponent<CurrentPlayerComponentData>();
@@ -44,9 +49,19 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 			SetPlayer(0);
 		}
 
-		private void OnEnable()
+		public void SetPlayer(int index)
 		{
+			//curPlayer = PlayerDatabase.instance.GetPlayer(index);
+			//currentPlayer = PlayerDatabase.instance.GetPlayer(index);
+			currentPlayer = playerDatabase.GetPlayer(index);
+			baseHealth = currentPlayer.baseHealth;
+
 			curHealth = baseHealth;
+		}
+
+		private void ResetPlayer()
+		{
+			SetPlayer(currentPlayer.index);
 		}
 
 		public void Damage(int damage)
@@ -84,21 +99,9 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 			gameObject.SetActive(false);
 		}
 
-		public void SetPlayer(int index)
-		{
-			//curPlayer = PlayerDatabase.instance.GetPlayer(index);
-			//currentPlayer = PlayerDatabase.instance.GetPlayer(index);
-			currentPlayer = playerDatabase.GetPlayer(index);
-			baseHealth = currentPlayer.baseHealth;
-
-			curHealth = baseHealth;
-		}
-
-		private void ResetPlayer()
-		{
-			SetPlayer(currentPlayer.index);			
-		}
-
+		/*------------------------------------------------------*/
+		//       power ups
+		/*------------------------------------------------------*/
 		public void Repair()
 		{
 			curHealth = baseHealth;
@@ -119,7 +122,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 
 		}
 
-		// Token: 0x060000E9 RID: 233 RVA: 0x00007AEC File Offset: 0x00005CEC
+		
 		//private IEnumerator _Invincibility()
 		//{
 		//	Material mat = this.renderer.material;

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class WeaponDB : MonoBehaviour
 {
-    
-     public List<GameObject> weaponList;
+	public WeaponDataHolder defaultGun;
+
+	public WeaponDataHolder autoGenarateGun;
+
+	
+
+	public List<GameObject> weaponList;
 	
      public List<WeaponData> weaponDataList;
 
-	 public WeaponDataHolder defaultGun ;
-
-	 public WeaponDataHolder autoGenarateGun;
-
+	
 
 
 
@@ -37,7 +39,7 @@ public class WeaponDB : MonoBehaviour
 		autoGenarateGun.weaponPrefab = GetWeaponByType(i);
 		Debug.Log("" + autoGenarateGun.weaponPrefab);
 		autoGenarateGun.weaponData = GetWeaponDataByType(i);
-		Debug.Log("" + autoGenarateGun.weaponData);
+
 		return autoGenarateGun;
 	}
 
@@ -56,8 +58,10 @@ public class WeaponDB : MonoBehaviour
 	public WeaponDataHolder GenerateWeaponByName(string GunName)
 	{
 		defaultGun.weaponPrefab = GetWeaponByName(GunName);
+		
 		defaultGun.weaponData   =	GetWeaponDataByName(GunName);
-	
+		
+
 		return defaultGun;
 	}
 	public GameObject GetWeaponByName(string GunName)
