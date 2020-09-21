@@ -24,8 +24,8 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 		private void Start()
 		{
-			this.player = UnityEngine.Object.FindObjectOfType<PlayerController>().transform;
-			//GameMaster.instance.OnGameEnd += this.StopSpawning;
+			this.player = UnityEngine.Object.FindObjectOfType<PlayerMovement>().transform;
+			GameMaster.instance.OnGameEnd += this.StopSpawning;
 			//GameMaster.instance.OnGameStart += this.StartSpawning;
 
 

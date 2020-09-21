@@ -12,7 +12,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		//public PlayerStruct curPlayer;
 		//private PlayerController player;
 
-		public PlayerData currentPlayer;
+		public PlayerData_SO currentPlayer;
 		private CurrentPlayerComponentData playerWeapon;
 		public PlayerDatabase playerDatabase;
 
@@ -42,6 +42,14 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 
 		void Start()
 		{
+			if(!currentPlayer.setManually)
+			{
+				currentPlayer.maxHealth = 100;
+				currentPlayer.currentHealth = 50;
+
+				
+			}
+
 			playerWeapon = GetComponent<CurrentPlayerComponentData>();
 			
 			playerDatabase = FindObjectOfType<PlayerDatabase>();
@@ -54,7 +62,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 			//curPlayer = PlayerDatabase.instance.GetPlayer(index);
 			//currentPlayer = PlayerDatabase.instance.GetPlayer(index);
 			currentPlayer = playerDatabase.GetPlayer(index);
-			baseHealth = currentPlayer.baseHealth;
+			baseHealth = currentPlayer.maxHealth;
 
 			curHealth = baseHealth;
 		}

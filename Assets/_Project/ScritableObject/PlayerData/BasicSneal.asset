@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aac5bdd2d37b3134e8cdd55aa7d5b6e3, type: 3}
   m_Name: BasicSneal
   m_EditorClassIdentifier: 
+  setManually: 1
+  saveDataOnClose: 0
   Name: BasicSneal
   index: 0
-  baseHealth: 100
+  currentHealth: 50
+  maxHealth: 20

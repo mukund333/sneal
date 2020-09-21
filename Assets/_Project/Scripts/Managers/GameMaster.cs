@@ -13,7 +13,7 @@ public class GameMaster : MonoBehaviour
 	public event Action OnGameEnd;
 
 	//public event Action OnReturnToMenu;
-
+	[SerializeField]
 	PlayerStats playerStats;
 
 	public static GameMaster instance

@@ -8,7 +8,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 	{
 		//public PlayerStruct[] players;
 
-		public PlayerData[] players;
+		public PlayerData_SO[] players;
 
 		//private static PlayerDatabase _instance;
 
@@ -50,7 +50,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		//	return players[0];
 		//}
 
-		public PlayerData GetPlayer(int index)
+		public PlayerData_SO GetPlayer(int index)
 		{
 			for (int i = 0; i < players.Length; i++)
 			{
