@@ -11,9 +11,9 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 		public EnemyInfo[] enemies;
 
-
 		private float timer;
 
+		public float spawnRadius = 300f;
 
 		private bool stopSpawn;
 
@@ -33,7 +33,6 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			{
 				this.enemies[i].poolId = PoolManager.instance.GetPoolID(this.enemies[i].Name);
 
-
 			}
 
 			if (testStartSpawn == true)
@@ -44,34 +43,34 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 		private void StartSpawning()
 		{
-			this.stopSpawn = false;
-			for (int i = 0; i < this.enemies.Length; i++)
+			stopSpawn = false;
+			for (int i = 0; i < enemies.Length; i++)
 			{
-				base.StartCoroutine(this.SpawnEnemy(this.enemies[i]));
+				StartCoroutine(SpawnEnemy(enemies[i]));
 			}
-			base.StartCoroutine(this.Timer());
+			StartCoroutine(Timer());
 		}
 
 		private void StopSpawning()
 		{
-			this.stopSpawn = true;
+			stopSpawn = true;
 		}
 
 
 		private IEnumerator SpawnEnemy(EnemyInfo enemy)
 		{
-			float startedTime = this.timer;
+			float startedTime = timer;
 			float startFrequency = enemy.spawnFreqRange.x;
 			float spawnFrequency = 0f;
-			while (!this.stopSpawn && this.timer < (float)enemy.spawnStartTime)
+			while (!stopSpawn && timer < enemy.spawnStartTime)
 			{
 				yield return 0;
 			}
 			while (!this.stopSpawn)
 			{
-				PoolManager.instance.GetObject(enemy.poolId, (Vector2)this.player.position + UnityEngine.Random.insideUnitCircle.normalized * 300f, Quaternion.identity);
+				PoolManager.instance.GetObject(enemy.poolId, (Vector2)this.player.position + UnityEngine.Random.insideUnitCircle.normalized * spawnRadius, Quaternion.identity);
 				spawnFrequency = Mathf.Lerp(startFrequency, enemy.spawnFreqRange.y, enemy.curve.Evaluate(Mathf.Lerp(0f, 1f, (this.timer - startedTime) / (float)enemy.timeToMaxSpawnFreq)));
-				MonoBehaviour.print(spawnFrequency);
+				//MonoBehaviour.print(spawnFrequency);
 				yield return new WaitForSeconds(1f / spawnFrequency);
 			}
 			yield break;
@@ -80,13 +79,13 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 		private IEnumerator Timer()
 		{
-			this.timer = 0f;
-			while (!this.stopSpawn)
+			timer = 0f;
+			while (!stopSpawn)
 			{
-				this.timer += Time.deltaTime;
+				timer += Time.deltaTime;
 				yield return 0;
 			}
-			this.timer = 0f;
+			timer = 0f;
 			yield break;
 		}
 

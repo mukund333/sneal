@@ -13,5 +13,14 @@ MonoBehaviour:
   m_Name: Speed
   m_EditorClassIdentifier: 
   Name: Speed
+  poolId: 0
   pickupType: 2
-  wepData: {fileID: 0}
+  spawnFreqRange: {x: 0.3, y: 4.5}
+  spawnStartTime: 0
+  curve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  timeToMaxSpawnFreq: 220

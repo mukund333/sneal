@@ -10,10 +10,11 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 	[RequireComponent(typeof(Collider2D))]
 	public class PickupController : MonoBehaviour
 	{
-		
 
+		//
+		public string powerUpName;
+		public int poolId;
 		public PickupData thisPickup;
-		//public WeaponData weapon;
 
 		private PickupBoost pickupBoost;
 		private delegate void PickupBoost();
@@ -25,14 +26,9 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 		public CurrentPlayerComponentData player;
 
 		private void Awake()
-		{
-
-			
+		{		
 			playerStats = FindObjectOfType<PlayerStats>();
 			player = playerStats.GetComponent<CurrentPlayerComponentData>();
-			
-		
-
 		}
 
 
@@ -106,7 +102,36 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 			
 		}
 
+		public string GetPowerUpName()
+		{
+			 powerUpName = thisPickup.Name;
+			return powerUpName;
+		}
+		public void SetPowerUpPoolId(int poolid)
+		{
+			this.poolId = poolid;
+			thisPickup.poolId = poolid;
+		}
 
+		public Vector2 GetSpawnFreqRange()
+		{
+			return thisPickup.spawnFreqRange;
+		}
+
+		public int GetSpawnStartTime()
+		{
+			return thisPickup.spawnStartTime;
+		}
+
+		public AnimationCurve GetCurve()
+		{
+			return thisPickup.curve;
+		}
+
+		public int GetMaxFreq()
+		{
+			return thisPickup.timeToMaxSpawnFreq;
+	}
 
 	}
 }

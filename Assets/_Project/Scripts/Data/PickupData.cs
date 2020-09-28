@@ -21,6 +21,8 @@ public class PickupData : ScriptableObject
 
 	public string Name;
 
+	public int poolId;
+
 
 	public PickupType pickupType;
 
@@ -28,7 +30,13 @@ public class PickupData : ScriptableObject
 	//public Sprite sprite;
 
 
-	
+	public Vector2 spawnFreqRange;
+
+	public int spawnStartTime;
+
+	public AnimationCurve curve;
+
+	public int timeToMaxSpawnFreq;
 
 
 }

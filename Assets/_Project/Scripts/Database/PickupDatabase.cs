@@ -36,6 +36,22 @@ namespace SnealUltra.Assets._Project.Scripts.Pickup
 			return result;
 		}
 
+		public PickupData GetPickupByName(string pickupName)
+		{
+			PickupData result = default;
+			for (int i=0; i<pickups.Length;i++)
+			{
+				if(pickups[i].Name==pickupName)
+				{
+					 result = pickups[i];
+				}
+				
+				
+			}
+
+			return result;
+		}
+
 
 	}
 }

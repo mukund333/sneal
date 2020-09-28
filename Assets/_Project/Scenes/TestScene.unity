@@ -779,14 +779,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1222984965}
+  - component: {fileID: 1222984972}
   - component: {fileID: 1222984964}
   - component: {fileID: 1222984967}
   - component: {fileID: 1222984968}
   - component: {fileID: 1222984969}
-  - component: {fileID: 1222984966}
   - component: {fileID: 1222984970}
+  - component: {fileID: 1222984966}
   - component: {fileID: 1222984971}
-  - component: {fileID: 1222984972}
+  - component: {fileID: 1222984973}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -883,6 +884,14 @@ MonoBehaviour:
     prefab: {fileID: 2460160155986346567, guid: 259e9abb229f6dd45a03c7c5a3f5eaf5,
       type: 3}
     poolSize: 25
+    limit: 1
+    poolHolder: {fileID: 0}
+    pool: []
+  - Name: Invincibility
+    id: 0
+    prefab: {fileID: 4952160767852102848, guid: eb6dbd908193c9f449a44d01d66ef533,
+      type: 3}
+    poolSize: 5
     limit: 1
     poolHolder: {fileID: 0}
     pool: []
@@ -983,6 +992,7 @@ MonoBehaviour:
       m_RotationOrder: 0
     debug: 0
     poolId: 0
+  spawnRadius: 300
   testStartSpawn: 1
 --- !u!114 &1222984972
 MonoBehaviour:
@@ -997,6 +1007,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStats: {fileID: 0}
+--- !u!114 &1222984973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222984963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0841415c34323d24fa5a2c4727fcce73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRadius: 30
+  testStartSpawn: 1
+  invincibilityPickup: {fileID: 4656295872883896320, guid: eb6dbd908193c9f449a44d01d66ef533,
+    type: 3}
 --- !u!1 &1336177740
 GameObject:
   m_ObjectHideFlags: 0
