@@ -5,12 +5,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class InvincibilityPickup : MonoBehaviour
+public class InvincibilityPickup : Pickup
 {
     public PickupData thisPickup;
 
 	public PlayerStats playerStats;
 	public CurrentPlayerComponentData player;
+
+	private void OnEnable()
+	{
+		InitPickup();
+	}
 
 	private void Awake()
 	{
@@ -18,19 +23,12 @@ public class InvincibilityPickup : MonoBehaviour
 		player = playerStats.GetComponent<CurrentPlayerComponentData>();
 	}
 
-	private void OnEnable()
-	{
-		InitPickup();
-	}
-
 	private void InitPickup()
 	{
-		
-		thisPickup = PickupDatabase.instance.GetPickupByName("Invincibility");
+		thisPickup = PickupDatabase.instance.GetPickupByName("PowerGun");
 	}
 
-
-	public string GetPowerUpName()
+	public override string GetPowerUpName()
 	{
 		
 		return thisPickup.Name;
@@ -41,27 +39,36 @@ public class InvincibilityPickup : MonoBehaviour
 		thisPickup.poolId = poolid;
 	}
 
-	public int GetPoolId()
+	public override int GetPoolId()
 	{
 		return thisPickup.poolId;
 	}
 
-	public Vector2 GetSpawnFreqRange()
+	private void OnTriggerEnter2D(Collider2D col)
+	{
+
+		if (col.CompareTag("Player"))
+		{
+			Debug.Log("InvincibilityPickup");
+		}
+	}
+
+	public override Vector2 GetSpawnFreqRange()
 	{
 		return thisPickup.spawnFreqRange;
 	}
 
-	public int GetSpawnStartTime()
+	public override int GetSpawnStartTime()
 	{
 		return thisPickup.spawnStartTime;
 	}
 
-	public AnimationCurve GetCurve()
+	public override AnimationCurve GetCurve()
 	{
 		return thisPickup.curve;
 	}
 
-	public int GetMaxFreq()
+	public override int GetMaxFreq()
 	{
 		return thisPickup.timeToMaxSpawnFreq;
 	}

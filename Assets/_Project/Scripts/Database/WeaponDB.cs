@@ -8,18 +8,9 @@ public class WeaponDB : MonoBehaviour
 
 	public WeaponDataHolder autoGenarateGun;
 
-	
-
 	public List<GameObject> weaponList;
 	
-     public List<WeaponData> weaponDataList;
-
-	
-
-
-
-
-
+    public List<WeaponData> weaponDataList;
 
 	private void Start()
 	{
@@ -31,7 +22,7 @@ public class WeaponDB : MonoBehaviour
 	//	GenerateWeaponByType(i);
 	//}
 
-	public WeaponDataHolder GenerateWeaponByType()
+	public WeaponDataHolder GenerateWeaponByAutomatic()
 	{
 		int i;
 		i = UnityEngine.Random.Range(0, weaponList.Count);
@@ -43,17 +34,7 @@ public class WeaponDB : MonoBehaviour
 		return autoGenarateGun;
 	}
 
-	public GameObject GetWeaponByType(int i)
-	{
-
-		return weaponList[i];
-	}
-
-	public WeaponData GetWeaponDataByType(int i)
-	{
-		  
-		return weaponDataList[i];
-	}
+	
 
 	public WeaponDataHolder GenerateWeaponByName(string GunName)
 	{
@@ -89,6 +70,31 @@ public class WeaponDB : MonoBehaviour
 			}
 		}
 		return weaponDataList[0];
+	}
+
+
+
+
+	public WeaponDataHolder GenerateWeaponByType(int i)
+	{
+		defaultGun.weaponPrefab = GetWeaponByType(i);
+
+		defaultGun.weaponData = GetWeaponDataByType(i);
+
+
+		return defaultGun;
+	}
+
+	public GameObject GetWeaponByType(int i)
+	{
+
+		return weaponList[i];
+	}
+
+	public WeaponData GetWeaponDataByType(int i)
+	{
+
+		return weaponDataList[i];
 	}
 
 

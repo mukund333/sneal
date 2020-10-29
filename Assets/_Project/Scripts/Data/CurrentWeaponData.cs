@@ -7,7 +7,7 @@ using SnealUltra.Assets._Project.Scripts.Weapon;
 public class CurrentWeaponData : MonoBehaviour
 {
     public WeaponData weaponDefination;
-    public WeaponDB weaponDB;
+    
     public RecoilData playerRecoilData;
     public PlayerTransformData transformData;
 
@@ -29,7 +29,7 @@ public class CurrentWeaponData : MonoBehaviour
         #endregion
 
         #region Reporters
-        public float GetThrust()
+    public float GetThrust()
     {
        
         return weaponDefination.thrust;

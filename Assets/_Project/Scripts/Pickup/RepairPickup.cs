@@ -4,7 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RepairPickup : MonoBehaviour
+[RequireComponent(typeof(Collider2D))]
+public class RepairPickup : Pickup
 {
 	public PickupData thisPickup;
 
@@ -27,7 +28,7 @@ public class RepairPickup : MonoBehaviour
 		thisPickup = PickupDatabase.instance.GetPickupByName("Repair");
 	}
 
-	public string GetPowerUpName()
+	public override string GetPowerUpName()
 	{
 
 		return thisPickup.Name;
@@ -38,27 +39,37 @@ public class RepairPickup : MonoBehaviour
 		thisPickup.poolId = poolid;
 	}
 
-	public int GetPoolId()
+	public override int GetPoolId()
 	{
 		return thisPickup.poolId;
 	}
 
-	public Vector2 GetSpawnFreqRange()
+	private void OnTriggerEnter2D(Collider2D col)
+	{
+
+		if (col.CompareTag("Player"))
+		{
+			playerStats.curHealth = 100;
+			gameObject.SetActive(false);
+		}
+	}
+
+	public override Vector2 GetSpawnFreqRange()
 	{
 		return thisPickup.spawnFreqRange;
 	}
 
-	public int GetSpawnStartTime()
+	public override int GetSpawnStartTime()
 	{
 		return thisPickup.spawnStartTime;
 	}
 
-	public AnimationCurve GetCurve()
+	public override AnimationCurve GetCurve()
 	{
 		return thisPickup.curve;
 	}
 
-	public int GetMaxFreq()
+	public override int GetMaxFreq()
 	{
 		return thisPickup.timeToMaxSpawnFreq;
 	}

@@ -1,6 +1,7 @@
 ﻿using SnealUltra.Assets._Project.Scripts.Pickup;
 using SnealUltra.Assets._Project.Scripts.Player;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PickupSpawner : MonoBehaviour
@@ -13,15 +14,37 @@ public class PickupSpawner : MonoBehaviour
 	private Transform player;
 	public bool testStartSpawn = true;
 
-	int poolId;
-
-	
 	public InvincibilityPickup invincibilityPickup;
+	public RepairPickup repairPickup;
+	public PowerGunPickup powerGunPickup;
+
+	int invincibilityPickupPoolId;
+	int repairPickupPoolId;
+	int powerGunPickupId;
+
+	public List<Pickup> pickupList;
+
+	int i;
+
+
 
 	private void Awake()
 	{
-		poolId = PoolManager.instance.GetPoolID(invincibilityPickup.GetPowerUpName());
-		invincibilityPickup.SetPowerUpPoolId(poolId);
+
+		pickupList.Add(invincibilityPickup);
+		pickupList.Add(repairPickup);
+		pickupList.Add(powerGunPickup);
+
+		powerGunPickupId = PoolManager.instance.GetPoolID(powerGunPickup.GetPowerUpName());
+		powerGunPickup.SetPowerUpPoolId(powerGunPickupId);
+
+		repairPickupPoolId = PoolManager.instance.GetPoolID(repairPickup.GetPowerUpName());
+		repairPickup.SetPowerUpPoolId(repairPickupPoolId);
+
+		invincibilityPickupPoolId = PoolManager.instance.GetPoolID(invincibilityPickup.GetPowerUpName());
+		invincibilityPickup.SetPowerUpPoolId(invincibilityPickupPoolId);
+
+		
 	}
 
 	private void Start()
@@ -46,11 +69,16 @@ public class PickupSpawner : MonoBehaviour
 
 	}
 
+	private void Update()
+	{
+		
+	}
+
 	private void StartSpawning()
 	{
 		stopSpawn = false;
-		
-		StartCoroutine(SpawnPowerups(invincibilityPickup));
+
+		StartCoroutine(SpawnPowerups(pickupList[1]));
 		
 		StartCoroutine(Timer());
 	}
@@ -61,10 +89,15 @@ public class PickupSpawner : MonoBehaviour
 		stopSpawn = true;
 	}
 
-	private IEnumerator SpawnPowerups(InvincibilityPickup powerup)
+
+
+	private IEnumerator SpawnPowerups(Pickup powerup)
 	{
 		
+
+
 		float startedTime = timer;
+		
 		float startFrequency = powerup.GetSpawnFreqRange().x;
 		float spawnFrequency = 0f;
 		while (!stopSpawn && timer < powerup.GetSpawnStartTime())

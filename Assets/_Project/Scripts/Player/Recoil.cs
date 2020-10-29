@@ -18,10 +18,7 @@ public class Recoil : MonoBehaviour
     }
     private void Update()
     {
-
         currentWeaponData = playerData.GetWeaponDataByName();
-
-
     }
 
    //public void SetData(WeaponData weaponData)

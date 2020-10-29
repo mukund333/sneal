@@ -9,11 +9,13 @@ namespace SnealUltra.Assets._Project.Scripts.Player
     {
         //public string startGunName;
         public Recoil recoil;
-        public MixinBase fireWeapon;
+       
         public Transform weaponSlot;
         private GameObject currentWeapon;
         public CurrentPlayerComponentData playerData;
         public bool isAutoTiggering;
+		
+		 public MixinBase fireWeapon;
         
 
         void Start()
@@ -24,11 +26,11 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 
         void Update()
         {
-            if (playerData.isPassWeaPon == true)
+            if (playerData.isPassWeapon == true)
             {
                 EquipWeapon(playerData.GetWeaponByName());
                 //recoil.currentWeaponData = playerData.GetWeaponDataByName();
-                playerData.isPassWeaPon = false;
+                playerData.isPassWeapon = false;
 
             }
 
