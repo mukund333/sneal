@@ -202,81 +202,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &172182320
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822711, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822715, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_Name
-      value: PowerGun
-      objectReference: {fileID: 0}
-    - target: {fileID: 7993091965294822715, guid: 200ded0e858a0624eafa2ae40d4af1b3,
-        type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000,
-        type: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 200ded0e858a0624eafa2ae40d4af1b3, type: 3}
 --- !u!1 &350677729
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,13 +488,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f1434421c490b44943365d698f2d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponNumber: 0
+  weaponNumber: 1
   isEquipDirect: 0
   isPassWeapon: 0
   recoilData: {fileID: 11400000, guid: a3c29a417078d3d4cb5e75d7483d26ec, type: 2}
   playerTransformData: {fileID: 11400000, guid: a9c9c8473e4cf77498a53a5182eb03f2,
     type: 2}
   weaponDB: {fileID: 1222984970}
+  isPowerGun: 0
 --- !u!1 &492116947
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,13 +884,13 @@ GameObject:
   - component: {fileID: 1222984965}
   - component: {fileID: 1222984972}
   - component: {fileID: 1222984966}
-  - component: {fileID: 1222984967}
   - component: {fileID: 1222984968}
+  - component: {fileID: 1222984964}
   - component: {fileID: 1222984969}
   - component: {fileID: 1222984970}
   - component: {fileID: 1222984971}
+  - component: {fileID: 1222984967}
   - component: {fileID: 1222984973}
-  - component: {fileID: 1222984964}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -1061,9 +987,10 @@ MonoBehaviour:
     limit: 1
     poolHolder: {fileID: 0}
     pool: []
-  - Name: Repair
+  - Name: PowerGun
     id: 0
-    prefab: {fileID: 267701571684405232, guid: 8c418eae4b89c614e9066e705125a359, type: 3}
+    prefab: {fileID: 5089823116787705615, guid: 200ded0e858a0624eafa2ae40d4af1b3,
+      type: 3}
     poolSize: 5
     limit: 1
     poolHolder: {fileID: 0}
@@ -1198,7 +1125,7 @@ MonoBehaviour:
     type: 3}
   repairPickup: {fileID: -3619101971881514774, guid: 8c418eae4b89c614e9066e705125a359,
     type: 3}
-  powerGunPickup: {fileID: 7993091965294822712, guid: 200ded0e858a0624eafa2ae40d4af1b3,
+  powerGunPickup: {fileID: 5089823116787705612, guid: 200ded0e858a0624eafa2ae40d4af1b3,
     type: 3}
   pickupList: []
 --- !u!1 &1292594822

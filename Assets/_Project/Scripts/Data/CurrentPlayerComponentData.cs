@@ -14,13 +14,14 @@ public class CurrentPlayerComponentData : MonoBehaviour
 	public int weaponNumber;
 	public bool isEquipDirect = false;
 	public bool isPassWeapon = false;
+	public bool isPowerGun = false;
 	public RecoilData recoilData;
 	public PlayerTransformData playerTransformData;
 	public WeaponDB weaponDB;
 	WeaponDataHolder weaponDataHolder;
 
 	int previusGeneralWeapon;
-	public bool isPowerGun = false;
+	
 	private float waitTime;
 
 

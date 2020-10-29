@@ -7,6 +7,7 @@ using UnityEngine;
 
 /*
 	check weapon database ....range of powerup guns 
+	powergun range?
 */
 
 
@@ -17,7 +18,9 @@ public class PowerGunPickup : Pickup
     
     public CurrentPlayerComponentData player;
 
-	
+	public WeaponDB weaponDB;
+
+	public int powerupGunNumber = 3;
 
 
 	private void OnEnable()
@@ -27,6 +30,10 @@ public class PowerGunPickup : Pickup
     private void Awake()
     {
         player = FindObjectOfType<CurrentPlayerComponentData>();
+		weaponDB = FindObjectOfType<WeaponDB>();
+		// range of powerup gun
+		powerupGunNumber = Random.Range(0, 3);
+		Debug.Log("powergun number"+powerupGunNumber);
 		
     }
 
@@ -53,7 +60,7 @@ public class PowerGunPickup : Pickup
 
 		if (col.CompareTag("Player"))
 		{
-			player.weaponNumber = 3;
+			player.weaponNumber = powerupGunNumber;
 			player.isEquipDirect = true;
 			player.isPowerGun = true;
 			gameObject.SetActive(false);
