@@ -78,7 +78,7 @@ public class PickupSpawner : MonoBehaviour
 	{
 		stopSpawn = false;
 
-		StartCoroutine(SpawnPowerups(pickupList[1]));
+		StartCoroutine(SpawnPowerups(pickupList[2]));
 		
 		StartCoroutine(Timer());
 	}
