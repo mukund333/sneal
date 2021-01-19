@@ -18,7 +18,7 @@ MonoBehaviour:
   MinimumLevel: 0
   sprite: {fileID: 21300000, guid: 8ad9d6c4c6634f74db8ebfd12ac56130, type: 3}
   PurchasePrice:
-  - Currency: {fileID: 11400000, guid: 70633cfb968924042a847ff270bba717, type: 2}
-    Amount: 5
+  - Currency: {fileID: 11400000, guid: 5fd5e24f41c905141b0637ed18b51070, type: 2}
+    Amount: 100
   ItemType: 0
   Hands: 0

@@ -15,7 +15,6 @@ MonoBehaviour:
   playerInventoryItems:
   - {fileID: 11400000, guid: 2eb6580b35dd67a469179fd9734e09f8, type: 2}
   - {fileID: 11400000, guid: f37e7b868f491cc48b9227f5d7312109, type: 2}
-  - {fileID: 11400000, guid: ade6cf5b783ee9f4880f8eb32dc9ca47, type: 2}
   - {fileID: 11400000, guid: 303f912bc9d34ea46845b5b567d7612f, type: 2}
-  CopperCoins: 1616759
+  CopperCoins: 1356659
   totalBagsSlots: 15

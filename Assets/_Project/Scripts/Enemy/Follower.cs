@@ -52,8 +52,8 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			catch (Exception ex)
 			{
 			}
-			float num = UnityEngine.Random.Range(sizeMinMax.x, sizeMinMax.y);
-			thisTrans.localScale = new Vector3(num, num, 1f);
+			//float num = UnityEngine.Random.Range(sizeMinMax.x, sizeMinMax.y);
+			//thisTrans.localScale = new Vector3(num, num, 1f);
 			rb2d = GetComponent<Rigidbody2D>();
 			StartCoroutine(Behave());
 		}
