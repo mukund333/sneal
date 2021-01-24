@@ -27,40 +27,51 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 		SpriteRenderer spriteRenderer;
 
-		public override void Start()
+		
+
+		
+	public override void Start(){
+		base.Start();
+		try
 		{
-			spriteRenderer = GetComponent<SpriteRenderer>();
-
-			try
-			{
-				target = FindObjectOfType<PlayerController>().transform;
-			}
-			catch (Exception ex)
-			{
-
-			}
-			rb2d = GetComponent<Rigidbody2D>();
+			target = FindObjectOfType<PlayerMovement>().transform;
 		}
-
-
-		public override void OnEnable()
+		catch (Exception ex)
 		{
-			try
-			{
-				target = PlayerStats.instance.transform;
-			}
-			catch (Exception ex)
-			{
-			}
-			//float num = UnityEngine.Random.Range(sizeMinMax.x, sizeMinMax.y);
-			//thisTrans.localScale = new Vector3(num, num, 1f);
-			rb2d = GetComponent<Rigidbody2D>();
-			StartCoroutine(Behave());
 		}
+		rb2d = GetComponent<Rigidbody2D>();
+	}
 
-
-		private IEnumerator Behave()
+	
+	public override void OnEnable(){
+		try
 		{
+			target = FindObjectOfType<PlayerMovement>().transform;
+		}
+		catch (Exception ex)
+		{
+		}
+		//float num = UnityEngine.Random.Range(this.sizeMinMax.x, this.sizeMinMax.y);
+		//this.thisTrans.localScale = new Vector3(num, num, 1f);
+		this.rb2d = base.GetComponent<Rigidbody2D>();
+		//base.StartCoroutine(this.Behave());
+	}
+	
+	
+	private void FixedUpdate()
+	{
+		Vector2 dir = target.position - thisTrans.position;
+				float angle = Mathf.Atan2(dir.y, dir.x) * 57.29578f;
+				Quaternion rot = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
+				thisTrans.rotation = Quaternion.Slerp(thisTrans.rotation, rot, Time.deltaTime * turnRate);
+				rb2d.velocity =  thisTrans.right * Speed;
+	}
+
+
+	
+
+	/*private IEnumerator Behave(){
+		
 			while (gameObject.activeInHierarchy)
 			{
 				if (!target)
@@ -70,17 +81,18 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 				Vector2 dir = target.position - thisTrans.position;
 				float angle = Mathf.Atan2(dir.y, dir.x) * 57.29578f;
 				Quaternion rot = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
-				thisTrans.rotation = Quaternion.Slerp(thisTrans.rotation, rot, Time.fixedDeltaTime * turnRate);
-				rb2d.velocity = thisTrans.right * Speed;
+				thisTrans.rotation = Quaternion.Slerp(thisTrans.rotation, rot, Time.deltaTime * turnRate);
+				rb2d.velocity =  thisTrans.right * Speed;
 				yield return 0;
 			}
 			yield return 0;
 			yield break;
-		}
+		}*/
 
 
-		private void OnCollisionEnter2D(Collision2D col)
-		{
+	
+	
+		private void OnCollisionEnter2D(Collision2D col){
 			if (col.collider.CompareTag("Player"))
 			{
 				col.collider.GetComponent<PlayerStats>().Damage(5);
@@ -93,7 +105,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			}
 		}
 
-		// Token: 0x0400009A RID: 154
+		
 
 	}
 }

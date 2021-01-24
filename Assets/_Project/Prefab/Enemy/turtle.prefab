@@ -226,11 +226,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa771db2040083e48ad44760c867b495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
+  baseHealth: 0
+  pickupDropChance: 50
+  debrisAmount: {x: 0, y: 0}
+  gearAmount: {x: 0, y: 0}
+  explosionMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  curHealth: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
   target: {fileID: 0}
   aimTransform: {fileID: 0}
+  chargeSpeed: 0
   chargeDelay: 3
   attackRange: 3
   speed: 2

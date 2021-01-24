@@ -17,4 +17,4 @@ MonoBehaviour:
   Name: BasicSneal
   index: 0
   currentHealth: 50
-  maxHealth: 20
+  maxHealth: 50000

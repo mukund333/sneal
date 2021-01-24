@@ -51,13 +51,14 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		{
 
 			thisTrans = transform;
+			
 		}
 
 
 		public virtual void Start()
 		{
-
 			curHealth = baseHealth;
+			
 			//this.gm = GameMaster.instance;
 			thisTrans = transform;
 			try
@@ -75,7 +76,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		public void Damage(int dmg)
 		{
 			curHealth -= dmg;
-			//base.StartCoroutine(this.HitImmobalize());
+			StartCoroutine(this.HitImmobalize());
 			if (curHealth <= 0)
 			{
 				Kill();
@@ -93,7 +94,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			//	{
 			//		this.gm.ScorePlus();
 			//	}
-			//	this.curHealth = this.baseHealth;
+				this.curHealth = this.baseHealth;
 			//	if (UnityEngine.Random.Range(0f, 100f) < this.pickupDropChance)
 			//	{
 			//		PoolManager.instance.GetObject("Pickup", this.thisTrans.position, new Quaternion(0f, 0f, 0f, 0f));
@@ -144,10 +145,10 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		//}
 
 
-		private void disable()
+		/*private void disable()
 		{
 			gameObject.SetActive(false);
-		}
+		}*/
 
 
 		public virtual void OnEnable()

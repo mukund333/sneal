@@ -19,7 +19,7 @@ public class Turtle : EnemyManager
 	//common
 
 
-	bool isMoving =false;
+		bool isMoving =false;
 		[SerializeField]
 		private LayerMask layerMask;
 		private Rigidbody2D body2d;
@@ -60,6 +60,7 @@ public class Turtle : EnemyManager
 	private void Awake() {
 		animator = GetComponentInChildren<Animator> ();
 		body2d = GetComponent<Rigidbody2D>();
+		target = GameObject.Find("player");
 		SetStateMoving();
 
 		aimTransform = transform.Find("Aim");
@@ -216,7 +217,7 @@ public class Turtle : EnemyManager
 	bool CanChargeToTarget(Vector3 targetPosition, GameObject targetGameObject){
 		float targetDistance = Vector3.Distance(GetPosition(), targetPosition);
 
-		float maxChargeDistance = 7f;
+		//float maxChargeDistance = 7f;
 		/*if (targetDistance > attackRange)
 		{
 			return false;
@@ -322,8 +323,7 @@ public class Turtle : EnemyManager
 
 	}
 	
-	private void OnCollisionEnter2D(Collision2D col)
-		{
+	private void OnCollisionEnter2D(Collision2D col){
 			if (col.collider.CompareTag("Player"))
 			{
 				col.collider.GetComponent<PlayerStats>().Damage(5);
