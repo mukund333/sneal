@@ -12,12 +12,12 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		//public PlayerStruct curPlayer;
 		//private PlayerController player;
 
-		public PlayerData_SO currentPlayer;
+		public  PlayerData_SO currentPlayer;
 		private CurrentPlayerComponentData playerWeapon;
-		public PlayerDatabase playerDatabase;
+		public  PlayerDatabase playerDatabase;
+		public PlayerHealth playerHealth; 
 
-		public int baseHealth;
-		public int curHealth;
+		
 	
 		public event Action OnPlayerDeath;
 
@@ -37,7 +37,8 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 
 		private void OnEnable()
 		{
-			curHealth = baseHealth;
+			playerHealth = GetComponent<PlayerHealth>();
+			playerHealth.Health = playerHealth.MaxHealth;
 		}
 
 		void Start()
@@ -54,6 +55,8 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 			
 			playerDatabase = FindObjectOfType<PlayerDatabase>();
 
+		
+
 			SetPlayer(0);
 		}
 
@@ -62,9 +65,9 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 			//curPlayer = PlayerDatabase.instance.GetPlayer(index);
 			//currentPlayer = PlayerDatabase.instance.GetPlayer(index);
 			currentPlayer = playerDatabase.GetPlayer(index);
-			baseHealth = currentPlayer.maxHealth;
+			playerHealth.MaxHealth = currentPlayer.maxHealth;
 
-			curHealth = baseHealth;
+			playerHealth.Health = playerHealth.MaxHealth;
 		}
 
 		private void ResetPlayer()
@@ -74,7 +77,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 
 		public void Damage(int damage)
 		{
-			curHealth -= damage;
+			playerHealth.Health -= damage;
 			//this.OnPlayerHit();
 			//	base.StartCoroutine(base.SpriteFlash());
 			//	CameraController.instance.initializeCameraShake(3f, 0.1f);
@@ -82,7 +85,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 			//{
 			//	base.StartCoroutine(this.Smoke());
 			//}
-			if (curHealth <= 0)
+			if (playerHealth.Health <= 0)
 			{
 				Kill();
 			}
@@ -112,7 +115,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		/*------------------------------------------------------*/
 		public void Repair()
 		{
-			curHealth = baseHealth;
+			playerHealth.Health = playerHealth.MaxHealth;
 			Debug.Log("Repair");
 		}
 

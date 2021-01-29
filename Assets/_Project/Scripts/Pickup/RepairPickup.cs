@@ -12,8 +12,50 @@ public class RepairPickup : Pickup
 	public PlayerStats playerStats;
 	public CurrentPlayerComponentData player;
 
+	[SerializeField] float targetDistance;
+
+
+
+	[SerializeField] int _powerupHealthToGive = 0;
+	[SerializeField] int _powerupMaxHealthToGive = 10;
+
+
+	public int MaxHealthPowerup
+	{
+		get
+		{
+			return _powerupMaxHealthToGive;
+		}
+
+		set
+		{
+			_powerupMaxHealthToGive = Mathf.Clamp(value, 0, 200);
+		}
+	}
+
+	public int HealthPowerUp
+	{
+		get
+		{
+			return _powerupHealthToGive;
+		}
+
+		set
+		{
+			_powerupHealthToGive = Mathf.Clamp(value, 0, _powerupMaxHealthToGive);
+		}
+	}
+
+	private void OnValidate()
+	{
+		HealthPowerUp = _powerupHealthToGive;
+		MaxHealthPowerup = _powerupMaxHealthToGive;
+	}
+
 	private void OnEnable()
 	{
+		OnValidate();
+		HealthPowerUp = MaxHealthPowerup;
 		InitPickup();
 	}
 	private void Awake()
@@ -22,7 +64,13 @@ public class RepairPickup : Pickup
 		player = playerStats.GetComponent<CurrentPlayerComponentData>();
 	}
 
-	private void InitPickup()
+    private void Update()
+    {
+		DisableReapair();
+    }
+
+
+    private void InitPickup()
 	{
 
 		thisPickup = PickupDatabase.instance.GetPickupByName("Repair");
@@ -49,7 +97,7 @@ public class RepairPickup : Pickup
 
 		if (col.CompareTag("Player"))
 		{
-			playerStats.curHealth = 100;
+			playerStats.playerHealth.Health += HealthPowerUp;
 			gameObject.SetActive(false);
 		}
 	}
@@ -72,6 +120,16 @@ public class RepairPickup : Pickup
 	public override int GetMaxFreq()
 	{
 		return thisPickup.timeToMaxSpawnFreq;
+	}
+
+	public void DisableReapair()
+	{
+		 targetDistance = Vector3.Distance(this.transform.position, player.transform.position);
+
+		if (targetDistance > 20)
+		{
+			gameObject.SetActive(false);
+		}
 	}
 
 }
