@@ -24,7 +24,6 @@ public class CurrentPlayerComponentData : MonoBehaviour
 	
 	private float waitTime;
 
-
 	private void Awake()
 	{
 		weaponDB = FindObjectOfType<WeaponDB>();
@@ -51,14 +50,14 @@ public class CurrentPlayerComponentData : MonoBehaviour
 			startPowerGun();
 			isPowerGun = false;
 		}
+
+
 	}
 
 	void startPowerGun()
 	{
 		StartCoroutine(TimerCoroutine());
 	}
-
-	
 
 	public void SetRigidBodyData(int forceVelocity)
 	  {
