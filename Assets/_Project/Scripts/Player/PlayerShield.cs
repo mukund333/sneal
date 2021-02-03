@@ -110,7 +110,7 @@ public class PlayerShield : MonoBehaviour
     // reset the values time and damage
     private void OnDisable()
     {
-        shieldTime = 3f;
+        shieldTime = 30f;
         SheildHealth = 10;
        
     }

@@ -27,10 +27,26 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 		SpriteRenderer spriteRenderer;
 
-		
+		[SerializeField] private PlayerShield playerShield;
 
-		
-	public override void Start(){
+		public override void OnEnable()
+		{
+			playerShield = FindObjectOfType<PlayerShield>();
+			try
+			{
+				target = FindObjectOfType<PlayerMovement>().transform;
+			}
+			catch (Exception ex)
+			{
+			}
+			//float num = UnityEngine.Random.Range(this.sizeMinMax.x, this.sizeMinMax.y);
+			//this.thisTrans.localScale = new Vector3(num, num, 1f);
+			this.rb2d = base.GetComponent<Rigidbody2D>();
+			//base.StartCoroutine(this.Behave());
+		}
+
+
+		public override void Start(){
 		base.Start();
 		try
 		{
@@ -43,19 +59,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 	}
 
 	
-	public override void OnEnable(){
-		try
-		{
-			target = FindObjectOfType<PlayerMovement>().transform;
-		}
-		catch (Exception ex)
-		{
-		}
-		//float num = UnityEngine.Random.Range(this.sizeMinMax.x, this.sizeMinMax.y);
-		//this.thisTrans.localScale = new Vector3(num, num, 1f);
-		this.rb2d = base.GetComponent<Rigidbody2D>();
-		//base.StartCoroutine(this.Behave());
-	}
+	
 	
 	
 	private void FixedUpdate()
@@ -65,6 +69,9 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 				Quaternion rot = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
 				thisTrans.rotation = Quaternion.Slerp(thisTrans.rotation, rot, Time.deltaTime * turnRate);
 				rb2d.velocity =  thisTrans.right * Speed;
+
+			Debug.Log(playerShield.IsShieldOn);
+
 	}
 
 
@@ -95,7 +102,15 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		private void OnCollisionEnter2D(Collision2D col){
 			if (col.collider.CompareTag("Player"))
 			{
-				col.collider.GetComponent<PlayerStats>().Damage(5);
+				if(playerShield.IsShieldOn)
+                {
+					col.collider.GetComponent<PlayerShield>().DamageToShield(5);
+                }
+                else
+                {
+					col.collider.GetComponent<PlayerStats>().Damage(5);
+				}
+				
 				//CameraController.instance.initializeCameraShake(3f, 0.05f);
 				//ExplosionManager.instance.SpawnDynamicExplosion(col.contacts[0].point, new Vector2(1f, 2f), new Vector2(0.25f, 1.5f), 32, new Vector2(0.02f, 0.1f));
 

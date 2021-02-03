@@ -13,9 +13,6 @@ public class RepairPickup : Pickup
 	public CurrentPlayerComponentData player;
 
 	[SerializeField] float targetDistance;
-
-
-
 	[SerializeField] int _powerupHealthToGive = 0;
 	[SerializeField] int _powerupMaxHealthToGive = 10;
 

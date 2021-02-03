@@ -17,10 +17,12 @@ public class PickupSpawner : MonoBehaviour
 	public InvincibilityPickup invincibilityPickup;
 	public RepairPickup repairPickup;
 	public PowerGunPickup powerGunPickup;
+	public ShieldPickup shieldPickup;
 
 	int invincibilityPickupPoolId;
 	int repairPickupPoolId;
 	int powerGunPickupId;
+	int sheildPickupId;
 
 	public List<Pickup> pickupList;
 
@@ -34,6 +36,7 @@ public class PickupSpawner : MonoBehaviour
 		pickupList.Add(invincibilityPickup);
 		pickupList.Add(repairPickup);
 		pickupList.Add(powerGunPickup);
+		pickupList.Add(shieldPickup);
 
 		powerGunPickupId = PoolManager.instance.GetPoolID(powerGunPickup.GetPowerUpName());
 		powerGunPickup.SetPowerUpPoolId(powerGunPickupId);
@@ -43,6 +46,9 @@ public class PickupSpawner : MonoBehaviour
 
 		invincibilityPickupPoolId = PoolManager.instance.GetPoolID(invincibilityPickup.GetPowerUpName());
 		invincibilityPickup.SetPowerUpPoolId(invincibilityPickupPoolId);
+
+		sheildPickupId = PoolManager.instance.GetPoolID(shieldPickup.GetPowerUpName());
+		shieldPickup.SetPowerUpPoolId(sheildPickupId);
 
 		
 	}
@@ -78,7 +84,7 @@ public class PickupSpawner : MonoBehaviour
 	{
 		stopSpawn = false;
 
-		StartCoroutine(SpawnPowerups(pickupList[1]));//change with random number
+		StartCoroutine(SpawnPowerups(pickupList[3]));//change with random number
 		
 		StartCoroutine(Timer());
 	}

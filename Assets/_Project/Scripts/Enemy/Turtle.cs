@@ -55,10 +55,12 @@ public class Turtle : EnemyManager
 		Vector3 displacementFromTarget;
 		Vector3 directionToTarget;
 		Vector3 velocity;
-		
-	
-	private void Awake() {
-		animator = GetComponentInChildren<Animator> ();
+
+		[SerializeField] private PlayerShield playerShield;
+
+		private void Awake() {
+			playerShield = FindObjectOfType<PlayerShield>();
+			animator = GetComponentInChildren<Animator> ();
 		body2d = GetComponent<Rigidbody2D>();
 		target = GameObject.Find("player");
 		SetStateMoving();
@@ -326,7 +328,14 @@ public class Turtle : EnemyManager
 	private void OnCollisionEnter2D(Collision2D col){
 			if (col.collider.CompareTag("Player"))
 			{
-				col.collider.GetComponent<PlayerStats>().Damage(5);
+				if (playerShield.IsShieldOn)
+				{
+					col.collider.GetComponent<PlayerShield>().DamageToShield(5);
+				}
+				else
+				{
+					col.collider.GetComponent<PlayerStats>().Damage(5);
+				}
 				//CameraController.instance.initializeCameraShake(3f, 0.05f);
 				//ExplosionManager.instance.SpawnDynamicExplosion(col.contacts[0].point, new Vector2(1f, 2f), new Vector2(0.25f, 1.5f), 32, new Vector2(0.02f, 0.1f));
 

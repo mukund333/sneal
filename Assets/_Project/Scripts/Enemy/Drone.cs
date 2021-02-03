@@ -17,6 +17,7 @@ public class Drone : EnemyManager
 	
 	private State state;
 	
+	bool isDone;
 	//movement params
 	public  float speed = 2f;  
 	private float distanceToTarget;
@@ -24,44 +25,41 @@ public class Drone : EnemyManager
 	Vector3 directionToTarget;
 	Vector3 velocity;
 	
-	
 	private Rigidbody2D body2d;
 	[SerializeField] private GameObject target;
-	[SerializeField] private LayerMask layerMask;
+	[SerializeField] private LayerMask layerMask;	
 	
-	
-	
-	
-	[SerializeField] private float blastRange = 1f;
+	[SerializeField] private float blastRange;
 	[SerializeField] private float chargeDelay;
 	
 	
 	//animation 
-	//private Animator animator;
-	//private string animName = "";
+	[SerializeField]private Animator animator;
+					private string animName = "DroneBeepBeepAnimation";
 		
-	private void Awake() {
-		//animator = GetComponentInChildren<Animator> ();
+	private   void Awake() {
+		animator = GetComponentInChildren<Animator> ();
 		body2d = GetComponent<Rigidbody2D>();
 		
 		SetStateMoving();
-		
-
 	}
-	
-	
+		
 	private void Update(){
 		switch (state){
 
 			case State.Moving:
 		
 				DroneMovement();
+				
+				
 				Debug.Log("follow");
 				
 				if(distanceToTarget < blastRange)
 				{
+					//state = State.Detection;
 					
-					state = State.Detection;
+					 StartCoroutine(PlayAndWaitForAnim(animator, animName));	
+				
 				}
 				break;
 				
@@ -71,36 +69,25 @@ public class Drone : EnemyManager
 				
 				if (target != null)
 				{
-					
-					if (chargeDelay > 0)
+					if (chargeDelay <= 0)
 					{						
 						Debug.Log("beep beep beep animation");
 						state = State.Blast;
-						//StartCoroutine(PlayAndWaitForAnim(animator, animName));	
+						
+						
 					}
 					else
 					{
-							SetStateMoving();
-							Debug.Log("follow again");
-						
+							//SetStateMoving();
+							Debug.Log("follow again");	
 					}
-
-
 				}
-				
-				
-				
 				break;
 			
 			case State.Blast:
 				Debug.Log("Blast");
-				Detonate();
-				
-				
-				
+				Detonate();				
 				break;
-				
-			
 		}
 	}
 	
@@ -109,6 +96,8 @@ public class Drone : EnemyManager
 	}
 	
 	private void DroneMovement(){
+		
+		//defult animation
 		
 	    displacementFromTarget = target.transform.position - transform.position;
 	    directionToTarget = displacementFromTarget.normalized;
@@ -131,18 +120,16 @@ public class Drone : EnemyManager
 			
 	}  
 	
-	/*private void ChangeAnimationState(int value){
+	private void ChangeAnimationState(int value){
 		animator.SetInteger ("AnimState", value);
-	}*/
+	}
 	
 	public IEnumerator PlayAndWaitForAnim(Animator targetAnim, string stateName){
-
-
 		//targetAnim.Play(stateName);
 		//targetAnim.CrossFadeInFixedTime(stateName, 0.6f);
 
 		//animator.speed = 0.5f;
-		//ChangeAnimationState(1);
+		ChangeAnimationState(1);
 
 		//Wait until we enter the current state
 		while (!targetAnim.GetCurrentAnimatorStateInfo(0).IsName(stateName))
@@ -162,23 +149,23 @@ public class Drone : EnemyManager
 
 		//Done playing. Do something below!
 		Debug.Log("Done Playing");
-		state = State.Blast;
+		state = State.Detection;
 
 	}
 
 	private void Detonate(){
-		//ChangeAnimationState(0);
-		
-		Collider2D collider2D = Physics2D.OverlapCircle(transform.position, 32f, layerMask);
-			if (collider2D != null && collider2D.CompareTag("Player"))
-			{
-				//collider2D.GetComponent<SubmarineStats>().Damage(this.damage);
-				Debug.Log("damage to player");
-			}
-			
-			Debug.Log("drone die");
-			Kill();
+		ChangeAnimationState(2);
+				
+		float targetDistance = Vector3.Distance(this.transform.position, player.transform.position);
+
+		if (targetDistance <= 10)
+		{
+			//gameObject.SetActive(false);
+			Debug.Log("damage to player");
+		}
+		//Kill();
+		Debug.Log("drone die");
 			
 	}
-}
+  }
 }

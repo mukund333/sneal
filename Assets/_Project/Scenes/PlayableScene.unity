@@ -263,7 +263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350677729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -40}
+  m_LocalPosition: {x: 0, y: -2, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1292594823}
@@ -372,7 +372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424540404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1164150837}
@@ -525,9 +525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1911b34a38ed29047a5649dcec7c0ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shieldHealth: 3
+  _shieldHealth: 10
   _maxShieldHealth: 120
-  shieldTime: 3
+  shieldTime: 30
   shieldSprite: {fileID: 0}
   IsShieldOn: 0
 --- !u!1 &492116947
@@ -608,7 +608,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492116947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -40}
+  m_LocalPosition: {x: 0, y: -2, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1007,6 +1007,14 @@ MonoBehaviour:
     limit: 1
     poolHolder: {fileID: 0}
     pool: []
+  - Name: Shield
+    id: 0
+    prefab: {fileID: 5786534648010336533, guid: ad35877480d11894e962bcb7089e2c17,
+      type: 3}
+    poolSize: 5
+    limit: 1
+    poolHolder: {fileID: 0}
+    pool: []
 --- !u!114 &1222984967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,6 +1032,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 241141fe7848ed445852c72bc2d8ae7c, type: 2}
   - {fileID: 11400000, guid: 36f558ca28186d140a2757a7dace0244, type: 2}
   - {fileID: 11400000, guid: 1153e55278d0d9648a1d7cb3a8be5647, type: 2}
+  - {fileID: 11400000, guid: 19b2833d18da4c8438aec0eadf5b5b78, type: 2}
 --- !u!114 &1222984968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1150,6 +1159,8 @@ MonoBehaviour:
   repairPickup: {fileID: -3619101971881514774, guid: 8c418eae4b89c614e9066e705125a359,
     type: 3}
   powerGunPickup: {fileID: 5089823116787705612, guid: 200ded0e858a0624eafa2ae40d4af1b3,
+    type: 3}
+  shieldPickup: {fileID: -8041117862120703261, guid: ad35877480d11894e962bcb7089e2c17,
     type: 3}
   pickupList: []
 --- !u!1 &1292594822
@@ -1468,7 +1479,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1589764847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1489,14 +1500,15 @@ MonoBehaviour:
   explosionMask:
     serializedVersion: 2
     m_Bits: 0
-  curHealth: 0
+  curHealth: 10
   speed: 10
   target: {fileID: 424540404}
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
-  blastRange: 3
+  blastRange: 5
   chargeDelay: 2
+  animator: {fileID: 0}
 --- !u!50 &1589764848
 Rigidbody2D:
   serializedVersion: 4
@@ -1842,6 +1854,7 @@ GameObject:
   - component: {fileID: 2046786792}
   - component: {fileID: 2046786794}
   - component: {fileID: 2046786793}
+  - component: {fileID: 2046786795}
   m_Layer: 5
   m_Name: JoystickImage
   m_TagString: Untagged
@@ -1905,6 +1918,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2046786791}
   m_CullTransparentMesh: 0
+--- !u!95 &2046786795
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2046786791}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d6c5fc7c099cbe243b3c076ebe1b0f4e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2117143725
 GameObject:
   m_ObjectHideFlags: 0

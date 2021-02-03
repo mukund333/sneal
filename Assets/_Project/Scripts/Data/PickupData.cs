@@ -14,7 +14,10 @@ public class PickupData : ScriptableObject
 
 		Speed,
 
-		Weapon
+		Weapon,
+
+		Shield
+
 
 
 	}
