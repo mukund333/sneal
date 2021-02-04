@@ -20,7 +20,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		public Vector2 debrisAmount;
 
 
-		public Vector2 gearAmount;
+		public Vector2 coinAmount;
 
 
 		public LayerMask explosionMask;
@@ -37,7 +37,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		//protected GameMaster gm;
 
 
-		private int gearID;
+		private int coinID;
 
 
 		private int debrisID;
@@ -68,7 +68,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			catch
 			{
 			}
-			//	this.gearID = PoolManager.instance.GetPoolID("Gear");
+				this.coinID = PoolManager.instance.GetPoolID("Coin");
 			//this.debrisID = PoolManager.instance.GetPoolID("Debris");
 		}
 
@@ -104,6 +104,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			//	SoundManager.instance.PlayClip("Explosion", this.thisTrans.position.x);
 			//	this.DispenseDebris();
 			//	this.DispenseGears();
+			DispenseCoins();
 			gameObject.SetActive(false);
 		}
 
@@ -143,6 +144,18 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		//		PoolManager.instance.GetObject(this.gearID, base.transform.position, Quaternion.identity);
 		//	}
 		//}
+		
+		public void DispenseCoins()
+		{
+			//int num = (int)UnityEngine.Random.Range(this.coinAmount.x, this.coinAmount.y);
+			int num =2;
+			for (int i = 0; i < num; i++)
+			{
+				PoolManager.instance.GetObject(this.coinID, base.transform.position, Quaternion.identity);
+			}
+			
+			
+		}
 
 
 		/*private void disable()

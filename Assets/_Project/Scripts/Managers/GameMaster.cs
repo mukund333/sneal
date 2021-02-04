@@ -7,6 +7,8 @@ using SnealUltra.Assets._Project.Scripts.Player;
 public class GameMaster : MonoBehaviour
 {
     private static GameMaster _instance;
+	
+	public int score;
 
 	//public event Action OnGameRestart;
 
@@ -16,8 +18,7 @@ public class GameMaster : MonoBehaviour
 	[SerializeField]
 	PlayerStats playerStats;
 
-	public static GameMaster instance
-	{
+	public static GameMaster instance{
 		get
 		{
 			if (GameMaster._instance == null)
@@ -28,19 +29,22 @@ public class GameMaster : MonoBehaviour
 		}
 	}
 
-	private void Start()
-	{
+	private void Start(){
 		playerStats = FindObjectOfType<PlayerStats>();
 		playerStats.OnPlayerDeath += EndGame;
 		
 	}
 
-	public void EndGame()
-	{
+	public void EndGame(){
 
 
 		this.OnGameEnd();
 
 	}
 
+	public void ScorePlus()
+	{
+		this.score++;
+		//this.scoreText.text = this.score.ToString();
+	}
 }
