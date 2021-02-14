@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 9165209532056359125}
   - component: {fileID: 9165209532056359131}
   - component: {fileID: 9165209532056359124}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7807458542575354340, guid: 609b2616ce3ec174c8a3ff96c78ea3f8,
+  m_Sprite: {fileID: 7790170452877412977, guid: 852ad15731deb824bb310e19232c962a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -114,9 +114,9 @@ GameObject:
   - component: {fileID: 9165209532447279250}
   - component: {fileID: 9165209532447279251}
   - component: {fileID: 9165209532447279244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Drone
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9165209532447279245}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff16cc4e14ffe5f4cb99068b0e617d48, type: 3}
   m_Name: 
@@ -192,7 +192,7 @@ MonoBehaviour:
   baseHealth: 5000
   pickupDropChance: 50
   debrisAmount: {x: 0, y: 0}
-  gearAmount: {x: 0, y: 0}
+  coinAmount: {x: 0, y: 0}
   explosionMask:
     serializedVersion: 2
     m_Bits: 0
@@ -202,8 +202,11 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
-  blastRange: 5
+  blastRange: 1
   chargeDelay: 2
+  firstWheel: {fileID: 0}
+  secondWheel: {fileID: 0}
+  thirdWheel: {fileID: 0}
   animator: {fileID: 0}
 --- !u!1 &9165209532465841003
 GameObject:
@@ -216,9 +219,9 @@ GameObject:
   - component: {fileID: 9165209532465841001}
   - component: {fileID: 9165209532465841000}
   - component: {fileID: 9165209532465841002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DroneWheel1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,8 +233,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9165209532465841003}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.053099, y: 3.2566369, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9165209532447279249}
@@ -276,7 +279,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bc9808503c9b3b45b2c0fcb067c55dc, type: 3}
+  m_Sprite: {fileID: -7536112341739467633, guid: 852ad15731deb824bb310e19232c962a,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -301,8 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pivot: {fileID: 9165209532447279249}
   ThisTransform: {fileID: 0}
-  PivotDistance: 1
-  RotSpeed: 150
+  PivotDistance: 0.4
+  RotSpeed: 350
   RotZ: 0
   Angle: 0
 --- !u!1 &9165209533300725807
@@ -316,9 +320,9 @@ GameObject:
   - component: {fileID: 9165209533300725806}
   - component: {fileID: 9165209533300725804}
   - component: {fileID: 9165209533300725805}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DroneWheel3
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,8 +334,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9165209533300725807}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.053099, y: 3.2566369, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9165209532447279249}
@@ -376,7 +380,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bc9808503c9b3b45b2c0fcb067c55dc, type: 3}
+  m_Sprite: {fileID: -7536112341739467633, guid: 852ad15731deb824bb310e19232c962a,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -401,8 +406,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pivot: {fileID: 9165209532447279249}
   ThisTransform: {fileID: 0}
-  PivotDistance: 1
-  RotSpeed: 150
+  PivotDistance: 0.4
+  RotSpeed: 350
   RotZ: 0
   Angle: 230
 --- !u!1 &9165209533814506137
@@ -416,9 +421,9 @@ GameObject:
   - component: {fileID: 9165209533814506136}
   - component: {fileID: 9165209533814506142}
   - component: {fileID: 9165209533814506143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DroneWheel2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,8 +435,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9165209533814506137}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 28.053099, y: 3.2566369, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9165209532447279249}
@@ -476,7 +481,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1bc9808503c9b3b45b2c0fcb067c55dc, type: 3}
+  m_Sprite: {fileID: -7536112341739467633, guid: 852ad15731deb824bb310e19232c962a,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -501,7 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pivot: {fileID: 9165209532447279249}
   ThisTransform: {fileID: 0}
-  PivotDistance: 1
-  RotSpeed: 150
+  PivotDistance: 0.4
+  RotSpeed: 350
   RotZ: 0
   Angle: 120

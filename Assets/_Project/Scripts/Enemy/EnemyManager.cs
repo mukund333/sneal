@@ -76,7 +76,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		public void Damage(int dmg)
 		{
 			curHealth -= dmg;
-			StartCoroutine(this.HitImmobalize());
+			//StartCoroutine(this.HitImmobalize());
 			if (curHealth <= 0)
 			{
 				Kill();
@@ -104,7 +104,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			//	SoundManager.instance.PlayClip("Explosion", this.thisTrans.position.x);
 			//	this.DispenseDebris();
 			//	this.DispenseGears();
-			DispenseCoins();
+	//DispenseCoins();
 			gameObject.SetActive(false);
 		}
 

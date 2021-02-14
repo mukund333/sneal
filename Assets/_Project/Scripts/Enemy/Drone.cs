@@ -7,7 +7,11 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 {
 public class Drone : EnemyManager
 {
-	private enum State{
+
+		
+		
+
+		private enum State{
 			Moving,
 			Detection,
 			Blast,
@@ -32,17 +36,37 @@ public class Drone : EnemyManager
 	[SerializeField] private float blastRange;
 	[SerializeField] private float chargeDelay;
 	
-	
-	//animation 
-	[SerializeField]private Animator animator;
-					private string animName = "DroneBeepBeepAnimation";
+	bool isBlasting =false;
+    [SerializeField]    private GameObject firstWheel;
+	[SerializeField]	private GameObject secondWheel;
+	[SerializeField]	private GameObject thirdWheel;
+
+
+		//animation 
+		[SerializeField]private Animator animator;
+					//private string animName = "DroneBeepBeepAnimation";
+					private string animName = "DroneBlastAnimation";
 		
 	private   void Awake() {
 		animator = GetComponentInChildren<Animator> ();
 		body2d = GetComponent<Rigidbody2D>();
 		
 		SetStateMoving();
-	}
+		isBlasting=false;
+
+			//Assigns the transform of the first child of the Game Object this script is attached to.
+			//meeple = this.gameObject.transform.GetChild(0);
+
+			//Assigns the first child of the first child of the Game Object this script is attached to.
+			firstWheel = this.gameObject.transform.GetChild(1).gameObject;
+			secondWheel = this.gameObject.transform.GetChild(2).gameObject;
+			thirdWheel = this.gameObject.transform.GetChild(3).gameObject;
+			//firstWheel.SetActive(false);
+
+
+
+
+		}
 		
 	private void Update(){
 		switch (state){
@@ -56,14 +80,15 @@ public class Drone : EnemyManager
 				
 				if(distanceToTarget < blastRange)
 				{
+					state = State.Blast;
 					//state = State.Detection;
 					
-					 StartCoroutine(PlayAndWaitForAnim(animator, animName));	
+					 //StartCoroutine(PlayAndWaitForAnim(animator, animName));	
 				
 				}
 				break;
 				
-			case State.Detection:
+			/*case State.Detection:
 				
 				chargeDelay -= Time.deltaTime;
 				
@@ -82,13 +107,21 @@ public class Drone : EnemyManager
 							Debug.Log("follow again");	
 					}
 				}
-				break;
+				break;*/
 			
 			case State.Blast:
 				Debug.Log("Blast");
-				Detonate();				
-				break;
+					//Detonate();
+					//	StartCoroutine(PlayAndWaitForAnim(animator, animName));	
+					firstWheel.SetActive(false);
+					secondWheel.SetActive(false);
+					thirdWheel.SetActive(false);
+
+					break;
 		}
+		
+		
+		
 	}
 	
 	private void SetStateMoving(){
@@ -129,13 +162,14 @@ public class Drone : EnemyManager
 		//targetAnim.CrossFadeInFixedTime(stateName, 0.6f);
 
 		//animator.speed = 0.5f;
-		ChangeAnimationState(1);
+		ChangeAnimationState(2);
 
 		//Wait until we enter the current state
-		while (!targetAnim.GetCurrentAnimatorStateInfo(0).IsName(stateName))
+		/*while (!targetAnim.GetCurrentAnimatorStateInfo(0).IsName(stateName))
 		{
 			yield return null;
-		}
+			Debug.Log("null");
+		}*/
 
 		float counter = 0;
 		float waitTime = targetAnim.GetCurrentAnimatorStateInfo(0).length;
@@ -144,28 +178,66 @@ public class Drone : EnemyManager
 		while (counter < (waitTime))
 		{
 			counter += Time.deltaTime;
+			Debug.Log("counter ");
 			yield return null;
 		}
 
 		//Done playing. Do something below!
 		Debug.Log("Done Playing");
-		state = State.Detection;
+			//state = State.Detection;
+			//Detonate();
+			Kill();
+			
 
+			
 	}
 
-	private void Detonate(){
-		ChangeAnimationState(2);
-				
-		float targetDistance = Vector3.Distance(this.transform.position, player.transform.position);
+       
+
+        private void Detonate(){
+			//ChangeAnimationState(2);
+			
+			float targetDistance = Vector3.Distance(this.transform.position, player.transform.position);
 
 		if (targetDistance <= 10)
 		{
 			//gameObject.SetActive(false);
 			Debug.Log("damage to player");
 		}
-		//Kill();
+		
+		
+	
+		
 		Debug.Log("drone die");
+		
+	
 			
 	}
+			
+			
+	private void OnCollisionEnter2D(Collision2D col){
+		
+		if (col.collider.CompareTag("Player") )
+		{
+			Debug.Log("Player  collide");
+			StartCoroutine(PlayAndWaitForAnim(animator, animName));	
+			/*if(playerShield.IsShieldOn)
+                {
+					col.collider.GetComponent<PlayerShield>().DamageToShield(5);
+                }
+                else
+                {
+					col.collider.GetComponent<PlayerStats>().Damage(5);
+				}*/
+				
+				//CameraController.instance.initializeCameraShake(3f, 0.05f);
+				//ExplosionManager.instance.SpawnDynamicExplosion(col.contacts[0].point, new Vector2(1f, 2f), new Vector2(0.25f, 1.5f), 32, new Vector2(0.02f, 0.1f));
+
+
+				//Kill();
+
+			}
+		} 
+
   }
 }
