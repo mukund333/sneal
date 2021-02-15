@@ -520,7 +520,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424540404}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1911b34a38ed29047a5649dcec7c0ad1, type: 3}
   m_Name: 
@@ -1871,11 +1871,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Drone
-      objectReference: {fileID: 0}
-    - target: {fileID: 9165209532447279245, guid: 34c6c6785cbadcc479c2b727e7bab1c1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9165209532447279249, guid: 34c6c6785cbadcc479c2b727e7bab1c1,
         type: 3}

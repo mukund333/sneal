@@ -41,6 +41,7 @@ public class Drone : EnemyManager
 	[SerializeField]	private GameObject secondWheel;
 	[SerializeField]	private GameObject thirdWheel;
 
+		[SerializeField] private PlayerShield playerShield;
 
 		//animation 
 		[SerializeField]private Animator animator;
@@ -48,6 +49,7 @@ public class Drone : EnemyManager
 					private string animName = "DroneBlastAnimation";
 		
 	private   void Awake() {
+		playerShield = FindObjectOfType<PlayerShield>();
 		animator = GetComponentInChildren<Animator> ();
 		body2d = GetComponent<Rigidbody2D>();
 		
@@ -221,14 +223,15 @@ public class Drone : EnemyManager
 		{
 			Debug.Log("Player  collide");
 			StartCoroutine(PlayAndWaitForAnim(animator, animName));	
-			/*if(playerShield.IsShieldOn)
+			
+			if(playerShield.IsShieldOn)
                 {
 					col.collider.GetComponent<PlayerShield>().DamageToShield(5);
                 }
                 else
                 {
 					col.collider.GetComponent<PlayerStats>().Damage(5);
-				}*/
+				}
 				
 				//CameraController.instance.initializeCameraShake(3f, 0.05f);
 				//ExplosionManager.instance.SpawnDynamicExplosion(col.contacts[0].point, new Vector2(1f, 2f), new Vector2(0.25f, 1.5f), 32, new Vector2(0.02f, 0.1f));
