@@ -62,7 +62,7 @@ public class CurrentWeaponData : MonoBehaviour
         return playerRecoilData.isRecoilingComplete;
     }
 
-    public int GetRigidbodyData()
+    public float GetRigidbodyData()
     {
         return playerRecoilData.rigidbodyData;
     }

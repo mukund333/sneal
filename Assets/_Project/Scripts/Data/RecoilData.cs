@@ -6,7 +6,7 @@ using UnityEngine;
 public class RecoilData : ScriptableObject
 {
     public bool isRecoilingComplete;
-    public int rigidbodyData = 0;
+    public float rigidbodyData = 0;
 	
 	public void SetRecoil(bool isRecoil)
 	{

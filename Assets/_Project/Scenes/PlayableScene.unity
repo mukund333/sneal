@@ -191,7 +191,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7999969274959407159, guid: 4d9e733820393704fb0731fcc7c263d9,
+  m_Sprite: {fileID: 1988036239678446952, guid: 76381e69eff112b4cba6eb2395b8b5d0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 424540408}
   m_Lens:
-    FieldOfView: 15
+    FieldOfView: 30
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -263,7 +263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350677729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: -40}
+  m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1292594823}
@@ -286,8 +286,8 @@ GameObject:
   - component: {fileID: 424540410}
   - component: {fileID: 424540407}
   - component: {fileID: 424540411}
-  - component: {fileID: 424540412}
   - component: {fileID: 424540414}
+  - component: {fileID: 424540412}
   - component: {fileID: 424540413}
   - component: {fileID: 424540415}
   - component: {fileID: 424540417}
@@ -342,7 +342,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
+  m_LinearDrag: 0.3
   m_AngularDrag: 5
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -372,7 +372,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424540404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1164150837}
@@ -435,6 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58bc9b8a4dad0a8488e55966c32ff559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joystick: {fileID: 0}
   turnRate: 8
 --- !u!114 &424540412
 MonoBehaviour:
@@ -461,8 +462,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4496f9def404ea74789c5eec5c6752dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWeaponChange: 0
+  speed: 7
+  accCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  acc: 0
+  accSpeed: 5
+  move: 1
   playerData: {fileID: 424540416}
   currentWeaponData: {fileID: 11400000, guid: 3dfd5ecefb615e940aa522c321982f90, type: 2}
+  waitTime: 0
 --- !u!114 &424540414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f1434421c490b44943365d698f2d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponNumber: 1
+  weaponNumber: 3
   isEquipDirect: 0
   isPassWeapon: 0
   isPowerGun: 0
@@ -520,7 +551,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424540404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1911b34a38ed29047a5649dcec7c0ad1, type: 3}
   m_Name: 
@@ -542,6 +573,7 @@ GameObject:
   - component: {fileID: 492116949}
   - component: {fileID: 492116948}
   - component: {fileID: 492116951}
+  - component: {fileID: 492116952}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -582,7 +614,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 15
+  field of view: 30
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -608,7 +640,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492116947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: -40}
+  m_LocalPosition: {x: 0, y: 0, z: -40}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -648,6 +680,29 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &492116952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492116947}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d27b6979aad9a94f80c254fb6e7d7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  follow: 1
+  dampTime: 0.1
+  target: {fileID: 424540404}
+  cam: {fileID: 492116949}
+  xOffset: 0
+  yOffset: 0
+  safeZoneX: 0
+  safeZoneY: 0
+  bounds: 0
+  minBounds: {x: 0, y: 0}
+  maxBounds: {x: 0, y: 0}
 --- !u!1 &1035675730
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +870,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164150836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.492, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 424540408}
@@ -940,7 +995,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222984963}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 117.142525, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1294,9 +1349,9 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 3
+  m_YDamping: 3
+  m_ZDamping: 3
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
@@ -1305,8 +1360,8 @@ MonoBehaviour:
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_SoftZoneWidth: 0.86
+  m_SoftZoneHeight: 0.86
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -1871,6 +1926,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 9165209532447279245, guid: 34c6c6785cbadcc479c2b727e7bab1c1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9165209532447279249, guid: 34c6c6785cbadcc479c2b727e7bab1c1,
         type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: New Recoil Data
   m_EditorClassIdentifier: 
   isRecoilingComplete: 0
-  rigidbodyData: 0
+  rigidbodyData: 24.9

@@ -59,7 +59,7 @@ public class CurrentPlayerComponentData : MonoBehaviour
 		StartCoroutine(TimerCoroutine());
 	}
 
-	public void SetRigidBodyData(int forceVelocity)
+	public void SetRigidBodyData(float forceVelocity)
 	  {
 		 recoilData.rigidbodyData = forceVelocity;  
 		
@@ -126,6 +126,6 @@ public class CurrentPlayerComponentData : MonoBehaviour
 		yield return new WaitForSeconds(5f);
 		weaponNumber = previusGeneralWeapon;
 		isEquipDirect = true;
-		Debug.Log("hi");
+		
 	}
 }

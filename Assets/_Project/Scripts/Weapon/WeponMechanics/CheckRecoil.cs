@@ -8,7 +8,7 @@ using UnityEngine.PlayerLoop;
 public class CheckRecoil : MixinBase
 {
     public CurrentWeaponData recoilData;
-   
+
     public bool isApplyingThrust = false;
     public bool isRecoiling;
 
@@ -16,7 +16,7 @@ public class CheckRecoil : MixinBase
     {
         if (recoilData.GetRigidbodyData() == 0)
         {
-            
+
             return isRecoiling = true;
         }
 
@@ -27,26 +27,26 @@ public class CheckRecoil : MixinBase
     {
         isApplyingThrust = true;
         isRecoiling = true;
-      
+
     }
 
     private void Update()
     {
 
-        if(isRecoiling == true && isApplyingThrust == true)
+        if (isRecoiling == true && isApplyingThrust == true)
         {
             //recoilData.isRecoilingComplete = true;
             recoilData.SetRecoil(true);
             isApplyingThrust = false;
         }
 
-        if(recoilData.GetRigidbodyData() > 0)
+        if (recoilData.GetRigidbodyData() > 0)
         {
             //recoilData.isRecoilingComplete = false;//set data
             recoilData.SetRecoil(false);
             isRecoiling = false;
         }
-        if(recoilData.GetRigidbodyData() == 0)
+        if (recoilData.GetRigidbodyData() == 0)
         {
             isRecoiling = true;
         }

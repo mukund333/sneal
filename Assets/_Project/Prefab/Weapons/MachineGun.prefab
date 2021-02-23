@@ -84,13 +84,11 @@ MonoBehaviour:
   checkMixins:
   - {fileID: 6011827699813287557}
   - {fileID: 6011827699813287556}
-  - {fileID: 6011827699813287555}
   actionsMixins:
   - {fileID: 6011827699813287562}
   - {fileID: 6011827699813287557}
   - {fileID: 6011827699813287556}
   - {fileID: 6011827699813287559}
-  - {fileID: 6011827699813287555}
 --- !u!114 &6011827699813287557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +126,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6011827699813287561}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: efd21dec6c5078b46b4d5ef4b79592f1, type: 3}
   m_Name: 

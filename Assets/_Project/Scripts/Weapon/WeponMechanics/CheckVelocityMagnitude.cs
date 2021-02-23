@@ -8,7 +8,7 @@ public class CheckVelocityMagnitude : MonoBehaviour
    
     private Rigidbody2D rb2d;
   
-    int forceSpeed;
+    float forceSpeed;
 
     
 	
@@ -30,9 +30,10 @@ public class CheckVelocityMagnitude : MonoBehaviour
 		
     }
 
-    private int VelocityMagnitude()
+    private float VelocityMagnitude()
     {
-        return (int)rb2d.velocity.magnitude;
+        float v = (float)System.Math.Round(rb2d.velocity.magnitude, 1);
+        return v;
     }
 	
 

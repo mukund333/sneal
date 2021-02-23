@@ -8,7 +8,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
     {
 
         private Vector2 direction;
-        private VirtualJoystick joystick;
+        [SerializeField] private VirtualJoystick joystick;
         [SerializeField]
         private float turnRate = 8f;
 

@@ -21,6 +21,6 @@ MonoBehaviour:
   projIndex: 2
   shots: 100
   angle: 0
-  thrust: 100
-  drag: 10
-  lastShotTime: 0.5
+  thrust: 32
+  drag: 4
+  lastShotTime: 0.25

@@ -19,7 +19,7 @@ MonoBehaviour:
   wepType: 3
   spread: 15
   projIndex: 3
-  shots: 100
+  shots: 1000
   angle: 0
   thrust: 250
   drag: 300
