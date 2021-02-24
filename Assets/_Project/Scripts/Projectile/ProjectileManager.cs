@@ -9,61 +9,50 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 	[RequireComponent(typeof(Collider2D))]
 	public class ProjectileManager : MonoBehaviour
 	{
-		private ProjectileSpec projectile;
-
-
-		private ProjectileDatabase projectileDatabase;
-
-		public int dmg = 1;
+		//[SerializeField]ProjectileDatabase projectileDatabase;
+		[SerializeField]ProjectileData projectileData;
 
 		Rigidbody2D body2d;
-		public float bulletSpeed = 250f;
-		public float speed = 0f;
+
+
+		private SpriteRenderer spriteRenderer; 
+		public int damage = 1;
+		
+		public float bulletSpeed = 2f;
+		public float time = 0.1f;
+
 
 		private void Awake()
 		{
 			body2d = GetComponent<Rigidbody2D>();
-			projectileDatabase = ProjectileDatabase.instance;
-			dmg = 1;
+			damage = projectileData.bulletDamage;
+			bulletSpeed = projectileData.bulletSpeed;
+			time = projectileData.bulletLifeTime;
+			spriteRenderer = GetComponent<SpriteRenderer>();
+			
 		}
 		void Start()
 		{
-
+			spriteRenderer.sprite = projectileData.bulletSprite;
 		}
 
 
 		void FixedUpdate()
 		{
-			body2d.AddForce(-transform.right * bulletSpeed);
-			speed = body2d.velocity.magnitude;
+            body2d.AddForce(-transform.right * bulletSpeed);
+          
 
-			StartCoroutine("OnDisableUnObjects");
-		}
+            StartCoroutine("OnDisableUnObjects");
+            //BulletDistance();
+        }
 
-		public void Init(int projectileIndex)
-		{
-			projectile = projectileDatabase.GetProjectileByIndex(projectileIndex);
-		}
+		
 		public void BulletConfig()
 		{
 
 
 			body2d.velocity = new Vector2(0, 0);
 		}
-
-
-
-
-
-		//void OnObjectReuse()
-		//{
-		//	BulletConfig();
-		//	PoolManager.instance.ReturnObjectToPool(this);
-
-		//}
-
-
-
 
 		private void OnTriggerEnter2D(Collider2D col)
 		{
@@ -72,7 +61,7 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 				if (col.CompareTag("Enemy"))
 				{
 
-					col.gameObject.GetComponent<EnemyManager>().Damage(dmg);
+					col.gameObject.GetComponent<EnemyManager>().Damage(damage);
 
 					Hit();
 					Debug.Log("enemy hit" + col.gameObject.name);
@@ -123,11 +112,13 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 
 		IEnumerator OnDisableUnObjects()
 		{
-			yield return new WaitForSeconds(2);
+			yield return new WaitForSeconds(time);
 			gameObject.SetActive(false);
 			StopCoroutine("OnDisableUnObjects");
 
 		}
+
+		
 
 	}
 }

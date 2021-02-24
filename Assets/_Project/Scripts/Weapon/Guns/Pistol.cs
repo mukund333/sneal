@@ -14,7 +14,7 @@ public class Pistol :MixinBase
 	
 	 private void Shoot()
      {
-          PoolManager.instance.GetObject("Projectile", weaponDefination.GetPlayerPosition(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z));   
+          PoolManager.instance.GetObject("PistolBullet", weaponDefination.GetPlayerPosition(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z));   
      }
    
 }

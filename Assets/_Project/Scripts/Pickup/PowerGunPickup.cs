@@ -33,7 +33,7 @@ public class PowerGunPickup : Pickup
 		weaponDB = FindObjectOfType<WeaponDB>();
 		// range of powerup gun
 		powerupGunNumber = Random.Range(0, 3);
-		Debug.Log("powergun number"+powerupGunNumber);
+		//Debug.Log("powergun number"+powerupGunNumber);
 		
     }
 

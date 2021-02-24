@@ -19,6 +19,6 @@ public class RifleGun : MixinBase
      {
 		int num2 = Choose(-1, 1, new int[0]);
 
-        PoolManager.instance.GetObject("Projectile", playerTransformData.GetPlayerPosition(), Quaternion.Euler(0f, 0f, playerTransformData.GetPlayerRotation().eulerAngles.z + num2));
+        PoolManager.instance.GetObject("RiffleBullet", playerTransformData.GetPlayerPosition(), Quaternion.Euler(0f, 0f, playerTransformData.GetPlayerRotation().eulerAngles.z + num2));
      }
 }

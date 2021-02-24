@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Recoil : MonoBehaviour
+public class PlayerPhysics : MonoBehaviour
 {
     private enum State
     {
@@ -65,11 +65,11 @@ public class Recoil : MonoBehaviour
     }
     void CheckWeaponPhysics()
     {
-        Debug.Log("check weapon number");
+       // Debug.Log("check weapon number");
         if (playerData.weaponNumber == 2)
         {
             rb2d.drag = 10f;
-            Debug.Log(" weapon number 2");
+        //    Debug.Log(" weapon number 2");
             state = State.RecoilPhysicsState;
         }
         else {
@@ -104,14 +104,14 @@ public class Recoil : MonoBehaviour
 
             case State.InitialPhysics:
                 rb2d.velocity = Vector2.zero;
-                Debug.Log("InitialPhysics");
+                //Debug.Log("InitialPhysics");
 
                 break;
 
             case State.CurvePhysicsState:
                
                 CurvePhysics();
-                Debug.Log("CurvePhysics");
+                //Debug.Log("CurvePhysics");
                 break;
 
             case State.RecoilPhysicsState:
@@ -136,7 +136,7 @@ public class Recoil : MonoBehaviour
                     state = State.RecoilPhysicsState;
                 }
                 else {
-                    Debug.Log("NoPhysics");
+                   // Debug.Log("NoPhysics");
                 }
 
                 break;
@@ -144,7 +144,7 @@ public class Recoil : MonoBehaviour
     }
     private void RecoilPhysics()
     {
-        Debug.Log("RecoilPhysics");
+       // Debug.Log("RecoilPhysics");
         rb2d.drag = currentWeaponData.drag;
         rb2d.AddForce(transform.right *currentWeaponData.thrust, ForceMode2D.Impulse);
     }

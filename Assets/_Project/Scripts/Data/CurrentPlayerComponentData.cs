@@ -19,6 +19,7 @@ public class CurrentPlayerComponentData : MonoBehaviour
 	public PlayerTransformData playerTransformData;
 	public WeaponDB weaponDB;
 	WeaponDataHolder weaponDataHolder;
+	[SerializeField] ProjectileDatabase projectileDatabase; 
 
 	int previusGeneralWeapon;
 	
@@ -27,7 +28,7 @@ public class CurrentPlayerComponentData : MonoBehaviour
 	private void Awake()
 	{
 		weaponDB = FindObjectOfType<WeaponDB>();
-
+		projectileDatabase = FindObjectOfType<ProjectileDatabase>();
 		//GenerateWeaponByName();
 		//AutoGeratedWeapon();
 		GenerateWeaponByType();
@@ -41,6 +42,7 @@ public class CurrentPlayerComponentData : MonoBehaviour
 		if(isEquipDirect==true)
 		{
 			AutoGeratedWeapon();
+			SetBulletData();
 			isEquipDirect = false;
 			isPassWeapon = true;
 		}
@@ -50,6 +52,8 @@ public class CurrentPlayerComponentData : MonoBehaviour
 			startPowerGun();
 			isPowerGun = false;
 		}
+
+		
 
 
 	}
@@ -65,9 +69,10 @@ public class CurrentPlayerComponentData : MonoBehaviour
 		
 	  }
 	  
-	  public void SetPlayerPosition(Vector3 playerPosition)
+	  public void SetPlayerPosition(Vector3 playerPosition, Vector3 playerShootPoint)
 	  {
          playerTransformData.playerPosition = playerPosition;
+		playerTransformData.playerShootPoint = playerShootPoint;
 	  }
 	  
 	  public void SetPlayerRotation(Quaternion playerRotation)
@@ -128,4 +133,14 @@ public class CurrentPlayerComponentData : MonoBehaviour
 		isEquipDirect = true;
 		
 	}
+
+	public void SetBulletData()
+	{
+		
+			projectileDatabase.isWeaponChange = false;
+		
+		
+	}
+
+
 }

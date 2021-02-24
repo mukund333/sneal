@@ -77,6 +77,11 @@ public class CurrentWeaponData : MonoBehaviour
     {
         return transformData.playerPosition;
     }
+
+    public Vector3 GetPlayerShootPoint()
+    {
+        return transformData.playerShootPoint;
+    }
     public Quaternion GetPlayerRotation()
     {
         return transformData.playerRotation;

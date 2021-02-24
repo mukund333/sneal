@@ -1,35 +1,53 @@
 ﻿using System;
 using UnityEngine;
 
-namespace SnealUltra.Assets._Project.Scripts.Projectile
-{
-	[Serializable]
+
+	
 	public class ProjectileDatabase : MonoBehaviour
 	{
-		private static ProjectileDatabase _instance;
+	[SerializeField] ProjectileData[] BulletData;
 
+        [SerializeField]int gunNumber;
 
-		public ProjectileSpec[] projectiles;
+        [SerializeField]private GameObject player;
 
-		public static ProjectileDatabase instance
-		{
-			get
-			{
-				if (_instance == null)
-				{
-					_instance = FindObjectOfType<ProjectileDatabase>();
-				}
-				return _instance;
-			}
-		}
+        [SerializeField] private CurrentPlayerComponentData playerWeapon;
 
+       public bool isWeaponChange = false;
+        private void OnEnable()
+        {
+           
 
-		public ProjectileSpec GetProjectileByIndex(int index)
-		{
-			return projectiles[index];
-		}
+            player = GameObject.Find("player");
+           
 
 
 
-	}
-}
+        }
+        private void Awake()
+        {
+            playerWeapon = FindObjectOfType<CurrentPlayerComponentData>();
+        }
+
+        private void Start()
+        {
+             gunNumber = playerWeapon.weaponNumber;
+        }
+
+        private void Update()
+        {
+            if (!isWeaponChange)
+            {
+                ChangeBulletData();
+            }
+            isWeaponChange = true;
+
+           
+        }
+        private void ChangeBulletData() {
+            gunNumber = playerWeapon.weaponNumber;
+        }
+
+
+
+    }

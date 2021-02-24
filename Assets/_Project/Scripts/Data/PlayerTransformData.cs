@@ -6,5 +6,6 @@ using UnityEngine;
 public class PlayerTransformData : ScriptableObject
 {
     public Vector3 playerPosition;
+    public Vector3 playerShootPoint;
     public Quaternion playerRotation;
 }

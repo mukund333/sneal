@@ -8,7 +8,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
     public class EquipPlayerWeapon : MonoBehaviour
     {
         //public string startGunName;
-        public Recoil recoil;
+        public PlayerPhysics recoil;
        
         public Transform weaponSlot;
         private GameObject currentWeapon;
@@ -21,7 +21,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
         void Start()
         {
             EquipWeapon(playerData.GetWeaponByName());
-            recoil = GetComponent<Recoil>();
+            recoil = GetComponent<PlayerPhysics>();
         }
 
         void Update()

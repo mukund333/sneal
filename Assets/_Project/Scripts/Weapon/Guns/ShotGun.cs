@@ -19,7 +19,7 @@ public class ShotGun : MixinBase
 			for (int i = 0; i < 5; i++)
             {
                 float num = Random.Range(-weaponDefination.GetSpread(), weaponDefination.GetSpread());
-                PoolManager.instance.GetObject("Projectile", weaponDefination.GetPlayerPosition(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num));
+                PoolManager.instance.GetObject("ShotGunBullet", weaponDefination.GetPlayerPosition(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num));
             } 
      }
 }
