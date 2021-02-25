@@ -168,7 +168,7 @@ MonoBehaviour:
   baseHealth: 3
   pickupDropChance: 50
   debrisAmount: {x: 0, y: 0}
-  gearAmount: {x: 0, y: 0}
+  coinAmount: {x: 2, y: 5}
   explosionMask:
     serializedVersion: 2
     m_Bits: 0
@@ -177,3 +177,4 @@ MonoBehaviour:
   turnRate: 0.3
   target: {fileID: 0}
   sizeMinMax: {x: 1, y: 1}
+  playerShield: {fileID: 0}

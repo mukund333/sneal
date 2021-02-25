@@ -44,10 +44,9 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 
 		private WaitForEndOfFrame waitForFrame = new WaitForEndOfFrame();
+     
 
-
-
-		public virtual void Awake()
+        public virtual void Awake()
 		{
 
 			thisTrans = transform;
@@ -104,7 +103,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			//	SoundManager.instance.PlayClip("Explosion", this.thisTrans.position.x);
 			//	this.DispenseDebris();
 			//	this.DispenseGears();
-	//DispenseCoins();
+			DispenseCoins();
 			gameObject.SetActive(false);
 		}
 
@@ -147,8 +146,8 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		
 		public void DispenseCoins()
 		{
-			//int num = (int)UnityEngine.Random.Range(this.coinAmount.x, this.coinAmount.y);
-			int num =2;
+			int num = (int)UnityEngine.Random.Range(this.coinAmount.x, this.coinAmount.y);
+			//int num =2;
 			for (int i = 0; i < num; i++)
 			{
 				PoolManager.instance.GetObject(this.coinID, base.transform.position, Quaternion.identity);
