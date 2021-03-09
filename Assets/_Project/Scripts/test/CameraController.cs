@@ -99,6 +99,5 @@ public class CameraController : MonoBehaviour
 	{
 		this.maxBounds = base.transform.position;
 	}*/
-
-
+	
 }
