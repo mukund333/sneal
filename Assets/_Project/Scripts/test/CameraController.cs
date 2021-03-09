@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-	public static CameraController instance;
+	/*public static CameraController instance;
 
 	public bool follow = false;
 
@@ -98,7 +98,7 @@ public class CameraController : MonoBehaviour
 	public void SetMaxBounds()
 	{
 		this.maxBounds = base.transform.position;
-	}
+	}*/
 
 
 }

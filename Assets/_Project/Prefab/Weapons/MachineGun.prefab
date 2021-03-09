@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 6011827699813287562}
   - component: {fileID: 6011827699813287552}
   - component: {fileID: 6011827699813287555}
+  - component: {fileID: 2687844167519432268}
   m_Layer: 0
   m_Name: MachineGun
   m_TagString: Untagged
@@ -54,6 +55,7 @@ MonoBehaviour:
   weaponDefination: {fileID: 11400000, guid: 97a8fbfc6efb2774babc4c8a11be7ab8, type: 2}
   playerRecoilData: {fileID: 11400000, guid: a3c29a417078d3d4cb5e75d7483d26ec, type: 2}
   transformData: {fileID: 11400000, guid: a9c9c8473e4cf77498a53a5182eb03f2, type: 2}
+  dragCheckData: {fileID: 11400000, guid: 71bc90b9334cef94796b397c29ff05dd, type: 2}
 --- !u!114 &6011827699813287559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +91,7 @@ MonoBehaviour:
   - {fileID: 6011827699813287557}
   - {fileID: 6011827699813287556}
   - {fileID: 6011827699813287559}
+  - {fileID: 2687844167519432268}
 --- !u!114 &6011827699813287557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,3 +178,16 @@ MonoBehaviour:
   recoilData: {fileID: 6011827699813287553}
   isApplyingThrust: 0
   isRecoiling: 0
+--- !u!114 &2687844167519432268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6011827699813287561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850e617338e51d441b5f5896465eb7f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastSfxTime: 0

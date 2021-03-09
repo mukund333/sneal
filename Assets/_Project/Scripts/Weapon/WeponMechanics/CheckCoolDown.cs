@@ -7,6 +7,7 @@ public class CheckCoolDown : MixinBase
 {
     [SerializeField]
     public CurrentWeaponData weaponDefination;
+
     [SerializeField]
     float cooldownTimer=0.5f;
     float cooldownTime;
@@ -41,6 +42,7 @@ public class CheckCoolDown : MixinBase
             if(cooldownTime > cooldownTimer)
             {
                 isCool = true;
+                weaponDefination.dragCheckData.playrDrag = true;
             }
         }
     }

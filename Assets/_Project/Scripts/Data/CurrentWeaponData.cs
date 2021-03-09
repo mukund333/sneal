@@ -11,6 +11,8 @@ public class CurrentWeaponData : MonoBehaviour
     public RecoilData playerRecoilData;
     public PlayerTransformData transformData;
 
+    public PlayerDragCheck dragCheckData;
+
     #region Initializations
     private void Start()
     {
@@ -86,6 +88,12 @@ public class CurrentWeaponData : MonoBehaviour
     {
         return transformData.playerRotation;
     }
+
+    public void SetPlayerDrag(bool dragbool)
+    {
+        dragCheckData.playrDrag = dragbool;
+    }
+
 
 }
 

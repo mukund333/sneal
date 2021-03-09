@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerPhysics : MonoBehaviour
 {
+   [SerializeField] PlayerDragCheck dragCheck;
     private enum State
     {
         InitialPhysics,
@@ -28,8 +29,8 @@ public class PlayerPhysics : MonoBehaviour
 
     public float accSpeed;
     public bool move = false;
-
-
+	public bool isApplyingDrag=false;
+	
     private Rigidbody2D rb2d;
     public CurrentPlayerComponentData playerData;
     public WeaponData currentWeaponData;
@@ -158,7 +159,17 @@ public class PlayerPhysics : MonoBehaviour
            
             this.acc += 1f / this.accSpeed * Time.fixedDeltaTime;
             this.rb2d.velocity = transform.right * (this.speed * this.accCurve.Evaluate(this.acc));
-           
+				acc = Mathf.Clamp(acc, 0f, 1f);
+				
+				if(dragCheck.playrDrag==true)
+				{
+					rb2d.drag = 400f;
+				}
+				if(dragCheck.playrDrag == false)
+				{
+					rb2d.drag = 0.3f;
+				}
+				
             if (this.acc > 1f)
             {
                 this.acc = 1f;

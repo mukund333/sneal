@@ -8,6 +8,7 @@ public class MachineGun : MixinBase
 {
     
     public CurrentWeaponData weaponDefination;
+	
 
   
     public override void Action()
@@ -17,7 +18,12 @@ public class MachineGun : MixinBase
 	
 	 private void Shoot()
      {
-		float num = Random.Range(-weaponDefination.GetSpread(), weaponDefination.GetSpread());
+        weaponDefination.dragCheckData.playrDrag = false;
+
+        float num = Random.Range(-weaponDefination.GetSpread(), weaponDefination.GetSpread());
         PoolManager.instance.GetObject("MachineGunBullet", weaponDefination.GetPlayerShootPoint(), Quaternion.Euler(0f, 0f,weaponDefination.GetPlayerRotation().eulerAngles.z + num));
-     }
+		
+	}
+	 
+	
 }
