@@ -44,9 +44,13 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 
 		private WaitForEndOfFrame waitForFrame = new WaitForEndOfFrame();
-     
 
-        public virtual void Awake()
+		public virtual void OnEnable()
+		{
+		}
+
+
+		public virtual void Awake()
 		{
 
 			thisTrans = transform;
@@ -163,10 +167,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		}*/
 
 
-		public virtual void OnEnable()
-		{
-		}
-
+	
 
 
 	}

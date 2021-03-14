@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  baseHealth: 5000
+  baseHealth: 1
   pickupDropChance: 50
   debrisAmount: {x: 0, y: 0}
   coinAmount: {x: 0, y: 0}
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ec271f830c9e445a6ab0a089a02b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pivot: {fileID: 9165209532447279249}
+  Pivot: {fileID: 0}
   ThisTransform: {fileID: 0}
   PivotDistance: 0.4
   RotSpeed: 350
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ec271f830c9e445a6ab0a089a02b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pivot: {fileID: 9165209532447279249}
+  Pivot: {fileID: 0}
   ThisTransform: {fileID: 0}
   PivotDistance: 0.4
   RotSpeed: 350
@@ -607,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ec271f830c9e445a6ab0a089a02b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Pivot: {fileID: 9165209532447279249}
+  Pivot: {fileID: 0}
   ThisTransform: {fileID: 0}
   PivotDistance: 0.4
   RotSpeed: 350

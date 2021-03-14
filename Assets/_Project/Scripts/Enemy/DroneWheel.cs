@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+namespace SnealUltra.Assets._Project.Scripts.Enemy
+{
 public class DroneWheel : MonoBehaviour
 {
    [SerializeField] Transform Pivot;
@@ -23,7 +26,7 @@ public class DroneWheel : MonoBehaviour
 	void Awake()
 	{
 		ThisTransform = GetComponent<Transform>();
-			
+		Pivot = transform.parent;	
 	}
 	
   
@@ -46,4 +49,5 @@ public class DroneWheel : MonoBehaviour
 		ThisTransform.position = position;
 		
     }
+}
 }

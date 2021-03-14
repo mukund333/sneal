@@ -10,7 +10,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 	{
 		public float Speed;
 
-
+		
 		public float turnRate;
 
 
@@ -28,6 +28,12 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		SpriteRenderer spriteRenderer;
 
 		[SerializeField] private PlayerShield playerShield;
+		
+		//sprite scale
+		public float distance;
+		public float divided;
+		public float spriteSize=2;
+		 public float acc;
 
 		public override void OnEnable()
 		{
@@ -47,20 +53,26 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 
 		public override void Start(){
-		base.Start();
-		try
-		{
-			target = FindObjectOfType<PlayerMovement>().transform;
-		}
-		catch (Exception ex)
-		{
-		}
-		rb2d = GetComponent<Rigidbody2D>();
+			base.Start();
+			try
+			{
+				target = FindObjectOfType<PlayerMovement>().transform;
+			}
+			catch (Exception ex)
+			{
+			}
+			rb2d = GetComponent<Rigidbody2D>();
+			spriteSize = 2;
 	}
 
 	
 	
-	
+	private void Update()
+	{
+		//SpriteScaler();
+		
+		distance = Vector3.Distance(target.position, transform.position);
+	}
 	
 	private void FixedUpdate()
 	{
@@ -97,7 +109,20 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		}*/
 
 
-	
+		 private void SpriteScaler()
+			{
+				acc = Mathf.Clamp(acc, 0f, 1f);
+		 
+				if(distance <= 8 && distance >= 5){
+					acc = distance /10f;
+					spriteSize = (float)System.Math.Round(acc,1);
+				
+				}
+		
+		 
+				transform.localScale = new Vector3(spriteSize,spriteSize,1);
+
+			}
 	
 		private void OnCollisionEnter2D(Collision2D col){
 			if (col.collider.CompareTag("Player"))

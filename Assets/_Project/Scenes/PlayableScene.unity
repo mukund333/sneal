@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 50350210}
   - component: {fileID: 50350211}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: sprite
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 424540413}
   - component: {fileID: 424540415}
   - component: {fileID: 424540417}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -363,8 +363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843b730286c81524e946f69889922882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 70
-  _maxHealth: 120
+  _health: 1
+  _maxHealth: 200
 --- !u!4 &424540408
 Transform:
   m_ObjectHideFlags: 0
@@ -730,7 +730,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.764
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 927390110}
   - component: {fileID: 927390112}
   - component: {fileID: 927390111}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +914,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1078,7 +1078,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1164150837}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: shootPoint
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1310,7 +1310,7 @@ MonoBehaviour:
     pool: []
   - Name: turtle
     id: 0
-    prefab: {fileID: 1913014367447084323, guid: 3feb4aa323efde94db120a22959451d2,
+    prefab: {fileID: 4234474098349173158, guid: 3013ea39a109bfe4eb3d01995f5e91b8,
       type: 3}
     poolSize: 5
     limit: 1
@@ -1361,6 +1361,14 @@ MonoBehaviour:
     prefab: {fileID: 7584568022193977081, guid: b751d2fef4419df4cb476ecba318886c,
       type: 3}
     poolSize: 30
+    limit: 1
+    poolHolder: {fileID: 0}
+    pool: []
+  - Name: Drone
+    id: 0
+    prefab: {fileID: 9165209532447279245, guid: 34c6c6785cbadcc479c2b727e7bab1c1,
+      type: 3}
+    poolSize: 10
     limit: 1
     poolHolder: {fileID: 0}
     pool: []
@@ -1467,6 +1475,18 @@ MonoBehaviour:
     debug: 0
     poolId: 0
   - Name: turtle
+    spawnStartTime: 0
+    spawnFreqRange: {x: 0.3, y: 1}
+    timeToMaxSpawnFreq: 220
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    debug: 0
+    poolId: 0
+  - Name: Drone
     spawnStartTime: 0
     spawnFreqRange: {x: 0.3, y: 1}
     timeToMaxSpawnFreq: 220
@@ -1713,7 +1733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522709120}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: WeaponSlot
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1744,7 +1764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1581798657}
   - component: {fileID: 1581798658}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShieldSprites
   m_TagString: Untagged
   m_Icon: {fileID: 0}

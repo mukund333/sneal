@@ -40,8 +40,8 @@ public class Turtle : EnemyManager
 
 
 	//attack params
-	private State state;	
-		private Vector3 chargeDir;
+		private State state;	
+		public Vector3 chargeDir;
 		public float chargeSpeed;
 		[SerializeField]  private float chargeDelay;
 
@@ -58,24 +58,32 @@ public class Turtle : EnemyManager
 
 		[SerializeField] private PlayerShield playerShield;
 
-		private void Awake() {
+    private  void OnEnable()
+        {
+			chargeDelay = 1.5f;
+			target = GameObject.Find("player");
+		}
+
+    private void Awake() {
+		
+			
 			playerShield = FindObjectOfType<PlayerShield>();
 			animator = GetComponentInChildren<Animator> ();
-		body2d = GetComponent<Rigidbody2D>();
-		target = GameObject.Find("player");
-		SetStateMoving();
+			body2d = GetComponent<Rigidbody2D>();
+			
+			SetStateMoving();
 
-		aimTransform = transform.Find("Aim");
-		turtlesprite = transform.Find("turtlesprite");
+			aimTransform = transform.Find("Aim");
+			turtlesprite = transform.Find("turtlesprite");
 
-		isMoving = true;
-		HideAim();
+			isMoving = true;
+			HideAim();
 
-	}
+	    }
 
 	private void Update(){
-		
-		
+
+		Detonate();
 		switch (state){
 
 			case State.Moving:
@@ -83,6 +91,7 @@ public class Turtle : EnemyManager
 				Debug.Log("follow");
 				if(isMoving==true)
 					TurtleMovement();
+
 				targetPosition = target.transform.position;
 				SetAimTarget(targetPosition);
 				//ChangeAnimationState(0);
@@ -136,19 +145,20 @@ public class Turtle : EnemyManager
 					else
 					{
 						Debug.Log("can charge");
-						if (CanChargeToTarget(targetPosition, target))
-						{
+						float targetDistance = Vector3.Distance(transform.position, player.transform.position);
+							if (targetDistance <= 25)
+							{
+								Debug.Log(" charge");
+								//chargeDir = (targetPosition - transform.position).normalized;
+								chargeDir = player.transform.position;
+								state = State.Charging;
 
-							chargeDir = (targetPosition - GetPosition()).normalized;
-							chargeSpeed = 20f;
-							state = State.Charging;
-
-						}
+							}
 						else
 						{
-							// Cannot see target, move to it
-							//enemyMain.EnemyPathfindingMovement.MoveToTimer(targetPosition);
-							TurtleMovement();
+								// Cannot see target, move to it
+								//enemyMain.EnemyPathfindingMovement.MoveToTimer(targetPosition);
+								state = State.Moving;
 							Debug.Log("follow again");
 						}
 					}
@@ -162,8 +172,9 @@ public class Turtle : EnemyManager
 				HideAim();
 				animator.speed = 1f;
 				ChangeAnimationState(3);
-				float chargeSpeedDropMultiplier = 1f;
-				chargeSpeed += chargeSpeed * chargeSpeedDropMultiplier * Time.deltaTime;
+						chargeSpeed = 20f;
+					float chargeSpeedDropMultiplier = 1f;
+				chargeSpeed = chargeSpeed  * Time.deltaTime;
 				
 				//player damage
 
@@ -207,7 +218,7 @@ public class Turtle : EnemyManager
 		switch (state){
 			case State.Charging:
 					//body2d.velocity = chargeDir * chargeSpeed;
-					body2d.AddForce(chargeDir * chargeSpeed);
+					body2d.AddForce(target.transform.position * chargeSpeed);
 				
 				Debug.Log("velocity");
 				break;
@@ -216,8 +227,60 @@ public class Turtle : EnemyManager
 		//TurtleMovement();
 	}
 
-	bool CanChargeToTarget(Vector3 targetPosition, GameObject targetGameObject){
-		float targetDistance = Vector3.Distance(GetPosition(), targetPosition);
+	public IEnumerator PlayAndWaitForAnim(Animator targetAnim, string stateName)
+		{
+
+
+			//targetAnim.Play(stateName);
+			//targetAnim.CrossFadeInFixedTime(stateName, 0.6f);
+
+			animator.speed = 0.5f;
+			ChangeAnimationState(1);
+
+			//Wait until we enter the current state
+			while (!targetAnim.GetCurrentAnimatorStateInfo(0).IsName(animName))
+			{
+				yield return null;
+			}
+
+			float counter = 0;
+			float waitTime = targetAnim.GetCurrentAnimatorStateInfo(0).length;
+
+			//Now, Wait until the current state is done playing
+			while (counter < (waitTime))
+			{
+				counter += Time.deltaTime;
+				yield return null;
+			}
+
+			//Done playing. Do something below!
+			Debug.Log("Done Playing");
+			state = State.Aiming;
+
+		}
+
+
+	private void Detonate()
+		{
+			//ChangeAnimationState(2);
+			
+
+			float targetDistance = Vector3.Distance(this.transform.position, player.transform.position);
+
+			if (targetDistance > 50)
+			{
+				
+				gameObject.SetActive(false);
+				
+			}
+
+
+		}
+
+
+	private	bool CanChargeToTarget(Vector3 targetPosition, GameObject targetGameObject){
+
+		float targetDistance = Vector3.Distance(transform.position, targetPosition);
 
 		//float maxChargeDistance = 7f;
 		/*if (targetDistance > attackRange)
@@ -227,8 +290,8 @@ public class Turtle : EnemyManager
 		}*/
 
 		Debug.Log("charge");
-		Vector3 dirToTarget = (targetPosition - GetPosition()).normalized;
-		RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToTarget, targetDistance, layerMask);
+		Vector3 dirToTarget = (targetPosition - transform.position).normalized;
+		RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, dirToTarget, targetDistance, layerMask);
 		//Debug.Log(raycastHit2D.collider.gameObject.name);
 		return raycastHit2D.collider == null || raycastHit2D.collider.gameObject == targetGameObject;
 	}
@@ -267,7 +330,7 @@ public class Turtle : EnemyManager
 			//transform.Rotate(0, 0, angle);
 	   
 	   
-   }
+    }
 
 	public void SetAimTarget(Vector3 targetPosition){
 		Vector3 aimDir = (targetPosition - transform.position).normalized;
@@ -294,36 +357,6 @@ public class Turtle : EnemyManager
 		animator.SetInteger ("AnimState", value);
 	}
 
-	public IEnumerator PlayAndWaitForAnim(Animator targetAnim, string stateName){
-
-
-		//targetAnim.Play(stateName);
-		//targetAnim.CrossFadeInFixedTime(stateName, 0.6f);
-
-		animator.speed = 0.5f;
-		ChangeAnimationState(1);
-
-		//Wait until we enter the current state
-		while (!targetAnim.GetCurrentAnimatorStateInfo(0).IsName(animName))
-		{
-			yield return null;
-		}
-
-		float counter = 0;
-		float waitTime = targetAnim.GetCurrentAnimatorStateInfo(0).length;
-
-		//Now, Wait until the current state is done playing
-		while (counter < (waitTime))
-		{
-			counter += Time.deltaTime;
-			yield return null;
-		}
-
-		//Done playing. Do something below!
-		Debug.Log("Done Playing");
-		state = State.Aiming;
-
-	}
 	
 	private void OnCollisionEnter2D(Collision2D col){
 			if (col.collider.CompareTag("Player"))
@@ -345,5 +378,6 @@ public class Turtle : EnemyManager
 			}
 		}
 
- }
+	}
+
 }

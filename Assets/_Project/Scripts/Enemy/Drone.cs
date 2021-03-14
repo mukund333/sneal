@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using SnealUltra.Assets._Project.Scripts.Player;
 
 namespace SnealUltra.Assets._Project.Scripts.Enemy
 {
 public class Drone : EnemyManager
 {
-
-		
-		
-
 		private enum State{
 			Moving,
 			Detection,
@@ -30,7 +27,8 @@ public class Drone : EnemyManager
 	Vector3 velocity;
 	
 	private Rigidbody2D body2d;
-	[SerializeField] private GameObject target;
+	public Transform target;
+	//[SerializeField] private GameObject target;
 	[SerializeField] private LayerMask layerMask;	
 	
 	[SerializeField] private float blastRange;
@@ -47,30 +45,64 @@ public class Drone : EnemyManager
 		[SerializeField]private Animator animator;
 					//private string animName = "DroneBeepBeepAnimation";
 					private string animName = "DroneBlastAnimation";
-		
-	private   void Awake() {
-		playerShield = FindObjectOfType<PlayerShield>();
-		animator = GetComponentInChildren<Animator> ();
-		body2d = GetComponent<Rigidbody2D>();
-		
-		SetStateMoving();
-		isBlasting=false;
 
-			//Assigns the transform of the first child of the Game Object this script is attached to.
-			//meeple = this.gameObject.transform.GetChild(0);
 
+        public override void OnEnable()
+        {
+			SetStateMoving();
+			try
+			{
+				target = FindObjectOfType<PlayerMovement>().transform;
+			}
+			catch (Exception ex)
+			{
+			}
 			//Assigns the first child of the first child of the Game Object this script is attached to.
 			firstWheel = this.gameObject.transform.GetChild(1).gameObject;
 			secondWheel = this.gameObject.transform.GetChild(2).gameObject;
 			thirdWheel = this.gameObject.transform.GetChild(3).gameObject;
-			//firstWheel.SetActive(false);
+			firstWheel.SetActive(true);
+			secondWheel.SetActive(true);
+			thirdWheel.SetActive(true);
+			
+			
+		}
+
+        private   void Awake() {
+			
+		playerShield = FindObjectOfType<PlayerShield>();
+		animator = GetComponentInChildren<Animator> ();
+		body2d = GetComponent<Rigidbody2D>();
+		
+		
+		isBlasting=false;
+
+			
+			
 
 
+			
 
 
 		}
 		
-	private void Update(){
+		public override void Start(){
+			base.Start();
+			try
+			{
+				target = FindObjectOfType<PlayerMovement>().transform;
+			}
+			catch (Exception ex)
+			{
+			}
+			
+			
+	}
+
+		
+		 
+
+		private void Update(){
 		switch (state){
 
 			case State.Moving:
@@ -194,9 +226,12 @@ public class Drone : EnemyManager
 			
 	}
 
-       
+		private void OnBecameInvisible()
+		{
+			Kill();
+		}
 
-        private void Detonate(){
+		private void Detonate(){
 			//ChangeAnimationState(2);
 			
 			float targetDistance = Vector3.Distance(this.transform.position, player.transform.position);
@@ -237,10 +272,13 @@ public class Drone : EnemyManager
 				//ExplosionManager.instance.SpawnDynamicExplosion(col.contacts[0].point, new Vector2(1f, 2f), new Vector2(0.25f, 1.5f), 32, new Vector2(0.02f, 0.1f));
 
 
-				//Kill();
+				Kill();
 
 			}
 		} 
 
   }
+
+
+
 }
