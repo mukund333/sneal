@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da4120edf355e944b5f4dec7830d1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOffset: {x: -1, y: -1}
+  spriteOffset: {x: -0.2, y: -0.2}
   spriteToShadow: {fileID: 0}
   shadowRenderer: {fileID: 0}
   lastSprite: {fileID: 0}
@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  IsImmortal: 0
   baseHealth: 1
   pickupDropChance: 50
   debrisAmount: {x: 0, y: 0}
@@ -298,18 +299,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   curHealth: 100000
-  speed: 10
-  target: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 1024
+  body2d: {fileID: 0}
+  speed: 7
+  animator: {fileID: 0}
+  target: {fileID: 0}
   blastRange: 1
   chargeDelay: 2
   firstWheel: {fileID: 0}
   secondWheel: {fileID: 0}
   thirdWheel: {fileID: 0}
   playerShield: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!1 &9165209532465841003
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +410,7 @@ MonoBehaviour:
   Pivot: {fileID: 0}
   ThisTransform: {fileID: 0}
   PivotDistance: 0.4
-  RotSpeed: 350
+  RotSpeed: 900
   RotZ: 0
   Angle: 0
 --- !u!1 &9165209533300725807
@@ -509,7 +511,7 @@ MonoBehaviour:
   Pivot: {fileID: 0}
   ThisTransform: {fileID: 0}
   PivotDistance: 0.4
-  RotSpeed: 350
+  RotSpeed: 900
   RotZ: 0
   Angle: 230
 --- !u!1 &9165209533814506137
@@ -610,6 +612,6 @@ MonoBehaviour:
   Pivot: {fileID: 0}
   ThisTransform: {fileID: 0}
   PivotDistance: 0.4
-  RotSpeed: 350
+  RotSpeed: 900
   RotZ: 0
   Angle: 120

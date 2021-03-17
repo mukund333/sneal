@@ -8,7 +8,6 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 {
     public class EnemySpawner : MonoBehaviour
 	{
-
 		public EnemyInfo[] enemies;
 
 		private float timer;
@@ -17,13 +16,11 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 		private bool stopSpawn;
 
-
 		private Transform player;
 
 		public bool testStartSpawn = true;
 
-		private void Start()
-		{
+		private void Start(){
 			this.player = UnityEngine.Object.FindObjectOfType<PlayerMovement>().transform;
 			GameMaster.instance.OnGameEnd += this.StopSpawning;
 			//GameMaster.instance.OnGameStart += this.StartSpawning;
@@ -40,9 +37,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 		}
 
-
-		private void StartSpawning()
-		{
+		private void StartSpawning(){
 			stopSpawn = false;
 			for (int i = 0; i < enemies.Length; i++)
 			{
@@ -51,14 +46,11 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			StartCoroutine(Timer());
 		}
 
-		private void StopSpawning()
-		{
+		private void StopSpawning(){
 			stopSpawn = true;
 		}
 
-
-		private IEnumerator SpawnEnemy(EnemyInfo enemy)
-		{
+		private IEnumerator SpawnEnemy(EnemyInfo enemy){
 			float startedTime = timer;
 			float startFrequency = enemy.spawnFreqRange.x;
 			float spawnFrequency = 0f;
@@ -76,9 +68,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			yield break;
 		}
 
-
-		private IEnumerator Timer()
-		{
+		private IEnumerator Timer(){
 			timer = 0f;
 			while (!stopSpawn)
 			{
@@ -88,6 +78,5 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			timer = 0f;
 			yield break;
 		}
-
 	}
 }

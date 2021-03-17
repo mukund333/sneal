@@ -8,7 +8,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 {
 public class Drone : EnemyManager
 {
-		private enum State{
+	private enum State{
 			Moving,
 			Detection,
 			Blast,
@@ -18,18 +18,35 @@ public class Drone : EnemyManager
 	
 	private State state;
 	
+	
+	#region common params
+		[SerializeField] private LayerMask layerMask;	
+		[SerializeField] private Rigidbody2D body2d;
+		
+	#endregion
+	
+	#region movement params
+			public  float speed = 2f;  
+			private float distanceToTarget;
+			Vector3 displacementFromTarget;
+			Vector3 directionToTarget;
+			Vector3 velocity;
+	#endregion
+	
+	#region animation params
+			[SerializeField]private Animator animator;
+			//private string animName = "DroneBeepBeepAnimation";
+			private string animName = "DroneBlastAnimation";
+	#endregion
+	
 	bool isDone;
 	//movement params
-	public  float speed = 2f;  
-	private float distanceToTarget;
-	Vector3 displacementFromTarget;
-	Vector3 directionToTarget;
-	Vector3 velocity;
+
 	
-	private Rigidbody2D body2d;
-	public Transform target;
+	
+	[SerializeField]	public Transform target;
 	//[SerializeField] private GameObject target;
-	[SerializeField] private LayerMask layerMask;	
+	
 	
 	[SerializeField] private float blastRange;
 	[SerializeField] private float chargeDelay;
@@ -42,13 +59,10 @@ public class Drone : EnemyManager
 		[SerializeField] private PlayerShield playerShield;
 
 		//animation 
-		[SerializeField]private Animator animator;
-					//private string animName = "DroneBeepBeepAnimation";
-					private string animName = "DroneBlastAnimation";
+		
 
 
-        public override void OnEnable()
-        {
+    public override void OnEnable(){
 			SetStateMoving();
 			try
 			{
@@ -68,7 +82,7 @@ public class Drone : EnemyManager
 			
 		}
 
-        private   void Awake() {
+    private   void Awake() {
 			
 		playerShield = FindObjectOfType<PlayerShield>();
 		animator = GetComponentInChildren<Animator> ();
@@ -77,16 +91,9 @@ public class Drone : EnemyManager
 		
 		isBlasting=false;
 
-			
-			
-
-
-			
-
-
 		}
 		
-		public override void Start(){
+	public override void Start(){
 			base.Start();
 			try
 			{
@@ -99,10 +106,7 @@ public class Drone : EnemyManager
 			
 	}
 
-		
-		 
-
-		private void Update(){
+	private void Update(){
 		switch (state){
 
 			case State.Moving:
@@ -226,18 +230,16 @@ public class Drone : EnemyManager
 			
 	}
 
-		private void OnBecameInvisible()
-		{
+	private void OnBecameInvisible(){
 			Kill();
 		}
 
-		private void Detonate(){
+	private void Detonate(){
 			//ChangeAnimationState(2);
 			
 			float targetDistance = Vector3.Distance(this.transform.position, player.transform.position);
 
-		if (targetDistance <= 10)
-		{
+		if (targetDistance <= 10){
 			//gameObject.SetActive(false);
 			Debug.Log("damage to player");
 		}
@@ -250,14 +252,14 @@ public class Drone : EnemyManager
 	
 			
 	}
-			
-			
+						
 	private void OnCollisionEnter2D(Collision2D col){
 		
 		if (col.collider.CompareTag("Player") )
 		{
 			Debug.Log("Player  collide");
-			StartCoroutine(PlayAndWaitForAnim(animator, animName));	
+			//implement after explosion
+			//StartCoroutine(PlayAndWaitForAnim(animator, animName));	
 			
 			if(playerShield.IsShieldOn)
                 {

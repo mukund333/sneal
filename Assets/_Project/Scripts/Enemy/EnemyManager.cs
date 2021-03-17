@@ -10,6 +10,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 	{
 		public int damage;
 
+		public bool IsImmortal;
 
 		public int baseHealth;
 
@@ -47,6 +48,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 		public virtual void OnEnable()
 		{
+			IsImmortal = false;
 		}
 
 

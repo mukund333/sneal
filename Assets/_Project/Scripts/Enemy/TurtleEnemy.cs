@@ -66,8 +66,7 @@ public class TurtleEnemy : EnemyManager
 		[SerializeField] private float chargeSpeed;
 	#endregion
 
-	private void Awake()
-	{
+	private void Awake(){
 		playerShield = FindObjectOfType<PlayerShield>();
 		body2d = GetComponent<Rigidbody2D>();
 		animator = GetComponentInChildren<Animator>();
@@ -103,7 +102,7 @@ public class TurtleEnemy : EnemyManager
 		{
 
 			case State.Moving:
-			
+					IsImmortal = false;
 					TurtleMovement();
 					SetAimTarget(target.transform.position);
 					
@@ -117,7 +116,7 @@ public class TurtleEnemy : EnemyManager
 				break;
 
 			case State.Aiming:
-					
+					IsImmortal = true;
 					Log("Aiming");
 					
 					chargeDelay -= Time.deltaTime;
@@ -152,7 +151,7 @@ public class TurtleEnemy : EnemyManager
 			case State.Charging:
 					animator.speed = 1f;
 					ChangeAnimationState(3);
-					
+					IsImmortal = true;
 					//float chargeSpeedDropMultiplier = 1f;
 					float chargeSpeedUpMultiplier = 1f;
 					chargeSpeed += chargeSpeed * chargeSpeedUpMultiplier * Time.deltaTime;
@@ -311,6 +310,7 @@ public class TurtleEnemy : EnemyManager
 
 
 	private void Configure(){
+		IsImmortal = false;
 		animName = "TurtleTransformAnimation";
 		animSpeed = 1f;
 		turtlesprite = this.gameObject.transform.GetChild(0);
@@ -330,8 +330,8 @@ public class TurtleEnemy : EnemyManager
 	}
 
 	private void Dispose(){
-		
-		target = null;
+			IsImmortal = false;
+			target = null;
 		turtlesprite = null;
 		targetPosition = Vector3.zero;
 		chargeDelay = 0;

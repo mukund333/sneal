@@ -870,7 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da4120edf355e944b5f4dec7830d1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOffset: {x: -1, y: -1}
+  spriteOffset: {x: -0.2, y: -0.2}
   spriteToShadow: {fileID: 0}
   shadowRenderer: {fileID: 0}
   lastSprite: {fileID: 0}
@@ -1463,38 +1463,137 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - Name: FollowerEnemy
-    spawnStartTime: 0
-    spawnFreqRange: {x: 0.3, y: 4.5}
-    timeToMaxSpawnFreq: 220
+    spawnStartTime: 5
+    spawnFreqRange: {x: 0.3, y: 2}
+    timeToMaxSpawnFreq: 180
     curve:
       serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.61269414
+        outSlope: 0.61269414
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.3711539
+        value: 0.2274038
+        inSlope: 1.1638746
+        outSlope: 1.1638746
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.601638
+        value: 0.6226968
+        inSlope: 1.3310959
+        outSlope: 1.3310959
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0.9471365
+        outSlope: 0.9471365
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
       m_RotationOrder: 0
     debug: 0
     poolId: 0
   - Name: turtle
     spawnStartTime: 0
-    spawnFreqRange: {x: 0.3, y: 1}
-    timeToMaxSpawnFreq: 220
+    spawnFreqRange: {x: 0.15, y: 0.25}
+    timeToMaxSpawnFreq: 60
     curve:
       serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.3879328
+        outSlope: 0.3879328
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.8283319
+        value: 0.3213371
+        inSlope: 2.1706378
+        outSlope: 2.1706378
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 3.953343
+        outSlope: 3.953343
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
       m_RotationOrder: 0
     debug: 0
     poolId: 0
   - Name: Drone
-    spawnStartTime: 0
-    spawnFreqRange: {x: 0.3, y: 1}
-    timeToMaxSpawnFreq: 220
+    spawnStartTime: 3
+    spawnFreqRange: {x: 0.7, y: 0.15}
+    timeToMaxSpawnFreq: 100
     curve:
       serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 0
-      m_PostInfinity: 0
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 2.367303
+        outSlope: 2.367303
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.3005202
+        value: 0.7114224
+        inSlope: 1.466688
+        outSlope: 1.466688
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7662129
+        value: 0.9750385
+        inSlope: 0.33642167
+        outSlope: 0.33642167
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0.10677009
+        outSlope: 0.10677009
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
       m_RotationOrder: 0
     debug: 0
     poolId: 0

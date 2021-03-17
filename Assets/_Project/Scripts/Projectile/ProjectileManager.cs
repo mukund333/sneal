@@ -60,8 +60,11 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 			{
 				if (col.CompareTag("Enemy"))
 				{
-
-					col.gameObject.GetComponent<EnemyManager>().Damage(damage);
+					if (col.gameObject.GetComponent<EnemyManager>().IsImmortal == false)
+					{
+						col.gameObject.GetComponent<EnemyManager>().Damage(damage);
+					}
+					
 
 					Hit();
 					Debug.Log("enemy hit" + col.gameObject.name);
