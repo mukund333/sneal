@@ -14,7 +14,9 @@ public class ProjectileData : ScriptableObject
 
         ShotGunBullet,
 
-        MachineGunBullet
+        MachineGunBullet,
+		
+		SniperBullet
 
         //LaserGun,
 

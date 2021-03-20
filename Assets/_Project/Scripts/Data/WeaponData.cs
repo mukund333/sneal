@@ -17,7 +17,9 @@ public class WeaponData : ScriptableObject
 
         ShotGun,
 
-        MachineGun
+        MachineGun,
+		
+		Sniper
 
         //LaserGun,
 

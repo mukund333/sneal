@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f1434421c490b44943365d698f2d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponNumber: 2
+  weaponNumber: 4
   isEquipDirect: 0
   isPassWeapon: 0
   isPowerGun: 0
@@ -1385,6 +1385,14 @@ MonoBehaviour:
     limit: 1
     poolHolder: {fileID: 0}
     pool: []
+  - Name: SniperBullet
+    id: 0
+    prefab: {fileID: 3727282131885927492, guid: c6469ac84f6dc0a49a554168760ce3b1,
+      type: 3}
+    poolSize: 20
+    limit: 1
+    poolHolder: {fileID: 0}
+    pool: []
 --- !u!114 &1222984967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1457,11 +1465,13 @@ MonoBehaviour:
   - {fileID: 7726606723741726774, guid: 84d5b0ce213c4be4f934498faa2eef8c, type: 3}
   - {fileID: 6791711370888519521, guid: aa037b4ec0391ed41b2b365c30b20f3c, type: 3}
   - {fileID: 6011827699813287561, guid: d49fdfe80976b0549a82a5e16d795343, type: 3}
+  - {fileID: 7726606723741726774, guid: 3ce915391a692534f81c6fcfc5e90cd2, type: 3}
   weaponDataList:
   - {fileID: 11400000, guid: 7500236700dc12040af43f7df4722dbf, type: 2}
   - {fileID: 11400000, guid: 752e3e00d93c65e41ab5359c5450be1d, type: 2}
   - {fileID: 11400000, guid: ebe1b49ae9ba4a94c9bd4a1edd512247, type: 2}
   - {fileID: 11400000, guid: 97a8fbfc6efb2774babc4c8a11be7ab8, type: 2}
+  - {fileID: 11400000, guid: c8d4845f79eb7b04e9877e693aa3e9a5, type: 2}
 --- !u!114 &1222984971
 MonoBehaviour:
   m_ObjectHideFlags: 0

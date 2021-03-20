@@ -64,10 +64,14 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 					{
 						col.gameObject.GetComponent<EnemyManager>().Damage(damage);
 					}
-					
 
-					Hit();
-					Debug.Log("enemy hit" + col.gameObject.name);
+					if (projectileData.bulletType != ProjectileData.Type.SniperBullet)
+					{
+						Hit();
+					}
+						
+					
+					//Debug.Log("enemy hit" + col.gameObject.name);
 				}
 				//	if (col.CompareTag("tile"))
 				//	{
@@ -79,9 +83,9 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 				//		col.getcomponent<menuelementinteractable>().hit();
 				//		Hit();
 				//	}
-				if (!col.isTrigger)
+				if (!col.isTrigger )
 				{
-					Hit();
+					//Hit();
 				}
 			}
 		}

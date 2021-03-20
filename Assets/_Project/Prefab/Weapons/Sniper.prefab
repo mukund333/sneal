@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6791711370888519521
+--- !u!1 &7726606723741726774
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,28 +8,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6791711370888519516}
-  - component: {fileID: 6791711370888519519}
-  - component: {fileID: 6791711370888519513}
-  - component: {fileID: 6791711370888519523}
-  - component: {fileID: 6791711370888519520}
-  - component: {fileID: 6791711370888519517}
-  - component: {fileID: 6791711370888519522}
-  - component: {fileID: 6791711370888519515}
+  - component: {fileID: 7726606723741726781}
+  - component: {fileID: 7726606723741726782}
+  - component: {fileID: 7726606723741726768}
+  - component: {fileID: 7726606723741726775}
+  - component: {fileID: 7726606723741726780}
+  - component: {fileID: 7726606723741726770}
+  - component: {fileID: 7726606723741726771}
+  - component: {fileID: 7726606723741726776}
+  - component: {fileID: -1555243804836902054}
   m_Layer: 0
-  m_Name: ShotGun
+  m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6791711370888519516
+--- !u!4 &7726606723741726781
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791711370888519521}
+  m_GameObject: {fileID: 7726606723741726774}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -37,108 +38,125 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6791711370888519519
+--- !u!114 &7726606723741726782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791711370888519521}
+  m_GameObject: {fileID: 7726606723741726774}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e50b3b1d709417f47855ec95fddb027f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDefination: {fileID: 11400000, guid: ebe1b49ae9ba4a94c9bd4a1edd512247, type: 2}
+  weaponDefination: {fileID: 11400000, guid: c8d4845f79eb7b04e9877e693aa3e9a5, type: 2}
   playerRecoilData: {fileID: 11400000, guid: a3c29a417078d3d4cb5e75d7483d26ec, type: 2}
   transformData: {fileID: 11400000, guid: a9c9c8473e4cf77498a53a5182eb03f2, type: 2}
   dragCheckData: {fileID: 11400000, guid: 71bc90b9334cef94796b397c29ff05dd, type: 2}
---- !u!114 &6791711370888519513
+--- !u!114 &7726606723741726768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791711370888519521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490cb17122934c042b746f26c0ec2be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  listIntializeDataMixins:
-  - {fileID: 6791711370888519517}
---- !u!114 &6791711370888519523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791711370888519521}
+  m_GameObject: {fileID: 7726606723741726774}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ba21106814c9444bb82d339500e3bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: 10
-  weaponDefination: {fileID: 6791711370888519519}
+  data: 99
+  weaponDefination: {fileID: 7726606723741726782}
   updateMixins: []
---- !u!114 &6791711370888519520
+--- !u!114 &7726606723741726775
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791711370888519521}
+  m_GameObject: {fileID: 7726606723741726774}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4803bd96af6bf4bb81ac5685009831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   checkMixins:
-  - {fileID: 6791711370888519517}
+  - {fileID: 7726606723741726780}
   actionsMixins:
-  - {fileID: 6791711370888519522}
-  - {fileID: 6791711370888519517}
---- !u!114 &6791711370888519517
+  - {fileID: -1555243804836902054}
+  - {fileID: 7726606723741726780}
+--- !u!114 &7726606723741726780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791711370888519521}
+  m_GameObject: {fileID: 7726606723741726774}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dfeada03c80d1745a4086e19678a5e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDefination: {fileID: 6791711370888519519}
-  cooldownTimer: 5
-  isCool: 1
---- !u!114 &6791711370888519522
+  weaponDefination: {fileID: 7726606723741726782}
+  cooldownTimer: 1
+  isCool: 0
+--- !u!114 &7726606723741726770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791711370888519521}
+  m_GameObject: {fileID: 7726606723741726774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda8ab1273b925c4c8895a0088b7ba60, type: 3}
+  m_Script: {fileID: 11500000, guid: d5281d47fb2c165418b2cc7fade38ab8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponDefination: {fileID: 6791711370888519519}
---- !u!114 &6791711370888519515
+  actionMixin: {fileID: 7726606723741726771}
+  clip: {fileID: 7726606723741726768}
+  ammoPerShot: 1
+--- !u!114 &7726606723741726771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6791711370888519521}
+  m_GameObject: {fileID: 7726606723741726774}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd21dec6c5078b46b4d5ef4b79592f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 7726606723741726768}
+  weaponDefination: {fileID: 7726606723741726782}
+  intialClipSize: 100
+  reloadtimer: 0.5
+--- !u!114 &7726606723741726776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726606723741726774}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db18075f878bc3c46a57a749bd4fe838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recoilData: {fileID: 6791711370888519519}
+  recoilData: {fileID: 7726606723741726782}
   isApplyingThrust: 0
   isRecoiling: 0
+--- !u!114 &-1555243804836902054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726606723741726774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1494b3043dafad04cad7b4a2be8ed502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponDefination: {fileID: 7726606723741726782}

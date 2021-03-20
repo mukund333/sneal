@@ -16,6 +16,8 @@ public class ShotGun : MixinBase
 	
 	 private void Shoot()
      {
+		 		  weaponDefination.dragCheckData.playrDrag = false;
+
 			for (int i = 0; i < 5; i++)
             {
                 float num = Random.Range(-weaponDefination.GetSpread(), weaponDefination.GetSpread());

@@ -45,10 +45,10 @@ public class PlayerPhysics : MonoBehaviour
     {
         
         rb2d = GetComponent<Rigidbody2D>();
-        if (currentWeaponData.WeaponNumber == 3)
+      /*  if (currentWeaponData.WeaponNumber == 3)
         {
             state = State.RecoilPhysicsState;
-        }
+        }*/
     }
     private void Update()
     {
@@ -66,8 +66,9 @@ public class PlayerPhysics : MonoBehaviour
     }
     void CheckWeaponPhysics()
     {
+		state = State.CurvePhysicsState;
        // Debug.Log("check weapon number");
-        if (playerData.weaponNumber == 2)
+      /*  if (playerData.weaponNumber == 2)
         {
             rb2d.drag = 10f;
         //    Debug.Log(" weapon number 2");
@@ -76,7 +77,7 @@ public class PlayerPhysics : MonoBehaviour
         else {
             rb2d.drag = 0.3f;
             state = State.CurvePhysicsState;
-        }
+        }*/
     }
 
     void CheckWeponChange()
@@ -150,8 +151,7 @@ public class PlayerPhysics : MonoBehaviour
         rb2d.AddForce(transform.right *currentWeaponData.thrust, ForceMode2D.Impulse);
     }
 
-    private void CurvePhysics()
-    {
+    private void CurvePhysics(){
 
        
         if (move)
