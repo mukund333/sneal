@@ -192,7 +192,7 @@ MonoBehaviour:
   speed: 5
   targetPosition: {x: 0, y: 0, z: 0}
   chargeDelay: 3
-  attackRange: 15
+  attackRange: 7
   chargeDir: {x: 0, y: 0, z: 0}
   chargeSpeed: 10
 --- !u!61 &5039758813388713644

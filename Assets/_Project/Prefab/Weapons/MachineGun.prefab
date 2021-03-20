@@ -85,7 +85,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkMixins:
   - {fileID: 6011827699813287557}
-  - {fileID: 6011827699813287556}
   actionsMixins:
   - {fileID: 6011827699813287562}
   - {fileID: 6011827699813287557}

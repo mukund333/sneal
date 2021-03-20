@@ -17,10 +17,10 @@ MonoBehaviour:
   WeaponNumber: 2
   weaponName: Rifle
   wepType: 1
-  spread: 5
+  spread: 2
   projIndex: 0
   shots: 300000
   angle: 0
   thrust: 25
   drag: 50
-  lastShotTime: 0.3
+  lastShotTime: 0.1

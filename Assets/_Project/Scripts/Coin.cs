@@ -25,14 +25,14 @@ public class Coin : MonoBehaviour
     {
 		target = FindObjectOfType<PlayerPostionRotation>().transform;
 		trans = transform;
-		waitTime = new WaitForSeconds(UnityEngine.Random.Range(0.5f, 1.5f));
+		waitTime = new WaitForSeconds(UnityEngine.Random.Range(1f, 2f));
 
 	}
 
 	private IEnumerator Move()
 	{
 		float timer = 0f;
-		float speed = UnityEngine.Random.Range(1f, 2f);
+		float speed = UnityEngine.Random.Range(0.5f, 1.5f);
 		Vector2 nextPos = new Vector2(trans.position.x, trans.position.y) + Random.insideUnitCircle * Random.Range(2f, 8f);
 		while (this.trans.position.x != nextPos.x && this.trans.position.y != nextPos.y)
 		{

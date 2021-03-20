@@ -5,7 +5,7 @@ using SnealUltra.Assets._Project.Scripts.Mixins;
 
 public class RifleGun : MixinBase
 {
-    public CurrentWeaponData playerTransformData;
+    public CurrentWeaponData weaponDefination;
 
 
 
@@ -17,8 +17,10 @@ public class RifleGun : MixinBase
 	
 	 private void Shoot()
      {
+		  weaponDefination.dragCheckData.playrDrag = false;
+		 
 		int num2 = Choose(-1, 1, new int[0]);
 
-        PoolManager.instance.GetObject("RiffleBullet", playerTransformData.GetPlayerPosition(), Quaternion.Euler(0f, 0f, playerTransformData.GetPlayerRotation().eulerAngles.z + num2));
+        PoolManager.instance.GetObject("RiffleBullet", weaponDefination.GetPlayerPosition(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num2));
      }
 }

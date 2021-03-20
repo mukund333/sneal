@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da4120edf355e944b5f4dec7830d1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteOffset: {x: -2, y: -1}
+  spriteOffset: {x: -1, y: -0.5}
   spriteToShadow: {fileID: 0}
   shadowRenderer: {fileID: 0}
   lastSprite: {fileID: 0}
@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  IsImmortal: 0
   baseHealth: 3
   pickupDropChance: 50
   debrisAmount: {x: 0, y: 0}
@@ -279,3 +280,7 @@ MonoBehaviour:
   target: {fileID: 0}
   sizeMinMax: {x: 1, y: 1}
   playerShield: {fileID: 0}
+  distance: 0
+  divided: 0
+  spriteSize: 2
+  acc: 0

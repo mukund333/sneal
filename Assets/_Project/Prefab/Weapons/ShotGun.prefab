@@ -52,6 +52,7 @@ MonoBehaviour:
   weaponDefination: {fileID: 11400000, guid: ebe1b49ae9ba4a94c9bd4a1edd512247, type: 2}
   playerRecoilData: {fileID: 11400000, guid: a3c29a417078d3d4cb5e75d7483d26ec, type: 2}
   transformData: {fileID: 11400000, guid: a9c9c8473e4cf77498a53a5182eb03f2, type: 2}
+  dragCheckData: {fileID: 11400000, guid: 71bc90b9334cef94796b397c29ff05dd, type: 2}
 --- !u!114 &6791711370888519513
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,10 +17,10 @@ MonoBehaviour:
   WeaponNumber: 4
   weaponName: MachineGun
   wepType: 3
-  spread: 15
+  spread: 10
   projIndex: 3
   shots: 1000
   angle: 0
   thrust: 250
   drag: 300
-  lastShotTime: 0.1
+  lastShotTime: 0.05

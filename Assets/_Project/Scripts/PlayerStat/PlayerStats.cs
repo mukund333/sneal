@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; 
+
 using System;
 using SnealUltra.Assets._Project.Scripts.Enemy;
 
@@ -88,6 +90,9 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 			if (playerHealth.Health <= 0)
 			{
 				Kill();
+			 SceneManager.LoadScene("StartGameScene");  
+
+				
 			}
 		}
 
@@ -101,7 +106,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 				{
 					if (array[i].CompareTag("Enemy"))
 					{
-						array[i].GetComponent<EnemyManager>().Damage(5);
+						array[i].GetComponent<EnemyManager>().Damage(20);
 					}
 				}
 			}

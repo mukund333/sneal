@@ -186,8 +186,7 @@ public class PlayerPhysics : MonoBehaviour
     }
 
 
-    private void SetInitialPysicsState()
-    {
+    private void SetInitialPysicsState(){
         state = State.InitialPhysics;
 
         

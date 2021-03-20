@@ -243,7 +243,7 @@ public class TurtleEnemy : EnemyManager
 	}
 	
 	public IEnumerator PlayAndWaitForAnim(Animator targetAnim, string stateName){
-
+		speed=0;
 		animator.speed = 0.5f;
 		ChangeAnimationState(1);
 
@@ -308,7 +308,6 @@ public class TurtleEnemy : EnemyManager
 
     #endregion
 
-
 	private void Configure(){
 		IsImmortal = false;
 		animName = "TurtleTransformAnimation";
@@ -317,7 +316,8 @@ public class TurtleEnemy : EnemyManager
 		targetPosition = Vector3.zero;
 		chargeDelay = 1;
 		chargeDir = Vector3.zero;
-		chargeSpeed = 20;
+		chargeSpeed = 20f;
+		speed = 10f;
 		
 		try
 		{
@@ -344,8 +344,7 @@ public class TurtleEnemy : EnemyManager
 		
 	}
 
-	void OnDisable()
-	{
+	void OnDisable(){
 		Dispose();
 	}
 }

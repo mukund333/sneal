@@ -31,6 +31,7 @@ public class Drone : EnemyManager
 			Vector3 displacementFromTarget;
 			Vector3 directionToTarget;
 			Vector3 velocity;
+			public float turnRate;
 	#endregion
 	
 	#region animation params
@@ -107,12 +108,13 @@ public class Drone : EnemyManager
 	}
 
 	private void Update(){
-		switch (state){
+		Behave();
+		/*switch (state){
 
 			case State.Moving:
 		
-				DroneMovement();
-				
+				//DroneMovement();
+				Behave();
 				
 				Debug.Log("follow");
 				
@@ -147,7 +149,7 @@ public class Drone : EnemyManager
 				}
 				break;*/
 			
-			case State.Blast:
+		/*	case State.Blast:
 				Debug.Log("Blast");
 					//Detonate();
 					//	StartCoroutine(PlayAndWaitForAnim(animator, animName));	
@@ -156,7 +158,7 @@ public class Drone : EnemyManager
 					thirdWheel.SetActive(false);
 
 					break;
-		}
+		}*/
 		
 		
 		
@@ -190,6 +192,18 @@ public class Drone : EnemyManager
 
 			
 	}  
+	
+	private void Behave()
+	{
+		
+			Vector2 dir = this.target.position - this.thisTrans.position;
+			float angle = Mathf.Atan2(dir.y, dir.x) * 57.29578f;
+			Quaternion rot = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
+			this.thisTrans.rotation = Quaternion.Slerp(this.thisTrans.rotation, rot, Time.fixedDeltaTime * this.turnRate);
+			this.body2d.velocity = this.thisTrans.right * this.speed;
+			
+		
+	}
 	
 	private void ChangeAnimationState(int value){
 		animator.SetInteger ("AnimState", value);

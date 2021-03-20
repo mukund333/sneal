@@ -19,8 +19,8 @@ MonoBehaviour:
   wepType: 0
   spread: 0
   projIndex: 2
-  shots: 100
+  shots: 100000
   angle: 0
   thrust: 32
   drag: 4
-  lastShotTime: 0.25
+  lastShotTime: 0.17

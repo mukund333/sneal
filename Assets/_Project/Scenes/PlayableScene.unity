@@ -342,7 +342,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0.3
   m_AngularDrag: 5
   m_GravityScale: 0
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
-  _maxHealth: 200
+  _maxHealth: 10
 --- !u!4 &424540408
 Transform:
   m_ObjectHideFlags: 0
@@ -396,7 +396,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0013753176, y: 0.0013752282}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -407,7 +407,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.947737, y: 0.5296325}
   m_EdgeRadius: 0
 --- !u!114 &424540410
 MonoBehaviour:
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragCheck: {fileID: 11400000, guid: 71bc90b9334cef94796b397c29ff05dd, type: 2}
   isWeaponChange: 0
-  speed: 7
+  speed: 5
   accCurve:
     serializedVersion: 2
     m_Curve:
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f1434421c490b44943365d698f2d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponNumber: 3
+  weaponNumber: 2
   isEquipDirect: 0
   isPassWeapon: 0
   isPowerGun: 0
@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 492116951}
   - component: {fileID: 492116952}
   - component: {fileID: 492116948}
+  - component: {fileID: 492116953}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -696,6 +697,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d27b6979aad9a94f80c254fb6e7d7cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &492116953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492116947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7f5d30418c10dc4e8a74046a945329a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &549131055
@@ -1368,7 +1381,7 @@ MonoBehaviour:
     id: 0
     prefab: {fileID: 9165209532447279245, guid: 34c6c6785cbadcc479c2b727e7bab1c1,
       type: 3}
-    poolSize: 10
+    poolSize: 100
     limit: 1
     poolHolder: {fileID: 0}
     pool: []
@@ -1464,7 +1477,7 @@ MonoBehaviour:
   enemies:
   - Name: FollowerEnemy
     spawnStartTime: 5
-    spawnFreqRange: {x: 0.3, y: 2}
+    spawnFreqRange: {x: 0.05, y: 0.15}
     timeToMaxSpawnFreq: 180
     curve:
       serializedVersion: 2
@@ -1511,9 +1524,9 @@ MonoBehaviour:
     debug: 0
     poolId: 0
   - Name: turtle
-    spawnStartTime: 0
+    spawnStartTime: 25
     spawnFreqRange: {x: 0.15, y: 0.25}
-    timeToMaxSpawnFreq: 60
+    timeToMaxSpawnFreq: 222
     curve:
       serializedVersion: 2
       m_Curve:
@@ -1550,35 +1563,35 @@ MonoBehaviour:
     debug: 0
     poolId: 0
   - Name: Drone
-    spawnStartTime: 3
-    spawnFreqRange: {x: 0.7, y: 0.15}
-    timeToMaxSpawnFreq: 100
+    spawnStartTime: 0
+    spawnFreqRange: {x: 0.75, y: 8}
+    timeToMaxSpawnFreq: 180
     curve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: 2.367303
-        outSlope: 2.367303
+        inSlope: 0.61269414
+        outSlope: 0.61269414
         tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.3005202
-        value: 0.7114224
-        inSlope: 1.466688
-        outSlope: 1.466688
+        time: 0.3711539
+        value: 0.2274038
+        inSlope: 1.1638746
+        outSlope: 1.1638746
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7662129
-        value: 0.9750385
-        inSlope: 0.33642167
-        outSlope: 0.33642167
+        time: 0.601638
+        value: 0.6226968
+        inSlope: 1.3310959
+        outSlope: 1.3310959
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -1586,8 +1599,8 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 1
         value: 1
-        inSlope: 0.10677009
-        outSlope: 0.10677009
+        inSlope: 0.9471365
+        outSlope: 0.9471365
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -1597,7 +1610,7 @@ MonoBehaviour:
       m_RotationOrder: 0
     debug: 0
     poolId: 0
-  spawnRadius: 10
+  spawnRadius: 50
   testStartSpawn: 1
 --- !u!114 &1222984972
 MonoBehaviour:

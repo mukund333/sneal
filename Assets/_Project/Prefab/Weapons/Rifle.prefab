@@ -53,6 +53,7 @@ MonoBehaviour:
   weaponDefination: {fileID: 11400000, guid: 752e3e00d93c65e41ab5359c5450be1d, type: 2}
   playerRecoilData: {fileID: 11400000, guid: a3c29a417078d3d4cb5e75d7483d26ec, type: 2}
   transformData: {fileID: 11400000, guid: a9c9c8473e4cf77498a53a5182eb03f2, type: 2}
+  dragCheckData: {fileID: 11400000, guid: 71bc90b9334cef94796b397c29ff05dd, type: 2}
 --- !u!114 &7726606723741726768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50dc431043cbefe4c8f052fedff5811c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransformData: {fileID: 7726606723741726782}
+  weaponDefination: {fileID: 7726606723741726782}
 --- !u!114 &7726606723741726776
 MonoBehaviour:
   m_ObjectHideFlags: 0

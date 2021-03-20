@@ -14,7 +14,7 @@ public class CheckRecoil : MixinBase
 
     public override bool Check()
     {
-        if (recoilData.GetRigidbodyData() == 0)
+        if (recoilData.GetRigidbodyData() < 0.5)
         {
 
             return isRecoiling = true;
@@ -40,13 +40,13 @@ public class CheckRecoil : MixinBase
             isApplyingThrust = false;
         }
 
-        if (recoilData.GetRigidbodyData() > 0)
+        if (recoilData.GetRigidbodyData() > 0.5)
         {
             //recoilData.isRecoilingComplete = false;//set data
             recoilData.SetRecoil(false);
             isRecoiling = false;
         }
-        if (recoilData.GetRigidbodyData() == 0)
+        if (recoilData.GetRigidbodyData() < 0.5)
         {
             isRecoiling = true;
         }

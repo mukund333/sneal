@@ -5,11 +5,10 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int _health = 100;
-    [SerializeField] int _maxHealth = 120;
+    [SerializeField] private int _maxHealth = 120;
 
 
-    public int MaxHealth
-    {
+    public int MaxHealth{
         get
         {
             return _maxHealth;
@@ -17,12 +16,11 @@ public class PlayerHealth : MonoBehaviour
 
         set
         {
-            _maxHealth = Mathf.Clamp(value, 0, 200);
+            _maxHealth = Mathf.Clamp(value, 0, 100);
         }
     }
 
-    public int Health
-    {
+    public int Health{
         get
         {
             return _health;
@@ -34,9 +32,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void OnValidate()
-    {
+    private void OnValidate(){
         Health = _health;
         MaxHealth = _maxHealth;
     }
+	
+	void Start()
+	{
+		OnValidate();
+	}
+		
+		
+	
 }
