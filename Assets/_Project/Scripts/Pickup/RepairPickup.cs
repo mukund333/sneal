@@ -17,8 +17,7 @@ public class RepairPickup : Pickup
 	[SerializeField] int _powerupMaxHealthToGive = 10;
 
 
-	public int MaxHealthPowerup
-	{
+	public int MaxHealthPowerup{
 		get
 		{
 			return _powerupMaxHealthToGive;

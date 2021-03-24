@@ -13,13 +13,49 @@ MonoBehaviour:
   m_Name: Repair
   m_EditorClassIdentifier: 
   Name: Repair
-  poolId: 0
+  poolId: 3
   pickupType: 0
-  spawnFreqRange: {x: 0.3, y: 4.5}
+  spawnFreqRange: {x: 0.05, y: 0.15}
   spawnStartTime: 0
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.61269414
+      outSlope: 0.61269414
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.3711539
+      value: 0.2274038
+      inSlope: 1.1638746
+      outSlope: 1.1638746
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.601638
+      value: 0.6226968
+      inSlope: 1.3310959
+      outSlope: 1.3310959
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.9471365
+      outSlope: 0.9471365
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

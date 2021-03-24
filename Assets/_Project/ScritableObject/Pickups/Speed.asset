@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Speed
   poolId: 0
   pickupType: 2
-  spawnFreqRange: {x: 0.3, y: 4.5}
+  spawnFreqRange: {x: 0.05, y: 8}
   spawnStartTime: 0
   curve:
     serializedVersion: 2

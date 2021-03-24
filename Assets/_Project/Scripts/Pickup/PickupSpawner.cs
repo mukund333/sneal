@@ -7,7 +7,10 @@ using UnityEngine;
 public class PickupSpawner : MonoBehaviour
 {
 
-
+	
+	
+	public float startFrequency ;
+	public float spawnFrequency ;
 	public float spawnRadius;
 	private float timer;
 	private bool stopSpawn;
@@ -25,9 +28,19 @@ public class PickupSpawner : MonoBehaviour
 	int sheildPickupId;
 
 	public List<Pickup> pickupList;
+	
+	
 
-	int i;
-
+	
+	public bool isPickupChange = false;
+	
+	
+	
+	
+	private void OnEnable()
+	{
+		
+	}
 
 
 	private void Awake()
@@ -65,12 +78,17 @@ public class PickupSpawner : MonoBehaviour
 		//GameMaster.instance.OnGameStart += this.StartSpawning;
 		#endregion	
 		
+			
+				
 		
+
 		
 
 		if (testStartSpawn == true)
 			StartSpawning();
-
+			
+			
+		
 
 
 	}
@@ -78,34 +96,37 @@ public class PickupSpawner : MonoBehaviour
 	private void Update()
 	{
 		
+		
 	}
 
-	private void StartSpawning()
-	{
+	private void StartSpawning(){
 		stopSpawn = false;
-
-		StartCoroutine(SpawnPowerups(pickupList[3]));//change with random number
+		
+		
+		
+		for (int i = 0; i < pickupList.Count; i++)
+			{
+				Debug.Log("i :"+i);
+				StartCoroutine(SpawnPowerups(pickupList[i]));
+			}
+		 //change with random number
 		
 		StartCoroutine(Timer());
 	}
 
 
-	private void StopSpawning()
-	{
+	private void StopSpawning(){
 		stopSpawn = true;
 	}
 
-
-
-	private IEnumerator SpawnPowerups(Pickup powerup)
-	{
+	private IEnumerator SpawnPowerups(Pickup powerup){
 		
 
 
 		float startedTime = timer;
 		
-		float startFrequency = powerup.GetSpawnFreqRange().x;
-		float spawnFrequency = 0f;
+		 startFrequency = powerup.GetSpawnFreqRange().x;
+		 spawnFrequency = 0f;
 		while (!stopSpawn && timer < powerup.GetSpawnStartTime())
 		{
 			yield return 0;
@@ -114,14 +135,13 @@ public class PickupSpawner : MonoBehaviour
 		{
 			PoolManager.instance.GetObject(powerup.GetPoolId(), (Vector2)this.player.position + UnityEngine.Random.insideUnitCircle.normalized * spawnRadius, Quaternion.identity);
 			spawnFrequency = Mathf.Lerp(startFrequency, powerup.GetSpawnFreqRange().y, powerup.GetCurve().Evaluate(Mathf.Lerp(0f, 1f, (this.timer - startedTime) / (float)powerup.GetMaxFreq())));
-			MonoBehaviour.print(spawnFrequency);
+			//MonoBehaviour.print(spawnFrequency);
 			yield return new WaitForSeconds(1f / spawnFrequency);
 		}
 		yield break;
 	}
 
-	private IEnumerator Timer()
-	{
+	private IEnumerator Timer(){
 		timer = 0f;
 		while (!stopSpawn)
 		{
@@ -132,6 +152,15 @@ public class PickupSpawner : MonoBehaviour
 		yield break;
 	}
 
+
+	private void Dispose(){
+	// j=0;	
+	}
+
+	void OnDisable(){
+		Dispose();
+	}
+	
 }
 
 

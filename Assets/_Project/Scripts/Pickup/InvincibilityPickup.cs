@@ -50,6 +50,7 @@ public class InvincibilityPickup : Pickup
 		if (col.CompareTag("Player"))
 		{
 			Debug.Log("InvincibilityPickup");
+			gameObject.SetActive(false);
 		}
 	}
 

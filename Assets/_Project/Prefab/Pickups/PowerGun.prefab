@@ -123,5 +123,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPickup: {fileID: 11400000, guid: 1153e55278d0d9648a1d7cb3a8be5647, type: 2}
   player: {fileID: 0}
+  pickupLife: 10
   weaponDB: {fileID: 0}
-  powerupGunNumber: 3
+  powerupGunNumber: 2
+  randomInt: 0
+  items: 0200000003000000
+  isWeaponChange: 0

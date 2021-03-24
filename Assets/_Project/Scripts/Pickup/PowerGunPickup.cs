@@ -17,35 +17,63 @@ public class PowerGunPickup : Pickup
     public PickupData thisPickup;
     
     public CurrentPlayerComponentData player;
+	
+	public float pickupLife;
 
 	public WeaponDB weaponDB;
 
-	public int powerupGunNumber = 3;
+	public int powerupGunNumber;
+	
+	public int randomInt;
+	public int[] items =  new int[]  { 2,3};
+	
+	
+	public bool isWeaponChange = false;
 
 
 	private void OnEnable()
     {
+		Configure();
+		
+		
         InitPickup();
+		
+		
+		
     }
     private void Awake()
     {
         player = FindObjectOfType<CurrentPlayerComponentData>();
 		weaponDB = FindObjectOfType<WeaponDB>();
 		// range of powerup gun
-		powerupGunNumber = Random.Range(0, 3);
-		//Debug.Log("powergun number"+powerupGunNumber);
+		
+		
+		
+		//powerupGunNumber = Random.Range(2, 3);
+		
 		
     }
 
     void Start()
     {
-		
+		 StartCoroutine(LateCall());
 		
     }
+	
+	     IEnumerator LateCall()
+     {
+ 
+         yield return new WaitForSeconds(pickupLife);
+ 
+         gameObject.SetActive(false);
+         //Do Function here...
+     }
 
     void Update()
     {
-
+		
+		
+		
     }
 
     private void InitPickup()
@@ -104,6 +132,24 @@ public class PowerGunPickup : Pickup
 	{
 		return thisPickup.timeToMaxSpawnFreq;
 	}
-
+	
+	
+	#region Configure and Dispose
+				private void Configure(){
+					randomInt = Random.Range(0,items.Length);
+		
+					powerupGunNumber = items[randomInt];
+				}
+				private void Dispose(){
+					randomInt=0;
+					powerupGunNumber=0;
+				}
+	#endregion
+	
+	private void OnDisable(){
+					Dispose();
+				}
+	
+	
 	
 }

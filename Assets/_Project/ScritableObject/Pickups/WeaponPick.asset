@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: WeaponPick
   m_EditorClassIdentifier: 
   Name: PowerGun
-  poolId: 0
+  poolId: 4
   pickupType: 3
-  spawnFreqRange: {x: 0.3, y: 4.5}
+  spawnFreqRange: {x: 0.05, y: 8}
   spawnStartTime: 0
   curve:
     serializedVersion: 2

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Shield
   m_EditorClassIdentifier: 
   Name: Shield
-  poolId: 5
+  poolId: 6
   pickupType: 4
-  spawnFreqRange: {x: 0.3, y: 4.5}
+  spawnFreqRange: {x: 0.75, y: 8}
   spawnStartTime: 0
   curve:
     serializedVersion: 2

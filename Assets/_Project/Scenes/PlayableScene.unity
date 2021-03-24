@@ -541,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f1434421c490b44943365d698f2d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponNumber: 4
+  weaponNumber: 1
   isEquipDirect: 0
   isPassWeapon: 0
   isPowerGun: 0
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shieldHealth: 10
   _maxShieldHealth: 120
-  shieldTime: 30
+  shieldTime: 5
   shieldSprite: {fileID: 0}
   IsShieldOn: 0
 --- !u!1 &492116947
@@ -833,7 +833,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549131055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0138408, y: -0.30366656, z: -0.030601567}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1210,14 +1210,16 @@ GameObject:
   m_Component:
   - component: {fileID: 1222984965}
   - component: {fileID: 1222984972}
+  - component: {fileID: 1222984968}
   - component: {fileID: 1222984966}
+  - component: {fileID: 1222984970}
   - component: {fileID: 1222984971}
   - component: {fileID: 1222984973}
-  - component: {fileID: 1222984968}
-  - component: {fileID: 1222984970}
   - component: {fileID: 1222984967}
   - component: {fileID: 1222984969}
   - component: {fileID: 1222984964}
+  - component: {fileID: 1222984975}
+  - component: {fileID: 1222984974}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -1317,7 +1319,7 @@ MonoBehaviour:
     id: 0
     prefab: {fileID: 5089823116787705615, guid: 200ded0e858a0624eafa2ae40d4af1b3,
       type: 3}
-    poolSize: 5
+    poolSize: 1
     limit: 1
     poolHolder: {fileID: 0}
     pool: []
@@ -1479,7 +1481,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222984963}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 443da71e8c2fc4d4a9745baea3ccc7d0, type: 3}
   m_Name: 
@@ -1648,6 +1650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0841415c34323d24fa5a2c4727fcce73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startFrequency: 0
+  spawnFrequency: 0
   spawnRadius: 10
   testStartSpawn: 1
   invincibilityPickup: {fileID: 4656295872883896320, guid: eb6dbd908193c9f449a44d01d66ef533,
@@ -1659,6 +1663,52 @@ MonoBehaviour:
   shieldPickup: {fileID: -8041117862120703261, guid: ad35877480d11894e962bcb7089e2c17,
     type: 3}
   pickupList: []
+  isPickupChange: 0
+--- !u!114 &1222984974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222984963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbf4024f68e2e7442a7b50b5a2738bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRadius: 10
+  testStartSpawn: 1
+  stopSpawn: 0
+  timer: 0
+  SpawnStartTime: 0
+  SpawnDelayTime: 3
+  randomInt: 0
+  items: 0000000000000000
+  repairPickup: {fileID: -3619101971881514774, guid: 8c418eae4b89c614e9066e705125a359,
+    type: 3}
+  shieldPickup: {fileID: -8041117862120703261, guid: ad35877480d11894e962bcb7089e2c17,
+    type: 3}
+--- !u!114 &1222984975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222984963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3627a177b94fcec48a508fec2546d977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRadius: 10
+  testStartSpawn: 1
+  stopSpawn: 0
+  timer: 0
+  SpawnStartTime: 0
+  SpawnDelayTime: 5
+  randomInt: 0
+  powerGunPickup: {fileID: 5089823116787705612, guid: 200ded0e858a0624eafa2ae40d4af1b3,
+    type: 3}
 --- !u!1 &1292594822
 GameObject:
   m_ObjectHideFlags: 3

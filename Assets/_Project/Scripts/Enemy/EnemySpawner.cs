@@ -38,6 +38,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 		}
 
 		private void StartSpawning(){
+				
 			stopSpawn = false;
 			for (int i = 0; i < enemies.Length; i++)
 			{
