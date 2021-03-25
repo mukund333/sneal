@@ -274,11 +274,11 @@ public class TurtleEnemy : EnemyManager
 			{
 				if (playerShield.IsShieldOn)
 				{
-					col.collider.GetComponent<PlayerShield>().DamageToShield(5);
+					col.collider.GetComponent<PlayerShield>().DamageToShield(1);
 				}
 				else
 				{
-					col.collider.GetComponent<PlayerStats>().Damage(5);
+					col.collider.GetComponent<PlayerStats>().Damage(1);
 				}
 				//CameraController.instance.initializeCameraShake(3f, 0.05f);
 				//ExplosionManager.instance.SpawnDynamicExplosion(col.contacts[0].point, new Vector2(1f, 2f), new Vector2(0.25f, 1.5f), 32, new Vector2(0.02f, 0.1f));
@@ -316,8 +316,9 @@ public class TurtleEnemy : EnemyManager
 		targetPosition = Vector3.zero;
 		chargeDelay = 1;
 		chargeDir = Vector3.zero;
-		chargeSpeed = 20f;
-		speed = 10f;
+		chargeSpeed = 15f;
+		speed = 5f;
+			attackRange = 5f;
 		
 		try
 		{
@@ -338,7 +339,7 @@ public class TurtleEnemy : EnemyManager
 		chargeDir = Vector3.zero;
 		chargeSpeed =0;
 		distance = 0;
-		
+			attackRange = 0;
 		
 		
 		

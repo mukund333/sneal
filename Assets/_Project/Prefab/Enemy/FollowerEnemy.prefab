@@ -275,7 +275,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   curHealth: 10
-  Speed: 5
+  Speed: 6
   turnRate: 0.3
   target: {fileID: 0}
   sizeMinMax: {x: 1, y: 1}

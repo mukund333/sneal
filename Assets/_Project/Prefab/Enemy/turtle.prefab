@@ -154,7 +154,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   IsImmortal: 0
-  baseHealth: 10
+  baseHealth: 5
   pickupDropChance: 50
   debrisAmount: {x: 0, y: 0}
   coinAmount: {x: 0, y: 0}
@@ -192,9 +192,9 @@ MonoBehaviour:
   speed: 5
   targetPosition: {x: 0, y: 0, z: 0}
   chargeDelay: 3
-  attackRange: 7
+  attackRange: 5
   chargeDir: {x: 0, y: 0, z: 0}
-  chargeSpeed: 10
+  chargeSpeed: 15
 --- !u!61 &5039758813388713644
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &350677730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,12 +238,12 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 10
-  m_StandbyUpdate: 2
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 424540408}
   m_Lens:
     FieldOfView: 30
-    OrthographicSize: 5
+    OrthographicSize: 8
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -264,7 +264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350677729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -40}
+  m_LocalPosition: {x: 0, y: 0, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1292594823}
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
-  _maxHealth: 10
+  _maxHealth: 3
 --- !u!4 &424540408
 Transform:
   m_ObjectHideFlags: 0
@@ -491,7 +491,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   acc: 0
-  accSpeed: 5
+  accSpeed: 8
   move: 1
   isApplyingDrag: 0
   playerData: {fileID: 424540416}
@@ -550,7 +550,7 @@ MonoBehaviour:
     type: 2}
   weaponDB: {fileID: 1222984970}
   projectileDatabase: {fileID: 0}
-  timeRemaining: 10
+  timeRemaining: 0
   PowerGuntime: 15
   isPowerGunRunning: 0
 --- !u!114 &424540417
@@ -584,6 +584,7 @@ GameObject:
   - component: {fileID: 492116952}
   - component: {fileID: 492116948}
   - component: {fileID: 492116953}
+  - component: {fileID: 492116954}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -625,8 +626,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 30
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -650,7 +651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492116947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -40}
+  m_LocalPosition: {x: 0, y: 0, z: -60}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -663,7 +664,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492116947}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -672,7 +673,7 @@ MonoBehaviour:
   m_ShowCameraFrustum: 1
   m_IgnoreTimeScale: 0
   m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
+  m_UpdateMethod: 1
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
     m_Style: 1
@@ -714,6 +715,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f5d30418c10dc4e8a74046a945329a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &492116954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492116947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee3a36e12ee5e3049a684c4a913fe719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &549131055
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,6 +737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 549131057}
   - component: {fileID: 549131056}
+  - component: {fileID: 549131058}
   m_Layer: 0
   m_Name: backgroundMusic
   m_TagString: Untagged
@@ -842,6 +856,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &549131058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549131055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec63de421d7fdf4fb3f0a64c6b12799, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &927390109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,6 +1249,7 @@ GameObject:
   - component: {fileID: 1222984964}
   - component: {fileID: 1222984975}
   - component: {fileID: 1222984974}
+  - component: {fileID: 1222984976}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -1326,6 +1353,14 @@ MonoBehaviour:
     limit: 1
     poolHolder: {fileID: 0}
     pool: []
+  - Name: PowerGun
+    id: 0
+    prefab: {fileID: 5089823116787705615, guid: 200ded0e858a0624eafa2ae40d4af1b3,
+      type: 3}
+    poolSize: 5
+    limit: 1
+    poolHolder: {fileID: 0}
+    pool: []
   - Name: turtle
     id: 0
     prefab: {fileID: 4234474098349173158, guid: 3013ea39a109bfe4eb3d01995f5e91b8,
@@ -1386,7 +1421,7 @@ MonoBehaviour:
     id: 0
     prefab: {fileID: 9165209532447279245, guid: 34c6c6785cbadcc479c2b727e7bab1c1,
       type: 3}
-    poolSize: 100
+    poolSize: 20
     limit: 1
     poolHolder: {fileID: 0}
     pool: []
@@ -1491,8 +1526,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - Name: FollowerEnemy
-    spawnStartTime: 5
-    spawnFreqRange: {x: 0.05, y: 0.15}
+    spawnStartTime: 10
+    spawnFreqRange: {x: 0.15, y: 2}
     timeToMaxSpawnFreq: 180
     curve:
       serializedVersion: 2
@@ -1540,7 +1575,7 @@ MonoBehaviour:
     poolId: 0
   - Name: turtle
     spawnStartTime: 25
-    spawnFreqRange: {x: 0.15, y: 0.25}
+    spawnFreqRange: {x: 0.15, y: 2}
     timeToMaxSpawnFreq: 222
     curve:
       serializedVersion: 2
@@ -1579,7 +1614,7 @@ MonoBehaviour:
     poolId: 0
   - Name: Drone
     spawnStartTime: 0
-    spawnFreqRange: {x: 0.75, y: 8}
+    spawnFreqRange: {x: 0.25, y: 5}
     timeToMaxSpawnFreq: 180
     curve:
       serializedVersion: 2
@@ -1684,7 +1719,7 @@ MonoBehaviour:
   stopSpawn: 0
   timer: 0
   SpawnStartTime: 30
-  SpawnDelayTime: 3
+  SpawnDelayTime: 15
   randomInt: 0
   items: 0000000000000000
   repairPickup: {fileID: -3619101971881514774, guid: 8c418eae4b89c614e9066e705125a359,
@@ -1708,10 +1743,24 @@ MonoBehaviour:
   stopSpawn: 0
   timer: 0
   SpawnStartTime: 30
-  SpawnDelayTime: 5
+  SpawnDelayTime: 15
   randomInt: 0
   powerGunPickup: {fileID: 5089823116787705612, guid: 200ded0e858a0624eafa2ae40d4af1b3,
     type: 3}
+--- !u!114 &1222984976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222984963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fee9f5a554660d43b2e0cceb932057f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraFollow: {fileID: 492116954}
+  player: {fileID: 424540408}
 --- !u!1 &1292594822
 GameObject:
   m_ObjectHideFlags: 3
@@ -1762,11 +1811,11 @@ MonoBehaviour:
   m_LookaheadIgnoreY: 0
   m_XDamping: 3
   m_YDamping: 3
-  m_ZDamping: 3
+  m_ZDamping: 0
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 40
+  m_CameraDistance: 60
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0

@@ -161,14 +161,14 @@ public class PlayerPhysics : MonoBehaviour
             this.rb2d.velocity = transform.right * (this.speed * this.accCurve.Evaluate(this.acc));
 				acc = Mathf.Clamp(acc, 0f, 1f);
 				
-				if(dragCheck.playrDrag==true)
+				/*if(dragCheck.playrDrag==true)
 				{
 					rb2d.drag = 400f;
 				}
 				if(dragCheck.playrDrag == false)
 				{
 					rb2d.drag = 0.3f;
-				}
+				}*/
 				
             if (this.acc > 1f)
             {

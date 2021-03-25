@@ -129,11 +129,11 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			{
 				if(playerShield.IsShieldOn)
                 {
-					col.collider.GetComponent<PlayerShield>().DamageToShield(5);
+					col.collider.GetComponent<PlayerShield>().DamageToShield(1);
                 }
                 else
                 {
-					col.collider.GetComponent<PlayerStats>().Damage(5);
+					col.collider.GetComponent<PlayerStats>().Damage(1);
 				}
 				
 				//CameraController.instance.initializeCameraShake(3f, 0.05f);

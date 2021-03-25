@@ -108,7 +108,7 @@ public class Drone : EnemyManager
 	}
 
 	private void Update(){
-		Behave();
+		
 		/*switch (state){
 
 			case State.Moving:
@@ -163,7 +163,14 @@ public class Drone : EnemyManager
 		
 		
 	}
-	
+	private void FixedUpdate()
+	{
+		Vector2 dir = this.target.position - this.thisTrans.position;
+			float angle = Mathf.Atan2(dir.y, dir.x) * 57.29578f;
+			Quaternion rot = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
+			this.thisTrans.rotation = Quaternion.Slerp(this.thisTrans.rotation, rot, Time.fixedDeltaTime * this.turnRate);
+			this.body2d.velocity = this.thisTrans.right * this.speed;
+	}
 	private void SetStateMoving(){
 		state = State.Moving;
 	}
@@ -196,11 +203,7 @@ public class Drone : EnemyManager
 	private void Behave()
 	{
 		
-			Vector2 dir = this.target.position - this.thisTrans.position;
-			float angle = Mathf.Atan2(dir.y, dir.x) * 57.29578f;
-			Quaternion rot = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f));
-			this.thisTrans.rotation = Quaternion.Slerp(this.thisTrans.rotation, rot, Time.fixedDeltaTime * this.turnRate);
-			this.body2d.velocity = this.thisTrans.right * this.speed;
+			
 			
 		
 	}
@@ -277,11 +280,11 @@ public class Drone : EnemyManager
 			
 			if(playerShield.IsShieldOn)
                 {
-					col.collider.GetComponent<PlayerShield>().DamageToShield(5);
+					col.collider.GetComponent<PlayerShield>().DamageToShield(1);
                 }
                 else
                 {
-					col.collider.GetComponent<PlayerStats>().Damage(5);
+					col.collider.GetComponent<PlayerStats>().Damage(1);
 				}
 				
 				//CameraController.instance.initializeCameraShake(3f, 0.05f);

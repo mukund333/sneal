@@ -23,4 +23,4 @@ MonoBehaviour:
   angle: 0
   thrust: 50
   drag: 3
-  lastShotTime: 1
+  lastShotTime: 0.3
