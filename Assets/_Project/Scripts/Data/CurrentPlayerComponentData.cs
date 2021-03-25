@@ -24,9 +24,17 @@ public class CurrentPlayerComponentData : MonoBehaviour
 	int previusGeneralWeapon;
 	
 	private float waitTime;
+	
+	 public float timeRemaining;
+	 public float PowerGuntime = 15f;
+	
+	public bool isPowerGunRunning = false;
+	
 
 	private void Awake()
 	{
+		timeRemaining = PowerGuntime;
+		
 		weaponDB = FindObjectOfType<WeaponDB>();
 		projectileDatabase = FindObjectOfType<ProjectileDatabase>();
 		//GenerateWeaponByName();
@@ -49,18 +57,31 @@ public class CurrentPlayerComponentData : MonoBehaviour
 
 		if(isPowerGun == true)
 		{
-			startPowerGun();
+			
+			timeRemaining =PowerGuntime;
+			isPowerGunRunning = true;
 			isPowerGun = false;
 		}
+		
+		if(isPowerGunRunning)
+		 startPowerGun();
 
 		
-
+		
 
 	}
 
 	void startPowerGun()
 	{
-		StartCoroutine(TimerCoroutine());
+			if (timeRemaining > 0)
+		{
+			timeRemaining -= Time.deltaTime;
+			
+		}else{
+			isPowerGunRunning = false;
+			weaponNumber = previusGeneralWeapon;
+			isEquipDirect = true;
+		}
 	}
 
 	public void SetRigidBodyData(float forceVelocity)
@@ -127,10 +148,10 @@ public class CurrentPlayerComponentData : MonoBehaviour
 		//	elapsedTime += Time.deltaTime;
 		//	yield return null;
 		//}
-
-		yield return new WaitForSeconds(5f);
-		weaponNumber = previusGeneralWeapon;
-		isEquipDirect = true;
+		 
+		
+		yield return null;
+		
 		
 	}
 

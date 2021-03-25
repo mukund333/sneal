@@ -465,7 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragCheck: {fileID: 11400000, guid: 71bc90b9334cef94796b397c29ff05dd, type: 2}
   isWeaponChange: 0
-  speed: 5
+  speed: 7
   accCurve:
     serializedVersion: 2
     m_Curve:
@@ -550,6 +550,9 @@ MonoBehaviour:
     type: 2}
   weaponDB: {fileID: 1222984970}
   projectileDatabase: {fileID: 0}
+  timeRemaining: 10
+  PowerGuntime: 15
+  isPowerGunRunning: 0
 --- !u!114 &424540417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1319,7 +1322,7 @@ MonoBehaviour:
     id: 0
     prefab: {fileID: 5089823116787705615, guid: 200ded0e858a0624eafa2ae40d4af1b3,
       type: 3}
-    poolSize: 1
+    poolSize: 5
     limit: 1
     poolHolder: {fileID: 0}
     pool: []
@@ -1481,7 +1484,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222984963}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 443da71e8c2fc4d4a9745baea3ccc7d0, type: 3}
   m_Name: 
@@ -1680,7 +1683,7 @@ MonoBehaviour:
   testStartSpawn: 1
   stopSpawn: 0
   timer: 0
-  SpawnStartTime: 0
+  SpawnStartTime: 30
   SpawnDelayTime: 3
   randomInt: 0
   items: 0000000000000000
@@ -1704,7 +1707,7 @@ MonoBehaviour:
   testStartSpawn: 1
   stopSpawn: 0
   timer: 0
-  SpawnStartTime: 0
+  SpawnStartTime: 30
   SpawnDelayTime: 5
   randomInt: 0
   powerGunPickup: {fileID: 5089823116787705612, guid: 200ded0e858a0624eafa2ae40d4af1b3,
