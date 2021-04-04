@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SnealUltra.Assets._Project.Scripts.Player;
 
 public class PlayerPhysics : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class PlayerPhysics : MonoBehaviour
 
 
     }
+	
+	public Vector3 v;
 
     private State state;
 
@@ -35,6 +38,9 @@ public class PlayerPhysics : MonoBehaviour
     public CurrentPlayerComponentData playerData;
     public WeaponData currentWeaponData;
     public float waitTime;
+	public Transform sprite;
+	public EquipPlayerWeapon equipPlayerWeapon;
+
 
     private void Awake()
     {
@@ -43,8 +49,10 @@ public class PlayerPhysics : MonoBehaviour
 
     void Start()
     {
+		sprite = base.transform.GetChild(2);
         
         rb2d = GetComponent<Rigidbody2D>();
+		equipPlayerWeapon = GetComponent<EquipPlayerWeapon>();
       /*  if (currentWeaponData.WeaponNumber == 3)
         {
             state = State.RecoilPhysicsState;
@@ -62,46 +70,9 @@ public class PlayerPhysics : MonoBehaviour
         isWeaponChange = true;
 
         CheckWeponChange();
-
-    }
-    void CheckWeaponPhysics()
-    {
-		state = State.CurvePhysicsState;
-       // Debug.Log("check weapon number");
-      /*  if (playerData.weaponNumber == 2)
-        {
-            rb2d.drag = 10f;
-        //    Debug.Log(" weapon number 2");
-            state = State.RecoilPhysicsState;
-        }
-        else {
-            rb2d.drag = 0.3f;
-            state = State.CurvePhysicsState;
-        }*/
-    }
-
-    void CheckWeponChange()
-    {
-        if (playerData.isEquipDirect == true)
-        {
-           // rb2d.drag = 10f;
-           
-            isWeaponChange = false;
-        }
-           
-    }
-
-   
-
-    //public void SetData(WeaponData weaponData)
-    // {
-    //     currentWeaponData = weaponData;
-    //     Debug.Log(""+currentWeaponData.name);
-    // }
-    private void FixedUpdate()
-    {
-
-        switch (state)
+		
+		
+		/*switch (state)
         {
 
             case State.InitialPhysics:
@@ -142,7 +113,48 @@ public class PlayerPhysics : MonoBehaviour
                 }
 
                 break;
+        }*/
+
+    }
+    void CheckWeaponPhysics()
+    {
+		state = State.CurvePhysicsState;
+       // Debug.Log("check weapon number");
+      /*  if (playerData.weaponNumber == 2)
+        {
+            rb2d.drag = 10f;
+        //    Debug.Log(" weapon number 2");
+            state = State.RecoilPhysicsState;
         }
+        else {
+            rb2d.drag = 0.3f;
+            state = State.CurvePhysicsState;
+        }*/
+    }
+
+    void CheckWeponChange()
+    {
+        if (playerData.isEquipDirect == true)
+        {
+           // rb2d.drag = 10f;
+           
+            isWeaponChange = false;
+        }
+		
+           
+    }
+
+   
+
+    //public void SetData(WeaponData weaponData)
+    // {
+    //     currentWeaponData = weaponData;
+    //     Debug.Log(""+currentWeaponData.name);
+    // }
+    private void FixedUpdate()
+    {
+		CurvePhysics();
+         
     }
     private void RecoilPhysics()
     {
@@ -151,15 +163,17 @@ public class PlayerPhysics : MonoBehaviour
         rb2d.AddForce(transform.right *currentWeaponData.thrust, ForceMode2D.Impulse);
     }
 
-    private void CurvePhysics(){
-
-       
-        if (move)
+    private void CurvePhysics(){    
+        if (equipPlayerWeapon.IsShooting())
         {
            
-            this.acc += 1f / this.accSpeed * Time.fixedDeltaTime;
-            this.rb2d.velocity = transform.right * (this.speed * this.accCurve.Evaluate(this.acc));
-				acc = Mathf.Clamp(acc, 0f, 1f);
+            this.acc =acc + 1f / this.accSpeed * Time.fixedDeltaTime;
+            
+			
+			 
+			this.rb2d.velocity = transform.right * (this.speed * this.accCurve.Evaluate(this.acc));
+			v = this.rb2d.velocity;
+			acc = Mathf.Clamp(acc, 0f, 1f);
 				
 				/*if(dragCheck.playrDrag==true)
 				{
@@ -170,19 +184,25 @@ public class PlayerPhysics : MonoBehaviour
 					rb2d.drag = 0.3f;
 				}*/
 				
-            if (this.acc > 1f)
+           /* if (this.acc > 1f)
             {
                 this.acc = 1f;
-            }
+            }*/
+			
+			
         }
-        else if (this.acc > 0f)
+       else if (this.acc > 0f)
         {
-            this.acc = this.rb2d.velocity.magnitude / this.speed;
+            this.acc =(float)System.Math.Round( (this.rb2d.velocity.magnitude / this.speed),2 );
         }
 
 
 
 
+    }
+	
+	private static Vector3 RoundVector3( Vector3 v ) {
+        return new Vector3((float)System.Math.Round(v.x,2), (float)System.Math.Round(v.y,2), (float)System.Math.Round(v.z,2) );
     }
 
 

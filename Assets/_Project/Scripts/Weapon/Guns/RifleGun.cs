@@ -22,5 +22,7 @@ public class RifleGun : MixinBase
 		int num2 = Choose(-1, 1, new int[0]);
 
         PoolManager.instance.GetObject("RiffleBullet", weaponDefination.GetPlayerPosition(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num2));
+		
+		//childCamera.instance.initializeCameraShake(4, 0.05f);
      }
 }

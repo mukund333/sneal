@@ -58,12 +58,14 @@ public class Turtle : EnemyManager
 
 		[SerializeField] private PlayerShield playerShield;
 
-    private  void OnEnable()
-        {
+    private  void OnEnable(){
 			chargeDelay = 1.5f;
 			target = GameObject.Find("player");
 		}
 
+	public override void Start(){
+			base.Start();
+	}
     private void Awake() {
 		
 			
@@ -227,8 +229,7 @@ public class Turtle : EnemyManager
 		//TurtleMovement();
 	}
 
-	public IEnumerator PlayAndWaitForAnim(Animator targetAnim, string stateName)
-		{
+	public IEnumerator PlayAndWaitForAnim(Animator targetAnim, string stateName){
 
 
 			//targetAnim.Play(stateName);
@@ -259,9 +260,7 @@ public class Turtle : EnemyManager
 
 		}
 
-
-	private void Detonate()
-		{
+	private void Detonate(){
 			//ChangeAnimationState(2);
 			
 
@@ -276,7 +275,6 @@ public class Turtle : EnemyManager
 
 
 		}
-
 
 	private	bool CanChargeToTarget(Vector3 targetPosition, GameObject targetGameObject){
 
@@ -356,7 +354,6 @@ public class Turtle : EnemyManager
 	void ChangeAnimationState(int value){
 		animator.SetInteger ("AnimState", value);
 	}
-
 	
 	private void OnCollisionEnter2D(Collision2D col){
 			if (col.collider.CompareTag("Player"))
@@ -379,5 +376,7 @@ public class Turtle : EnemyManager
 		}
 
 	}
+	
+	
 
 }

@@ -14,7 +14,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerDownHandler,
 	private Image joystickImg;
 
 	// Token: 0x04000041 RID: 65
-	private Vector2 inputVector;
+	public Vector2 inputVector;
 
 	// Token: 0x04000042 RID: 66
 	private static VirtualJoystick _instance;

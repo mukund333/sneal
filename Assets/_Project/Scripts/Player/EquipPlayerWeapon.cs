@@ -7,6 +7,16 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 {
     public class EquipPlayerWeapon : MonoBehaviour
     {
+		public enum State
+		{
+			AutoFire,
+			ManualFire
+
+
+		}
+
+		 public State state;
+		 public bool isToggling =false;
         //public string startGunName;
         public PlayerPhysics recoil;
        
@@ -14,51 +24,77 @@ namespace SnealUltra.Assets._Project.Scripts.Player
         private GameObject currentWeapon;
         public CurrentPlayerComponentData playerData;
         public bool isAutoTiggering;
-		
-		 public MixinBase fireWeapon;
+		public MixinBase fireWeapon;
+		public ShootTouch shootTouch;
+		public bool isShooting;
+		public ToggleSwitch toggleSwitch;
         
 
-        void Start()
-        {
+        void Start(){
+			shootTouch   =  FindObjectOfType<ShootTouch>();
+			toggleSwitch = FindObjectOfType<ToggleSwitch>();
             EquipWeapon(playerData.GetWeaponByName());
             recoil = GetComponent<PlayerPhysics>();
+			isToggling =false;
+			state = State.AutoFire;
+			
         }
 
-        void Update()
-        {
-            if (playerData.isPassWeapon == true)
-            {
+        void Update(){
+			isShooting =false;
+            if (playerData.isPassWeapon == true) {
                 EquipWeapon(playerData.GetWeaponByName());
                 //recoil.currentWeaponData = playerData.GetWeaponDataByName();
                 playerData.isPassWeapon = false;
 
             }
 
-            if (isAutoTiggering==true)
-            {
-                fireWeapon.CheckAndAction();
-            }
-            else
-            {
-                if (Input.GetKey(KeyCode.Space))
-                {
+			if(isToggling==true){
+				ToggleFire();
+				isToggling = false;
+		
+			}
+			
+			switch (state){
+				
+				case State.AutoFire:
+					
+					
+						FireWeapon();
+					
+
+                break;
+				
+				case State.ManualFire:
+					isAutoTiggering =false;
+					if (Input.GetKey(KeyCode.Space))
+					{
                     //if (fireWeapon.Check())
                     //{
                     //    fireWeapon.Action();
                     //}
-                    fireWeapon.CheckAndAction();
-                }
-            }
-           
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                
-            }
+                      FireWeapon();
+                   }
+				   
+				   if (Input.GetKeyDown(KeyCode.E))
+					{
+						//bomb luncher
+				
+					}
+               
+				
+				  if( shootTouch.IsDown())
+					{
+						FireWeapon();
+					}
+				
+				 break;
+				
+			}	
+			
         }      
 
-        public void EquipWeapon(GameObject weaponPrefab)
-        {
+        public void EquipWeapon(GameObject weaponPrefab){
            
             if (currentWeapon != null)
                 Destroy(currentWeapon);
@@ -68,7 +104,28 @@ namespace SnealUltra.Assets._Project.Scripts.Player
             
         }
 
-    }
+		public void FireWeapon(){
+			 fireWeapon.CheckAndAction();
+			 isShooting = true;
+				
+		}
+		
+		public bool IsShooting(){
+			return isShooting && isShooting;
+		}
+		
+		private void  ToggleFire(){
+			if(toggleSwitch.isOn == true)
+			{
+				state = State.AutoFire;
+			}else{
+				
+				state = State.ManualFire;
+			}
+			
+		}
+		
+	}
 
     
    

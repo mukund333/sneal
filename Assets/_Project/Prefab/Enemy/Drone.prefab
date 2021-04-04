@@ -294,7 +294,7 @@ MonoBehaviour:
   baseHealth: 2
   pickupDropChance: 50
   debrisAmount: {x: 0, y: 0}
-  coinAmount: {x: 0, y: 0}
+  coinAmount: {x: 1, y: 1}
   explosionMask:
     serializedVersion: 2
     m_Bits: 0

@@ -136,7 +136,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 					col.collider.GetComponent<PlayerStats>().Damage(1);
 				}
 				
-				//CameraController.instance.initializeCameraShake(3f, 0.05f);
+				//childCamera.instance.initializeCameraShake(0.4f, 0.05f);
 				//ExplosionManager.instance.SpawnDynamicExplosion(col.contacts[0].point, new Vector2(1f, 2f), new Vector2(0.25f, 1.5f), 32, new Vector2(0.02f, 0.1f));
 
 

@@ -6,19 +6,21 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
 	private Func<Vector3> GetCameraFollowPositionFunc;
+	public Vector3 cameraFollowPosition;
+	public float cameraMoveSpeed;
 	
 	public void Setup(Func<Vector3> GetCameraFollowPositionFunc){
 		this.GetCameraFollowPositionFunc = GetCameraFollowPositionFunc;
 	}
 	
-	private void Update()
+	private void LateUpdate()
 	{
-		Vector3 cameraFollowPosition = GetCameraFollowPositionFunc();
+		cameraFollowPosition = GetCameraFollowPositionFunc();
 		cameraFollowPosition.z = transform.position.z;
 		
 		Vector3 cameraMoveDir = (cameraFollowPosition - transform.position).normalized;
 		float distance = Vector3.Distance(cameraFollowPosition,transform.position);
-		float cameraMoveSpeed = 3f;
+		 cameraMoveSpeed = 2f;
 		
 		if(distance > 0)
 		{

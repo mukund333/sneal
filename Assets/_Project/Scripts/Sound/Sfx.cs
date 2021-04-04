@@ -12,7 +12,7 @@ using UnityEngine.Audio;
 		private void Awake()
 		{
 			this.source = base.GetComponent<AudioSource>();
-			this.cameraTransform = UnityEngine.Object.FindObjectOfType<CameraController>().transform;
+			this.cameraTransform = UnityEngine.Object.FindObjectOfType<CameraFollow>().transform;
 		}
 		
 		

@@ -105,7 +105,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 			//		PoolManager.instance.GetObject("Pickup", this.thisTrans.position, new Quaternion(0f, 0f, 0f, 0f));
 			//	}
 			//	ExplosionManager.instance.SpawnDynamicExplosion(this.thisTrans.position, new Vector2(1f, 2f), new Vector2(0.25f, 0.95f), 32, new Vector2(0.05f, 0.2f));
-			//	CameraController.instance.initializeCameraShake(4f, 0.1f);
+				//childCamera.instance.initializeCameraShake(0.3f, 0.1f);
 				SoundManager.instance.PlayClip("Explosion", this.transform.position.x);
 			//	this.DispenseDebris();
 			//	this.DispenseGears();

@@ -80,7 +80,8 @@ public class TurtleEnemy : EnemyManager
 		
 	}
 
-	private void Start(){
+	public override void Start(){
+		base.Start();
 		try
 		{
 			target = FindObjectOfType<PlayerMovement>().transform;
