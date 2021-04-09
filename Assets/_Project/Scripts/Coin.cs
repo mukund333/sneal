@@ -77,7 +77,7 @@ public class Coin : MonoBehaviour
 
 	private void CoinAcquired()
 	{
-		GameMaster.instance.ScorePlus();
+		GameMaster.instance.CoinsPlus();
 		base.gameObject.SetActive(false);
 	}
 	

@@ -95,6 +95,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 
 		public virtual void Kill()
 		{
+				GameMaster.instance.ScorePlus();
 			//	if (!this.gm.IsGameOver())
 			//	{
 			//		this.gm.ScorePlus();

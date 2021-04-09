@@ -22,6 +22,6 @@ public class Sniper : MixinBase
 		 
 		int num2 = Choose(-1, 1, new int[0]);
 
-        PoolManager.instance.GetObject("SniperBullet", weaponDefination.GetPlayerPosition(),Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num2));
+        PoolManager.instance.GetObject("SniperBullet", weaponDefination.GetPlayerShootPoint(),Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num2));
      }
 }

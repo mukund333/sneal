@@ -8,7 +8,7 @@ using SnealUltra.Assets._Project.Scripts.Player;
 
 public class ToggleSwitch : MonoBehaviour,IPointerDownHandler
 {
-	[SerializeField] private bool _isOn =false;
+	[SerializeField] private bool _isOn = true;
 	
 	[SerializeField] private EquipPlayerWeapon equipPlayerWeapon;
 	
@@ -83,7 +83,7 @@ public class ToggleSwitch : MonoBehaviour,IPointerDownHandler
 			toggleIndicator.DOAnchorPosX(offx,tweenTime);
 	}
 
-    // Update is called once per frame
+    
     void Update()
     {
         

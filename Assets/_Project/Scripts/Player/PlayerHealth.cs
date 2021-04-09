@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int _health = 100;
     [SerializeField] private int _maxHealth = 120;
-
+	
+	public Text healtText; 
 
     public int MaxHealth{
         get
@@ -40,6 +43,12 @@ public class PlayerHealth : MonoBehaviour
 	void Start()
 	{
 		OnValidate();
+		healtText.text  = "X "+Health.ToString();
+	}
+	
+	void Update()
+	{
+		healtText.text  = "X "+Health.ToString();
 	}
 		
 		

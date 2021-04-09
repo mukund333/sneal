@@ -17,11 +17,11 @@ public class RifleGun : MixinBase
 	
 	 private void Shoot()
      {
-		  weaponDefination.dragCheckData.playrDrag = false;
+		 weaponDefination.dragCheckData.playrDrag = false;
 		 
 		int num2 = Choose(-1, 1, new int[0]);
 
-        PoolManager.instance.GetObject("RiffleBullet", weaponDefination.GetPlayerPosition(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num2));
+        PoolManager.instance.GetObject("RiffleBullet", weaponDefination.GetPlayerShootPoint(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num2));
 		
 		//childCamera.instance.initializeCameraShake(4, 0.05f);
      }

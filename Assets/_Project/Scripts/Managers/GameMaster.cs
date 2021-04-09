@@ -8,6 +8,7 @@ public class GameMaster : MonoBehaviour
 {
     private static GameMaster _instance;
 	
+	public int coins;
 	public int score;
 
 	//public event Action OnGameRestart;
@@ -42,9 +43,17 @@ public class GameMaster : MonoBehaviour
 
 	}
 
+	public void CoinsPlus()
+	{
+		this.coins++;
+		//this.scoreText.text = this.score.ToString();
+	}
+	
 	public void ScorePlus()
 	{
 		this.score++;
 		//this.scoreText.text = this.score.ToString();
 	}
+
+	 
 }

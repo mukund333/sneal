@@ -28,11 +28,13 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		public ShootTouch shootTouch;
 		public bool isShooting;
 		public ToggleSwitch toggleSwitch;
+		public Muzzle muzzle;
         
 
         void Start(){
 			shootTouch   =  FindObjectOfType<ShootTouch>();
 			toggleSwitch = FindObjectOfType<ToggleSwitch>();
+			muzzle = GetComponentInChildren<Muzzle>();
             EquipWeapon(playerData.GetWeaponByName());
             recoil = GetComponent<PlayerPhysics>();
 			isToggling =false;
@@ -59,7 +61,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 				
 				case State.AutoFire:
 					
-					
+						muzzle.IsMuzzle=true;
 						FireWeapon();
 					
 
@@ -67,6 +69,8 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 				
 				case State.ManualFire:
 					isAutoTiggering =false;
+					muzzle.IsMuzzle=false;
+					
 					if (Input.GetKey(KeyCode.Space))
 					{
                     //if (fireWeapon.Check())
@@ -74,6 +78,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
                     //    fireWeapon.Action();
                     //}
                       FireWeapon();
+					  muzzle.IsMuzzle=true;
                    }
 				   
 				   if (Input.GetKeyDown(KeyCode.E))
