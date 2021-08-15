@@ -36,15 +36,30 @@ public class ToggleSwitch : MonoBehaviour,IPointerDownHandler
 	private void OnEnable()
 	{
 		equipPlayerWeapon = FindObjectOfType<EquipPlayerWeapon>();
+		_isOn = true;
+
 		Toggle(isOn);
+
 		
+
+		
+	}
+	void Awake()
+	{
 	}
 	
     // Start is called before the first frame update
     void Start()
-    {		
-			offx = toggleIndicator.anchoredPosition.x;
+    {				
+
 			onx = backgroundImage.rectTransform.rect.width - toggleIndicator.rect.width;
+						offx = toggleIndicator.anchoredPosition.x;
+									toggleIndicator.DOAnchorPosX(onx,tweenTime);
+												backgroundImage.DOColor(onColor,tweenTime);
+
+
+
+
 			
 			
     }
