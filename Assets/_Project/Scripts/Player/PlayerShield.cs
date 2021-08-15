@@ -18,6 +18,7 @@ public class PlayerShield : MonoBehaviour
 
     [SerializeField] private float      shieldTime;
     [SerializeField] private GameObject shieldSprite;
+    [SerializeField] private AbilityUI abilityUI;
 
     public bool IsShieldOn;
 
@@ -61,6 +62,7 @@ public class PlayerShield : MonoBehaviour
     {
         OnValidate();
         shieldSprite =   this.transform.Find("ShieldSprites").gameObject;
+        abilityUI = FindObjectOfType<AbilityUI>();
     }
 
     void Update()
@@ -88,8 +90,12 @@ public class PlayerShield : MonoBehaviour
     private void SheildDuration()
     {
         shieldTime -= Time.deltaTime;
+        abilityUI.ChangeTimeText(shieldTime);
+        abilityUI.ChangeAbilityColorUI(Color.green);
         if (shieldTime <= 0)
         {
+            abilityUI.ChangeTimeText(0);
+            abilityUI.ChangeAbilityColorUI(Color.white);
             ShieldDisable();
         }
 

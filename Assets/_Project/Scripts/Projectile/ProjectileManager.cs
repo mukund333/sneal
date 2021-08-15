@@ -11,7 +11,7 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 	{
 		//[SerializeField]ProjectileDatabase projectileDatabase;
 		[SerializeField]ProjectileData projectileData;
-
+		
 		Rigidbody2D body2d;
 
 
@@ -20,6 +20,12 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 		
 		public float bulletSpeed = 2f;
 		public float time = 0.1f;
+
+		//Spred bullet logic
+		public bool IsSpreadProjectile = false;
+		public GameObject SpreadBullet;
+		
+		
 
 
 		private void Awake()
@@ -42,7 +48,7 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
             body2d.AddForce(-transform.right * bulletSpeed);
           
 
-            StartCoroutine("OnDisableUnObjects");
+           // StartCoroutine("OnDisableUnObjects");
             //BulletDistance();
         }
 
@@ -117,13 +123,27 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 			gameObject.SetActive(false);
 		}
 
-		IEnumerator OnDisableUnObjects()
+	/*	IEnumerator OnDisableUnObjects()
 		{
 			yield return new WaitForSeconds(time);
+			
+			if(IsSpreadProjectile==true)
+			{
+				for (int i = 0; i < 5; i++)
+				{
+					float num = UnityEngine.Random.Range(-25, 25);
+					
+					Instantiate(SpreadBullet, this.transform.position,  Quaternion.Euler(0f, 0f, transform.rotation.z + num));
+					
+					//PoolManager.instance.GetObject("ShotGunBullet", weaponDefination.GetPlayerShootPoint(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num));
+				} 
+			}
+			
 			gameObject.SetActive(false);
+			
 			StopCoroutine("OnDisableUnObjects");
 
-		}
+		}*/
 
 		
 

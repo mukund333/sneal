@@ -19,7 +19,9 @@ public class CurrentPlayerComponentData : MonoBehaviour
 	public PlayerTransformData playerTransformData;
 	public WeaponDB weaponDB;
 	WeaponDataHolder weaponDataHolder;
-	[SerializeField] ProjectileDatabase projectileDatabase; 
+	[SerializeField] ProjectileDatabase projectileDatabase;
+	[SerializeField] AbilityUI abilityUI;
+
 
 	int previusGeneralWeapon;
 	
@@ -37,6 +39,7 @@ public class CurrentPlayerComponentData : MonoBehaviour
 		
 		weaponDB = FindObjectOfType<WeaponDB>();
 		projectileDatabase = FindObjectOfType<ProjectileDatabase>();
+		abilityUI = FindObjectOfType<AbilityUI>();
 		//GenerateWeaponByName();
 		//AutoGeratedWeapon();
 		GenerateWeaponByType();
@@ -76,11 +79,16 @@ public class CurrentPlayerComponentData : MonoBehaviour
 			if (timeRemaining > 0)
 		{
 			timeRemaining -= Time.deltaTime;
+			abilityUI.ChangeTimeText(timeRemaining);
+			abilityUI.ChangeAbilityColorUI(Color.red);
 			
 		}else{
+			abilityUI.ChangeTimeText(0);
+			abilityUI.ChangeAbilityColorUI(Color.white);
 			isPowerGunRunning = false;
 			weaponNumber = previusGeneralWeapon;
 			isEquipDirect = true;
+
 		}
 	}
 

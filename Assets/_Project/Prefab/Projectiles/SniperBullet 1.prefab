@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: -7170819711044348468}
   - component: {fileID: 7943233751574733472}
   m_Layer: 0
-  m_Name: SniperBullet
+  m_Name: SniperBullet 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,3 +248,6 @@ MonoBehaviour:
   damage: 10
   bulletSpeed: 100
   time: 0.4
+  IsSpreadProjectile: 1
+  SpreadBullet: {fileID: 3727282131885927492, guid: c6469ac84f6dc0a49a554168760ce3b1,
+    type: 3}
