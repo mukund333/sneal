@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 using SnealUltra.Assets._Project.Scripts.Player;
 
 public class GameMaster : MonoBehaviour
@@ -10,6 +11,9 @@ public class GameMaster : MonoBehaviour
 	
 	public int coins;
 	public int score;
+	
+	public Text scoreText;
+	public Text coinText;
 
 	//public event Action OnGameRestart;
 
@@ -46,13 +50,13 @@ public class GameMaster : MonoBehaviour
 	public void CoinsPlus()
 	{
 		this.coins++;
-		//this.scoreText.text = this.score.ToString();
+		this.coinText.text = this.coins.ToString();
 	}
 	
 	public void ScorePlus()
 	{
 		this.score++;
-		//this.scoreText.text = this.score.ToString();
+		this.scoreText.text = this.score.ToString();
 	}
 
 	 
