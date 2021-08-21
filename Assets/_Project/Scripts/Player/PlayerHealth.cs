@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
         set
         {
-            _maxHealth = Mathf.Clamp(value, 0, 3);
+            _maxHealth = Mathf.Clamp(value, 0, _maxHealth);
         }
     }
 

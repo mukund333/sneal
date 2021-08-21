@@ -248,6 +248,8 @@ MonoBehaviour:
   damage: 10
   bulletSpeed: 100
   time: 0.4
-  IsSpreadProjectile: 1
-  SpreadBullet: {fileID: 3727282131885927492, guid: c6469ac84f6dc0a49a554168760ce3b1,
-    type: 3}
+  IsSpreadProjectile: 0
+  numberOfProjectiles: 0
+  projectileSpeed: 5
+  ProjectilePrefab: {fileID: 0}
+  angle: 0

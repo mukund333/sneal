@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 380562740a677bf41928b1fde971e1bd, type: 3}
-  m_Name: PistolBullet
+  m_Name: SpreadBullet
   m_EditorClassIdentifier: 
-  BulletName: PistolBullet
-  bulletType: 0
-  bulletSprite: {fileID: 8891180011573125036, guid: b040119b6933c1249a50686b379ac868,
+  BulletName: SpreadBullet
+  bulletType: 5
+  bulletSprite: {fileID: -2892819179972619951, guid: b040119b6933c1249a50686b379ac868,
     type: 3}
   bulletDamage: 1
-  bulletSpeed: 5
-  bulletLifeTime: 1
+  bulletSpeed: 50
+  bulletLifeTime: 0.1

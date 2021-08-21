@@ -1,19 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 using SnealUltra.Assets._Project.Scripts.Enemy;
-using SnealUltra.Assets._Project.Scripts.Projectile;
 
-namespace SnealUltra.Assets._Project.Scripts.Projectile
+
+public class SpreadProjectile : MonoBehaviour
 {
-	[RequireComponent(typeof(Collider2D))]
-	public class ProjectileManager : MonoBehaviour
-	{
-		//[SerializeField]ProjectileDatabase projectileDatabase;
-		[SerializeField]ProjectileData projectileData;
+	[SerializeField]ProjectileData projectileData;
 		
-		Rigidbody2D body2d;
+	Rigidbody2D body2d;
 
 
 		private SpriteRenderer spriteRenderer; 
@@ -22,12 +17,7 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 		public float bulletSpeed = 2f;
 		public float time = 0.1f;
 
-		
-		
-		
-
-
-		private void Awake()
+	private void Awake()
 		{
 			body2d = GetComponent<Rigidbody2D>();
 			damage = projectileData.bulletDamage;
@@ -39,19 +29,8 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 		{
 			spriteRenderer.sprite = projectileData.bulletSprite;
 		}
-
-
-		void FixedUpdate()
-		{
-            body2d.AddForce(-transform.right * bulletSpeed);
-          
-
-           // StartCoroutine("OnDisableUnObjects");
-            //BulletDistance();
-        }
-
 		
-		public void BulletConfig()
+			public void BulletConfig()
 		{
 
 
@@ -120,29 +99,4 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 		{
 			gameObject.SetActive(false);
 		}
-
-		IEnumerator OnDisableUnObjects()
-		{
-			yield return new WaitForSeconds(time);
-			
-			/*if(IsSpreadProjectile==true)
-			{
-				for (int i = 0; i < 5; i++)
-				{
-					float num = UnityEngine.Random.Range(-25, 25);
-					
-					Instantiate(SpreadBullet, this.transform.position,  Quaternion.Euler(0f, 0f, transform.rotation.z + num));
-					
-					//PoolManager.instance.GetObject("ShotGunBullet", weaponDefination.GetPlayerShootPoint(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num));
-				} 
-			}*/
-			
-			gameObject.SetActive(false);
-			
-			StopCoroutine("OnDisableUnObjects");
-		}
-
-		
-
-	}
 }

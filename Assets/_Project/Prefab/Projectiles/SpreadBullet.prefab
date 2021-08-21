@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4731216451443153646}
   - component: {fileID: 8858773898906933324}
   - component: {fileID: 6464804345971027774}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,8 @@ GameObject:
   - component: {fileID: 8426612305386259149}
   - component: {fileID: 8217817635937718708}
   - component: {fileID: -7170819711044348468}
-  m_Layer: 0
+  - component: {fileID: -4842643534081089179}
+  m_Layer: 12
   m_Name: SpreadBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,3 +233,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-4842643534081089179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3727282131885927492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93a8ac40ff7b1e4c8fb2a3044bfbcc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileData: {fileID: 11400000, guid: c4c9bdf5692e30644807e926b4d3b313, type: 2}
+  damage: 1
+  bulletSpeed: 2
+  time: 0.1
