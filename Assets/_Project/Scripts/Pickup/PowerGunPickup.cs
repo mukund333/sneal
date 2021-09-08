@@ -25,7 +25,7 @@ public class PowerGunPickup : Pickup
 	public int powerupGunNumber;
 	
 	public int randomInt;
-	public int[] items =  new int[]  { 2,3};
+	public int[] items =  new int[]  { 0,2,3};
 	
 	
 	public bool isWeaponChange = false;

@@ -11,6 +11,8 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 	public class ProjectileManager : MonoBehaviour
 	{
 		//[SerializeField]ProjectileDatabase projectileDatabase;
+		[Header("Projectile Settings")]
+
 		[SerializeField]ProjectileData projectileData;
 		
 		Rigidbody2D body2d;
@@ -21,6 +23,17 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 		
 		public float bulletSpeed = 2f;
 		public float time = 0.1f;
+		
+		[Header("Spred Projectile Settings")]
+
+		public bool IsSpreadProjectile = false;
+		public int numberOfProjectiles;
+		public Vector2 startPoint;
+		private float angle;
+		
+
+
+
 
 		
 		
@@ -34,6 +47,7 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 			bulletSpeed = projectileData.bulletSpeed;
 			time = projectileData.bulletLifeTime;
 			spriteRenderer = GetComponent<SpriteRenderer>();
+			
 		}
 		void Start()
 		{
@@ -44,9 +58,10 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 		void FixedUpdate()
 		{
             body2d.AddForce(-transform.right * bulletSpeed);
-          
+          				//	Debug.Log(""+IsSpreadProjectile);
 
-           // StartCoroutine("OnDisableUnObjects");
+
+            StartCoroutine("OnDisableUnObjects");
             //BulletDistance();
         }
 
@@ -103,7 +118,14 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 			//}
 			//SoundManager.instance.PlayClip("Hit", this.thisTransform.position.x);
 
-
+			if(IsSpreadProjectile==true)
+			{
+				 startPoint = transform.position;
+				 SpawnProjectile(numberOfProjectiles);
+				
+				
+			
+			}
 
 			gameObject.SetActive(false);
 
@@ -125,23 +147,47 @@ namespace SnealUltra.Assets._Project.Scripts.Projectile
 		{
 			yield return new WaitForSeconds(time);
 			
-			/*if(IsSpreadProjectile==true)
+			if(IsSpreadProjectile==true)
 			{
-				for (int i = 0; i < 5; i++)
-				{
-					float num = UnityEngine.Random.Range(-25, 25);
-					
-					Instantiate(SpreadBullet, this.transform.position,  Quaternion.Euler(0f, 0f, transform.rotation.z + num));
-					
-					//PoolManager.instance.GetObject("ShotGunBullet", weaponDefination.GetPlayerShootPoint(), Quaternion.Euler(0f, 0f, weaponDefination.GetPlayerRotation().eulerAngles.z + num));
-				} 
-			}*/
+				 startPoint = transform.position;
+				 SpawnProjectile(numberOfProjectiles);
+				
+				
+			
+			}
 			
 			gameObject.SetActive(false);
 			
 			StopCoroutine("OnDisableUnObjects");
 		}
+		
+		
+		private void SpawnProjectile(int _numberOfProjectiles)
+		{
+			 angle =  UnityEngine.Random.Range(0, 44);
 
+			
+			float angleStep = 360f / _numberOfProjectiles;
+		 //angle = 10;
+		
+			for(int i =0 ; i <= _numberOfProjectiles-1;i++)
+			{
+				//float projectileDirXPosition  = startPoint.x + Mathf.Sin((angle * Mathf.PI)/180)*radius;
+				//float projectileDirYPosition  = startPoint.y + Mathf.Cos((angle * Mathf.PI)/180)*radius;
+			
+				//Vector2 projectileVector = new Vector2(projectileDirXPosition,projectileDirYPosition);
+				//Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
+			
+				//GameObject tmpObj = PoolManager.instance.GetObject("SpreadBullet", startPoint, Quaternion.identity);
+
+				//GameObject tmpObj = Instantiate(ProjectilePrefab,startPoint,Quaternion.identity);
+				//tmpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x,projectileMoveDirection.y);
+			
+				PoolManager.instance.GetObject("SpreadBullet",startPoint, Quaternion.Euler(0f, 0f,angle));
+
+				angle += angleStep;
+			}
+		}
 		
 
 	}

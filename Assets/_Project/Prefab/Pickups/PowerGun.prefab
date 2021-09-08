@@ -125,7 +125,7 @@ MonoBehaviour:
   player: {fileID: 0}
   pickupLife: 10
   weaponDB: {fileID: 0}
-  powerupGunNumber: 2
+  powerupGunNumber: 0
   randomInt: 0
-  items: 0200000003000000
+  items: 000000000200000003000000
   isWeaponChange: 0

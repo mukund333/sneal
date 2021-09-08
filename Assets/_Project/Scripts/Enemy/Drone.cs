@@ -274,7 +274,7 @@ public class Drone : EnemyManager
 		
 		if (col.collider.CompareTag("Player") )
 		{
-			Debug.Log("Player  collide");
+			//Debug.Log("Player  collide");
 			//implement after explosion
 			//StartCoroutine(PlayAndWaitForAnim(animator, animName));	
 			

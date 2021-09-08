@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI ;
+
 
 namespace SnealUltra.Assets._Project.Scripts.Player
 {
@@ -16,7 +18,6 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		}
 
 		 public State state;
-		 public bool isToggling =false;
         //public string startGunName;
         public PlayerPhysics recoil;
        
@@ -27,17 +28,20 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		public MixinBase fireWeapon;
 		public ShootTouch shootTouch;
 		public bool isShooting;
-		public ToggleSwitch toggleSwitch;
 		public Muzzle muzzle;
+		
+		[SerializeField] RectTransform toggleRectTransform ;
+		Toggle toggle ;
+
+
         
 
         void Start(){
+			toggle = toggleRectTransform.GetComponent<Toggle>();
 			shootTouch   =  FindObjectOfType<ShootTouch>();
-			toggleSwitch = FindObjectOfType<ToggleSwitch>();
 			muzzle = GetComponentInChildren<Muzzle>();
             EquipWeapon(playerData.GetWeaponByName());
             recoil = GetComponent<PlayerPhysics>();
-			isToggling =false;
 			state = State.AutoFire;
 			
         }
@@ -51,11 +55,9 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 
             }
 
-			if(isToggling==true){
 				ToggleFire();
-				isToggling = false;
 		
-			}
+			
 			
 			switch (state){
 				
@@ -120,7 +122,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		}
 		
 		private void  ToggleFire(){
-			if(toggleSwitch.isOn == true)
+			if(toggle.isOn== true)
 			{
 				state = State.AutoFire;
 			}else{

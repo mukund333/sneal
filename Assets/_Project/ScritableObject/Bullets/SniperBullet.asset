@@ -18,4 +18,4 @@ MonoBehaviour:
     type: 3}
   bulletDamage: 1
   bulletSpeed: 100
-  bulletLifeTime: 2
+  bulletLifeTime: 4

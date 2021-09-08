@@ -9,12 +9,15 @@ public class GameMaster : MonoBehaviour
 {
     private static GameMaster _instance;
 	
+	private DataController dataController;
+
 	public int coins;
 	public int score;
 	
 	public Text scoreText;
 	public Text coinText;
-
+	
+	CoinDatabase coinDB;
 	//public event Action OnGameRestart;
 
 	public event Action OnGameEnd;
@@ -35,6 +38,10 @@ public class GameMaster : MonoBehaviour
 	}
 
 	private void Start(){
+		coinDB = GetComponent<CoinDatabase>();
+	//	LoadCoins();
+		dataController = FindObjectOfType<DataController>();
+
 		playerStats = FindObjectOfType<PlayerStats>();
 		playerStats.OnPlayerDeath += EndGame;
 		
@@ -42,21 +49,35 @@ public class GameMaster : MonoBehaviour
 
 	public void EndGame(){
 
-
+		SaveSystem.SaveCoins(coinDB.Coin);
 		this.OnGameEnd();
 
 	}
 
 	public void CoinsPlus()
 	{
-		this.coins++;
-		this.coinText.text = this.coins.ToString();
+		coinDB.Coin++;
+		CoinDisplay(coinDB.Coin);
+		//Debug.Log(""+coinDB.Coin);
+
+	}
+	
+	private void CoinDisplay(int coins)
+	{
+		this.coinText.text = coins.ToString();
 	}
 	
 	public void ScorePlus()
 	{
 		this.score++;
 		this.scoreText.text = this.score.ToString();
+	}
+	
+	private void LoadCoins()
+	{
+		coinDB.Coin = SaveSystem.LoadCoins();
+		CoinDisplay(coinDB.Coin);
+
 	}
 
 	 

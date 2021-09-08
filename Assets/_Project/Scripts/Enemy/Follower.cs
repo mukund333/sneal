@@ -82,7 +82,7 @@ namespace SnealUltra.Assets._Project.Scripts.Enemy
 				thisTrans.rotation = Quaternion.Slerp(thisTrans.rotation, rot, Time.deltaTime * turnRate);
 				rb2d.velocity =  thisTrans.right * Speed;
 
-			Debug.Log(playerShield.IsShieldOn);
+			//Debug.Log(playerShield.IsShieldOn);
 
 	}
 

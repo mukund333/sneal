@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 8426612305386259149}
   - component: {fileID: 8217817635937718708}
   - component: {fileID: -7170819711044348468}
-  - component: {fileID: 5484165317617694206}
+  - component: {fileID: 3821747900796267287}
   m_Layer: 0
   m_Name: PistolBullet
   m_TagString: Untagged
@@ -232,7 +232,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5484165317617694206
+--- !u!114 &3821747900796267287
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,16 +241,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3727282131885927492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d06d0da53dfd74ebd0bce2e9a6f29f, type: 3}
+  m_Script: {fileID: 11500000, guid: 475ee2503079a7f429e738f8a7fbded4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileData: {fileID: 11400000, guid: 63026b07db78b514e8a7fd642b24e842, type: 2}
   damage: 1
+  bulletSpeed: 2
   time: 0.1
-  numberOfProjectiles: 6
-  projectileSpeed: 25
-  ProjectilePrefab: {fileID: 3727282131885927492, guid: c6469ac84f6dc0a49a554168760ce3b1,
-    type: 3}
+  IsSpreadProjectile: 1
+  numberOfProjectiles: 10
   startPoint: {x: 0, y: 0}
-  angle: 0
-  isSpreadOn: 0

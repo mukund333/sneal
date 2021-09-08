@@ -118,23 +118,23 @@ public class TurtleEnemy : EnemyManager
 
 			case State.Aiming:
 					IsImmortal = true;
-					Log("Aiming");
+				//	Log("Aiming");
 					
 					chargeDelay -= Time.deltaTime;
 					
 					targetPosition = target.transform.position;
 					SetAimTarget(targetPosition);
 					
-					Log(""+CanChargeToTarget(targetPosition, target.gameObject));	
+					//Log(""+CanChargeToTarget(targetPosition, target.gameObject));	
 					
 					animator.speed = 1f;				
 				    ChangeAnimationState(2);
 					
 					if (chargeDelay > 0)
 					{
-						Log("charge Delay");
+						//Log("charge Delay");
 					}else{
-						Log("can charge ?");
+						//Log("can charge ?");
 						if (CanChargeToTarget(targetPosition, target.gameObject))
 						{
 
@@ -201,7 +201,7 @@ public class TurtleEnemy : EnemyManager
 
 		transform.Translate(velocity * Time.deltaTime);
 
-		Log("turtle moving");
+		//Log("turtle moving");
 		
 	}
 
@@ -265,7 +265,7 @@ public class TurtleEnemy : EnemyManager
 		}
 
 		//Done playing. Do something below!
-		Log("Done Playing");
+		//Log("Done Playing");
 		state = State.Aiming;
 
 	}

@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: -7170819711044348468}
   - component: {fileID: 7943233751574733472}
   m_Layer: 0
-  m_Name: SniperBullet 1
+  m_Name: SniperBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,8 +153,8 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &8217817635937718708
 BoxCollider2D:
@@ -250,6 +250,4 @@ MonoBehaviour:
   time: 0.4
   IsSpreadProjectile: 0
   numberOfProjectiles: 0
-  projectileSpeed: 5
-  ProjectilePrefab: {fileID: 0}
-  angle: 0
+  startPoint: {x: 0, y: 0}
