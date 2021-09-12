@@ -1660,6 +1660,7 @@ GameObject:
   - component: {fileID: 1222984976}
   - component: {fileID: 1222984977}
   - component: {fileID: 1222984978}
+  - component: {fileID: 1222984979}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -2084,9 +2085,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e697920977cd1419e2dac412797887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: 0
   score: 0
+  highscore: 0
   scoreText: {fileID: 947434751}
+  coins: 0
   coinText: {fileID: 73575559}
   playerStats: {fileID: 0}
 --- !u!114 &1222984973
@@ -2203,6 +2205,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coins: 1
   MaxCoins: 100000000
+--- !u!114 &1222984979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222984963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3adbaaf3244fc4a8e3b2ca8cdf3f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _highscore: 1
+  MaxHighScore: 100000000
 --- !u!1 &1292594822
 GameObject:
   m_ObjectHideFlags: 3

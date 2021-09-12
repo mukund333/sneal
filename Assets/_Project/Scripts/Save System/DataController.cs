@@ -10,7 +10,8 @@ public class DataController : MonoBehaviour
 	private SceneChanger sceneChanger;
 	
     void Start()
-    {	Debug.Log(""+SaveSystem.LoadCoins());
+    {	Debug.Log("Coins :"+SaveSystem.LoadCoins());
+		Debug.Log("HighScore :"+SaveSystem.LoadHighScore());
 
         DontDestroyOnLoad(gameObject);
 		sceneChanger = GetComponent<SceneChanger>();

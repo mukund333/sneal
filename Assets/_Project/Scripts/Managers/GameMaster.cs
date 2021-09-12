@@ -11,11 +11,17 @@ public class GameMaster : MonoBehaviour
 	
 	private DataController dataController;
 
-	public int coins;
-	public int score;
+	[SerializeField] private int score;
+	[SerializeField] private int highscore;
+	[SerializeField] private Text scoreText;
+
 	
-	public Text scoreText;
+	public int coins;
+	
+	
 	public Text coinText;
+	
+	ScoreDatabase scoreDB;
 	
 	CoinDatabase coinDB;
 	//public event Action OnGameRestart;
@@ -38,10 +44,14 @@ public class GameMaster : MonoBehaviour
 	}
 
 	private void Start(){
+		
 		coinDB = GetComponent<CoinDatabase>();
-	//	LoadCoins();
+		scoreDB = GetComponent<ScoreDatabase>();
+		LoadCoins();
+		LoadHighScore();
+		
 		dataController = FindObjectOfType<DataController>();
-
+		highscore = scoreDB.HighScore;
 		playerStats = FindObjectOfType<PlayerStats>();
 		playerStats.OnPlayerDeath += EndGame;
 		
@@ -50,6 +60,12 @@ public class GameMaster : MonoBehaviour
 	public void EndGame(){
 
 		SaveSystem.SaveCoins(coinDB.Coin);
+		
+		if(score>highscore)
+		{
+			SaveSystem.SaveHighScore(score);
+		}
+		
 		this.OnGameEnd();
 
 	}
@@ -67,11 +83,7 @@ public class GameMaster : MonoBehaviour
 		this.coinText.text = coins.ToString();
 	}
 	
-	public void ScorePlus()
-	{
-		this.score++;
-		this.scoreText.text = this.score.ToString();
-	}
+	
 	
 	private void LoadCoins()
 	{
@@ -79,6 +91,18 @@ public class GameMaster : MonoBehaviour
 		CoinDisplay(coinDB.Coin);
 
 	}
+	
+	public void ScorePlus()
+	{
+		this.score++;
+		this.scoreText.text = this.score.ToString();
+	}
+	
+	private void LoadHighScore()
+	{
+		scoreDB.HighScore = SaveSystem.LoadHighScore();
+	}
+	
 
 	 
 }
