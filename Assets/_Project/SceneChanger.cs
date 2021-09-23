@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+	 public void DataControllerScene() {  
+        SceneManager.LoadScene("PersistantDataScene");  
+    }  
      public void StartGame() {  
         SceneManager.LoadScene("StartGameScene");  
     }  

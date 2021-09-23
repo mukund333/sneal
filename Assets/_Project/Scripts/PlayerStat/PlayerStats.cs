@@ -40,14 +40,14 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		private void OnEnable()
 		{
 			playerHealth = GetComponent<PlayerHealth>();
-			playerHealth.Health = playerHealth.MaxHealth;
+			//playerHealth.Health = playerHealth.MaxHealth;
 		}
 
 		void Start()
 		{
 			if(!currentPlayer.setManually)
 			{
-				currentPlayer.maxHealth = 100;
+				//currentPlayer.maxHealth = 100;
 				currentPlayer.currentHealth = 50;
 
 				
@@ -67,9 +67,9 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 			//curPlayer = PlayerDatabase.instance.GetPlayer(index);
 			//currentPlayer = PlayerDatabase.instance.GetPlayer(index);
 			currentPlayer = playerDatabase.GetPlayer(index);
-			playerHealth.MaxHealth = currentPlayer.maxHealth;
+			//playerHealth.MaxHealth = currentPlayer.maxHealth;
 
-			playerHealth.Health = playerHealth.MaxHealth;
+			//playerHealth.Health = playerHealth.MaxHealth;
 		}
 
 		private void ResetPlayer()
@@ -120,7 +120,7 @@ namespace SnealUltra.Assets._Project.Scripts.Player
 		/*------------------------------------------------------*/
 		public void Repair()
 		{
-			playerHealth.Health = playerHealth.MaxHealth;
+			//playerHealth.Health = playerHealth.MaxHealth;
 			Debug.Log("Repair");
 		}
 

@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿	using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System;
+
 
 public class DataController : MonoBehaviour
 {
@@ -8,25 +11,14 @@ public class DataController : MonoBehaviour
 	
 	
 	private SceneChanger sceneChanger;
+	public bool debug;
+	
 	
     void Start()
-    {	Debug.Log("Coins :"+SaveSystem.LoadCoins());
-		Debug.Log("HighScore :"+SaveSystem.LoadHighScore());
-
-        DontDestroyOnLoad(gameObject);
+    {	
 		sceneChanger = GetComponent<SceneChanger>();
+        DontDestroyOnLoad(gameObject);
 		sceneChanger.StartGame();
-
-
     }
-	
-	void Update()
-	{
 
-	}
-
-    public int IntializeCoins()
-    {
-        return SaveSystem.LoadCoins();
-    }
 }

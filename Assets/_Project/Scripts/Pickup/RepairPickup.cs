@@ -13,11 +13,11 @@ public class RepairPickup : Pickup
 	public CurrentPlayerComponentData player;
 
 	[SerializeField] float targetDistance;
-	[SerializeField] int _powerupHealthToGive = 0;
+	[SerializeField] int _powerupHealthToGive = 1;
 	[SerializeField] int _powerupMaxHealthToGive = 10;
 
 
-	public int MaxHealthPowerup{
+	/*public int MaxHealthPowerup{
 		get
 		{
 			return _powerupMaxHealthToGive;
@@ -27,7 +27,7 @@ public class RepairPickup : Pickup
 		{
 			_powerupMaxHealthToGive = Mathf.Clamp(value, 0, 200);
 		}
-	}
+	}*/
 
 	public int HealthPowerUp
 	{
@@ -45,13 +45,13 @@ public class RepairPickup : Pickup
 	private void OnValidate()
 	{
 		HealthPowerUp = _powerupHealthToGive;
-		MaxHealthPowerup = _powerupMaxHealthToGive;
+		//MaxHealthPowerup = _powerupMaxHealthToGive;
 	}
 
 	private void OnEnable()
 	{
 		OnValidate();
-		HealthPowerUp = MaxHealthPowerup;
+		//HealthPowerUp = MaxHealthPowerup;
 		InitPickup();
 	}
 	private void Awake()

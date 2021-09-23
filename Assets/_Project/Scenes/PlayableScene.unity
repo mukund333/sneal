@@ -441,8 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843b730286c81524e946f69889922882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 3
-  _maxHealth: 3
+  _health: 4
+  _maxHealth: 4
   healtText: {fileID: 1406784832}
 --- !u!4 &424540408
 Transform:
@@ -1661,6 +1661,7 @@ GameObject:
   - component: {fileID: 1222984977}
   - component: {fileID: 1222984978}
   - component: {fileID: 1222984979}
+  - component: {fileID: 1222984980}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -2219,6 +2220,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _highscore: 1
   MaxHighScore: 100000000
+--- !u!114 &1222984980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222984963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38e7ae5ad507dbd4aabf488853e73af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupUpgradeData: {fileID: 11400000, guid: 9b08ffa7e8e4f4f4d8c13f73a449d33b, type: 2}
 --- !u!1 &1292594822
 GameObject:
   m_ObjectHideFlags: 3

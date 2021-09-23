@@ -48,8 +48,9 @@ MonoBehaviour:
   thisPickup: {fileID: 11400000, guid: 241141fe7848ed445852c72bc2d8ae7c, type: 2}
   playerStats: {fileID: 0}
   player: {fileID: 0}
-  _powerupHealthToGive: 0
-  _powerupMaxHealthToGive: 10
+  targetDistance: 0
+  _powerupHealthToGive: 1
+  _powerupMaxHealthToGive: 3
 --- !u!212 &7021075354471081534
 SpriteRenderer:
   m_ObjectHideFlags: 0

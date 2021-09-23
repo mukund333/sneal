@@ -2,10 +2,7 @@
 using System.IO;
 using System;
 using UnityEngine.SceneManagement; 
-
 using System.Runtime.Serialization.Formatters.Binary;
-
-
 
 public static class SaveSystem 
 {
@@ -13,66 +10,70 @@ public static class SaveSystem
 	
     public static void SaveCoins(int coinsData)
 	{
-		BinaryFormatter formatter = new BinaryFormatter();
-		string path = Application.persistentDataPath+"coins.moon";
-		//string filePath = Path.Combine(Application.streamingAssets,gameDataFileName);
-		FileStream stream = new FileStream(path,FileMode.Create);
-			
-		int coins = coinsData;
-		
-		formatter.Serialize(stream,coins);
-		stream.Close();
+		SaveFile(coinsData,"coins.moon");
 	}
 	
 	public static int LoadCoins()
 	{
-		string path = Application.persistentDataPath+"coins.moon";
+		return LoadFile("coins.moon");
 		
-		if(File.Exists(path))
-		{
-			BinaryFormatter formatter = new BinaryFormatter();
-			FileStream stream = new FileStream(path,FileMode.Open);
-			
-			int coins = formatter.Deserialize(stream) as int? ?? throw new NullReferenceException();
-			stream.Close();
-			 return coins;
-			
-		}else{
-			Debug.LogError("Save file not found in"+path);
-			return 0;
-		}
 	}
 	
 	public static void SaveHighScore(int highScoreData)
 	{
-		BinaryFormatter formatter = new BinaryFormatter();
-		string path = Application.persistentDataPath+"highScore.moon";
-		//string filePath = Path.Combine(Application.streamingAssets,gameDataFileName);
-		FileStream stream = new FileStream(path,FileMode.Create);
-			
-		int highScore = highScoreData;
-		
-		formatter.Serialize(stream,highScore);
-		stream.Close();
+		SaveFile(highScoreData,"highScore.moon");
 	}
 	
 	
 	public static int LoadHighScore()
 	{
-		string path = Application.persistentDataPath+"highScore.moon";
-		
+		return LoadFile("highScore.moon");
+	}
+	
+	
+	public static void SavePlayerHealthUpgrade(int playerHealthUpgradeData)
+	{
+		SaveFile(playerHealthUpgradeData,"playerHealthUpgrade.moon");
+	}
+	
+	public static int LoadPlayerHealthUpgrade()
+	{
+		return LoadFile("playerHealthUpgrade.moon");
+	}
+	
+	
+	private static void SaveFile(int intData,string fileName)
+	{
+		BinaryFormatter formatter = new BinaryFormatter();
+		string path = Application.persistentDataPath+fileName;
+		//string filePath = Path.Combine(Application.streamingAssets,gameDataFileName);
+		FileStream stream = new FileStream(path,FileMode.Open);	
+		formatter.Serialize(stream,intData);
+		stream.Close();
+	}
+	
+	public static int LoadFile(string fileName)
+	{
+		string path = Application.persistentDataPath+fileName;
 		if(File.Exists(path))
 		{
 			BinaryFormatter formatter = new BinaryFormatter();
 			FileStream stream = new FileStream(path,FileMode.Open);
-			
-			int score = formatter.Deserialize(stream) as int? ?? throw new NullReferenceException();
-			stream.Close();
-			 return score;
+				
+			if(new FileInfo(path).Length == 0){
+				stream.Close();
+				return 1;
+			}else{
+				int intData = formatter.Deserialize(stream) as int? ?? throw new NullReferenceException();
+				stream.Close();
+				return intData;
+			}
 			
 		}else{
 			Debug.LogError("Save file not found in"+path);
 			return 0;
 		}
 	}
+	
+	
 }

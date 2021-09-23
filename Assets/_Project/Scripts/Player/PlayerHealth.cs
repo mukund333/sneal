@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
 	
 	public Text healtText; 
 
-    public int MaxHealth{
+  /*  public int MaxHealth{
         get
         {
             return _maxHealth;
@@ -19,9 +19,9 @@ public class PlayerHealth : MonoBehaviour
 
         set
         {
-            _maxHealth = Mathf.Clamp(value, 0, _maxHealth);
+            _maxHealth = Mathf.Clamp(value, Health, _maxHealth);
         }
-    }
+    }*/
 
     public int Health{
         get
@@ -31,18 +31,18 @@ public class PlayerHealth : MonoBehaviour
 
         set
         {
-            _health = Mathf.Clamp(value,0,MaxHealth);
+            _health = Mathf.Clamp(value,0,_maxHealth);
         }
     }
 
     private void OnValidate(){
         Health = _health;
-        MaxHealth = _maxHealth;
+       // MaxHealth = _maxHealth;
     }
 	
 	void Start()
 	{
-		OnValidate();
+		//OnValidate();
 		healtText.text  = "X "+Health.ToString();
 	}
 	
