@@ -23,6 +23,10 @@ public class PowerupPickup : MonoBehaviour
 	int sheildPickupId;
 	
 	
+	
+	[SerializeField] PowerUpUnlockData powerUpUnlockData;
+	
+	
 	private void Awake()
 	{
 		
@@ -53,6 +57,7 @@ public class PowerupPickup : MonoBehaviour
 	
 	
 	private IEnumerator SpawnPowerups(){
+		
 		float startedTime = timer;
 		
 		while (!stopSpawn && timer < SpawnStartTime)
@@ -62,7 +67,11 @@ public class PowerupPickup : MonoBehaviour
 		
 		while (!this.stopSpawn)
 		{
-			randomInt = Random.Range(0,items.Length);
+			if(powerUpUnlockData.allUnlock){
+				randomInt = Random.Range(0,items.Length);
+			}else{
+				randomInt = powerUpUnlockData.Item;
+			}
 			//Instantiate(items[randomInt],spawnPos.position,spawnPos.rotation);
 			PoolManager.instance.GetObject(items[randomInt],(Vector2)this.player.position + UnityEngine.Random.insideUnitCircle.normalized * spawnRadius, Quaternion.identity);
 

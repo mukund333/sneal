@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using SnealUltra.Assets._Project.Scripts.Pickup;
 using SnealUltra.Assets._Project.Scripts.Player;
@@ -14,6 +15,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class PowerGunPickup : Pickup
 {
+	[SerializeField] GunPowerupUnlockData gunPowerupUnlockData;
+	
     public PickupData thisPickup;
     
     public CurrentPlayerComponentData player;
@@ -25,14 +28,17 @@ public class PowerGunPickup : Pickup
 	public int powerupGunNumber;
 	
 	public int randomInt;
-	public int[] items =  new int[]  { 0,2,3};
 	
+	
+
 	
 	public bool isWeaponChange = false;
 
 
 	private void OnEnable()
     {
+		gunPowerupUnlockData.LoadUnlockData();
+		
 		Configure();
 		
 		
@@ -43,6 +49,7 @@ public class PowerGunPickup : Pickup
     }
     private void Awake()
     {
+		
         player = FindObjectOfType<CurrentPlayerComponentData>();
 		weaponDB = FindObjectOfType<WeaponDB>();
 		// range of powerup gun
@@ -56,6 +63,7 @@ public class PowerGunPickup : Pickup
 
     void Start()
     {
+		Configure();
 		 StartCoroutine(LateCall());
 		
     }
@@ -85,9 +93,12 @@ public class PowerGunPickup : Pickup
 
 	private void OnTriggerEnter2D(Collider2D col)
 	{
+		
 
 		if (col.CompareTag("Player"))
 		{
+			
+			
 			player.weaponNumber = powerupGunNumber;
 			player.isEquipDirect = true;
 			player.isPowerGun = true;
@@ -136,9 +147,21 @@ public class PowerGunPickup : Pickup
 	
 	#region Configure and Dispose
 				private void Configure(){
-					randomInt = Random.Range(0,items.Length);
+					
+							Debug.Log(gunPowerupUnlockData.itemList.Count);
+							
+							if(gunPowerupUnlockData.allUnlock){
+								var random = new System.Random();
+								
+								powerupGunNumber = random.Next(gunPowerupUnlockData.itemList.Count);
+								//powerupGunNumber = Random.Range(gunPowerupUnlockData.itemList[0],gunPowerupUnlockData.itemList.Count);
+								//	powerupGunNumber = Random.Range(0,gunPowerupUnlockData.itemList.Count);		
+							}else{
+									powerupGunNumber = gunPowerupUnlockData.itemList[0];
+							}
+					
 		
-					powerupGunNumber = items[randomInt];
+					
 				}
 				private void Dispose(){
 					randomInt=0;

@@ -15,7 +15,7 @@ public class PickupUpgradeDatabase : MonoBehaviour
    
    private void LoadPlayerHealth()
    {
-	  pickupUpgradeData.PlayerHealth = SaveSystem.LoadPlayerHealthUpgrade();   
+	  pickupUpgradeData.MaxPlayerHealth = SaveSystem.LoadPlayerHealthUpgrade();   
    }
    
   

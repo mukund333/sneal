@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New PickupUpgradeData", menuName = "PickupUpgradeData")]
 public class PickupUpgradeData : ScriptableObject
 {
-    [SerializeField] int _playerHealth = 3;
+    [SerializeField] private int _playerHealth = 3;
     [SerializeField] private int _playerMaxHealth = 3;
 	
 	[SerializeField] private int        _shieldHealth;
@@ -24,7 +24,7 @@ public class PickupUpgradeData : ScriptableObject
 
         set
         {
-            _playerHealth = Mathf.Clamp(value,1,MaxPlayerHealth);
+            _playerHealth = Mathf.Clamp(value,0,MaxPlayerHealth);
         }
     }
 

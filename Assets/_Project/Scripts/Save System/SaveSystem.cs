@@ -8,6 +8,12 @@ public static class SaveSystem
 {
 	//private static string  gameDataFileName = "coins.moon";
 	
+
+	
+	
+	
+	
+	
     public static void SaveCoins(int coinsData)
 	{
 		SaveFile(coinsData,"coins.moon");
@@ -40,6 +46,7 @@ public static class SaveSystem
 	{
 		return LoadFile("playerHealthUpgrade.moon");
 	}
+	
 	
 	
 	private static void SaveFile(int intData,string fileName)

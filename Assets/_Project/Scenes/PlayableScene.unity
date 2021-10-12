@@ -441,8 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843b730286c81524e946f69889922882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 4
-  _maxHealth: 4
+  _health: 40
+  _maxHealth: 40
   healtText: {fileID: 1406784832}
 --- !u!4 &424540408
 Transform:
@@ -1662,6 +1662,8 @@ GameObject:
   - component: {fileID: 1222984978}
   - component: {fileID: 1222984979}
   - component: {fileID: 1222984980}
+  - component: {fileID: 1222984981}
+  - component: {fileID: 1222984982}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -1931,7 +1933,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222984963}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 443da71e8c2fc4d4a9745baea3ccc7d0, type: 3}
   m_Name: 
@@ -2142,6 +2144,7 @@ MonoBehaviour:
     type: 3}
   shieldPickup: {fileID: -8041117862120703261, guid: ad35877480d11894e962bcb7089e2c17,
     type: 3}
+  powerUpUnlockData: {fileID: 11400000, guid: c9d52bb82369cd84caca78344894b5ea, type: 2}
 --- !u!114 &1222984975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2158,7 +2161,7 @@ MonoBehaviour:
   testStartSpawn: 1
   stopSpawn: 0
   timer: 0
-  SpawnStartTime: 30
+  SpawnStartTime: 3
   SpawnDelayTime: 15
   randomInt: 0
   powerGunPickup: {fileID: 5089823116787705612, guid: 200ded0e858a0624eafa2ae40d4af1b3,
@@ -2233,6 +2236,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupUpgradeData: {fileID: 11400000, guid: 9b08ffa7e8e4f4f4d8c13f73a449d33b, type: 2}
+--- !u!114 &1222984981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222984963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66d69c4d28c06a49b3b741a650fba5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpUnlockData: {fileID: 11400000, guid: c9d52bb82369cd84caca78344894b5ea, type: 2}
+  powerupPickup: {fileID: 0}
+--- !u!114 &1222984982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222984963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2444c94f616d1441bdd5694febf22c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunPowerupUnlockData: {fileID: 11400000, guid: d74c15a7ca582d3489ef0e6ae67d59ef,
+    type: 2}
+  gunPickupSpawner: {fileID: 0}
 --- !u!1 &1292594822
 GameObject:
   m_ObjectHideFlags: 3

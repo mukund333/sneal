@@ -11,13 +11,13 @@ public class Shop : MonoBehaviour
 		public bool IsPurchased = false;
 	}
 	
-	[SerializeField] List<ShopItem> ShopItemsList;
 	
 	GameObject ItemTemplate;
-	GameObject g;
+	private GameObject g;
 	public Transform ShopScrollView;
 	Button buyBtn;
-	
+		[SerializeField] List<ShopItem> ShopItemsList;
+
 
     void Start()
     {

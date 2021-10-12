@@ -121,11 +121,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cafcaab9e587074aa3b49ceeb807776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunPowerupUnlockData: {fileID: 11400000, guid: d74c15a7ca582d3489ef0e6ae67d59ef,
+    type: 2}
   thisPickup: {fileID: 11400000, guid: 1153e55278d0d9648a1d7cb3a8be5647, type: 2}
   player: {fileID: 0}
   pickupLife: 10
   weaponDB: {fileID: 0}
   powerupGunNumber: 0
   randomInt: 0
-  items: 000000000200000003000000
+  itemList: 
   isWeaponChange: 0
